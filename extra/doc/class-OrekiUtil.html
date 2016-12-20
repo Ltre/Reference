@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.6.0" />
+
+	<title>Class OrekiUtil</title>
+
+	<script type="text/javascript" src="resources/combined.js?428767200"></script>
+	<script type="text/javascript" src="elementlist.js?4200546020"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2495970611" />
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active"><a href="namespace-None.html">None</a>
+						</li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr />
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-DIBase.html">DIBase</a></li>
+				<li><a href="class-DIConfig.html">DIConfig</a></li>
+				<li><a href="class-DIContext.html">DIContext</a></li>
+				<li><a href="class-DIContext_Inject.html">DIContext_Inject</a></li>
+				<li><a href="class-DIDBConfig.html" class="invalid">DIDBConfig</a></li>
+				<li><a href="class-DIDo.html">DIDo</a></li>
+				<li><a href="class-DIEntity.html">DIEntity</a></li>
+				<li><a href="class-DIError.html">DIError</a></li>
+				<li><a href="class-DIErrorCode.html">DIErrorCode</a></li>
+				<li><a href="class-DIEvent.html">DIEvent</a></li>
+				<li><a href="class-DIFilterMap.html">DIFilterMap</a></li>
+				<li><a href="class-DIFilterUtil.html">DIFilterUtil</a></li>
+				<li><a href="class-DIInclude.html">DIInclude</a></li>
+				<li><a href="class-DIIncludeConfig.html">DIIncludeConfig</a></li>
+				<li><a href="class-DIInject.html">DIInject</a></li>
+				<li><a href="class-DILet.html">DILet</a></li>
+				<li><a href="class-DIModel.html">DIModel</a></li>
+				<li><a href="class-DIModelUtil.html">DIModelUtil</a></li>
+				<li><a href="class-DIMySQL.html">DIMySQL</a></li>
+				<li><a href="class-DIRoute.html">DIRoute</a></li>
+				<li><a href="class-DIRuntime.html">DIRuntime</a></li>
+				<li><a href="class-DIRuntime_Imported.html">DIRuntime_Imported</a></li>
+				<li><a href="class-DIService.html">DIService</a></li>
+				<li><a href="class-DITpl.html">DITpl</a></li>
+				<li><a href="class-DIUrlShell.html">DIUrlShell</a></li>
+				<li><a href="class-Global1Filter.html">Global1Filter</a></li>
+				<li><a href="class-Global2Filter.html">Global2Filter</a></li>
+				<li><a href="class-Global3Filter.html">Global3Filter</a></li>
+				<li class="active"><a href="class-OrekiUtil.html">OrekiUtil</a></li>
+				<li><a href="class-TemplateDo.html">TemplateDo</a></li>
+				<li><a href="class-Test.html">Test</a></li>
+				<li><a href="class-TestDo.html">TestDo</a></li>
+				<li><a href="class-TestInject.html">TestInject</a></li>
+				<li><a href="class-TesttestDo.html">TesttestDo</a></li>
+				<li><a href="class-XxxFilter.html">XxxFilter</a></li>
+				<li><a href="class-YyyFilter.html">YyyFilter</a></li>
+			</ul>
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li><a href="class-DIEvent_AppendFuncListener.html">DIEvent_AppendFuncListener</a></li>
+				<li><a href="class-DIEvent_AppendVariableListener.html">DIEvent_AppendVariableListener</a></li>
+				<li><a href="class-DIEvent_CallFuncListener.html">DIEvent_CallFuncListener</a></li>
+				<li><a href="class-DIEvent_CallStaticFuncListener.html">DIEvent_CallStaticFuncListener</a></li>
+				<li><a href="class-DIEvent_ClassCallListener.html">DIEvent_ClassCallListener</a></li>
+				<li><a href="class-DIEvent_DestroyListener.html">DIEvent_DestroyListener</a></li>
+				<li><a href="class-DIEvent_GetStaticVariableListener.html">DIEvent_GetStaticVariableListener</a></li>
+				<li><a href="class-DIEvent_GetVariableListener.html">DIEvent_GetVariableListener</a></li>
+				<li><a href="class-DIEvent_ObjCallListener.html">DIEvent_ObjCallListener</a></li>
+				<li><a href="class-DIEvent_ObjCreateListener.html">DIEvent_ObjCreateListener</a></li>
+				<li><a href="class-DIEvent_SetStaticVariableListener.html">DIEvent_SetStaticVariableListener</a></li>
+				<li><a href="class-DIEvent_SetVariableListener.html">DIEvent_SetVariableListener</a></li>
+				<li><a href="class-DIEventListener.html">DIEventListener</a></li>
+				<li><a href="class-DIFilter.html">DIFilter</a></li>
+				<li><a href="class-DIModelTemplate.html">DIModelTemplate</a></li>
+			</ul>
+
+
+			<h3>Exceptions</h3>
+			<ul>
+				<li><a href="class-DIException.html">DIException</a></li>
+			</ul>
+
+
+			<h3>Functions</h3>
+			<ul>
+				<li><a href="function-__autoload.html">__autoload</a></li>
+				<li><a href="function-arg.html">arg</a></li>
+				<li><a href="function-array_unset.html">array_unset</a></li>
+				<li><a href="function-bt_page.html">bt_page</a></li>
+				<li><a href="function-bt_shell_page.html">bt_shell_page</a></li>
+				<li><a href="function-component_exist.html">component_exist</a></li>
+				<li><a href="function-create_class.html">create_class</a></li>
+				<li><a href="function-dump.html">dump</a></li>
+				<li><a href="function-getip.html">getip</a></li>
+				<li><a href="function-import.html">import</a></li>
+				<li><a href="function-inject.html">inject</a></li>
+				<li><a href="function-inject_dymic.html">inject_dymic</a></li>
+				<li><a href="function-inject_full.html">inject_full</a></li>
+				<li><a href="function-inject_func.html">inject_func</a></li>
+				<li><a href="function-injectObjFunc.html">injectObjFunc</a></li>
+				<li><a href="function-invoke_func.html">invoke_func</a></li>
+				<li><a href="function-invoke_method.html">invoke_method</a></li>
+				<li><a href="function-let.html">let</a></li>
+				<li><a href="function-let_exists.html">let_exists</a></li>
+				<li><a href="function-params_to_str.html">params_to_str</a></li>
+				<li><a href="function-putjson.html">putjson</a></li>
+				<li><a href="function-putjsonp.html">putjsonp</a></li>
+				<li><a href="function-redirect.html">redirect</a></li>
+				<li><a href="function-ref_arr.html">ref_arr</a></li>
+				<li><a href="function-session.html">session</a></li>
+				<li><a href="function-session_exists.html">session_exists</a></li>
+				<li><a href="function-session_remove.html">session_remove</a></li>
+				<li><a href="function-url.html">url</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-None.html" title="Summary of None"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class OrekiUtil</h1>
+
+
+
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		
+		
+
+		<b>Located at</b> <a href="source-class-OrekiUtil.html#2" title="Go to source code">OrekiUtil.class.php</a><br />
+	</div>
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="getCurrentFormatTime" id="_getCurrentFormatTime">
+
+		<td class="attributes"><code>
+			 public static
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getCurrentFormatTime">#</a>
+		<code><a href="source-class-OrekiUtil.html#7" title="Go to source code">getCurrentFormatTime</a>( <span> <var>$time</var> = <span class="php-num">0</span></span> )</code>
+
+		<div class="description short">
+			
+<p>输出当前时间<br />
+格式：Y-m-d H:i:s</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>输出当前时间<br />
+格式：Y-m-d H:i:s</p>
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getCurrentFormatDecimalTime" id="_getCurrentFormatDecimalTime">
+
+		<td class="attributes"><code>
+			 public static
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getCurrentFormatDecimalTime">#</a>
+		<code><a href="source-class-OrekiUtil.html#16" title="Go to source code">getCurrentFormatDecimalTime</a>( <span> <var>$microtime</var> = <span class="php-num">0</span></span> )</code>
+
+		<div class="description short">
+			
+<p>输出当前时间（含小数部分） 格式：Y-m-d
+H:i:s{秒级小数部分}</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>输出当前时间（含小数部分） 格式：Y-m-d
+H:i:s{秒级小数部分}</p>
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="insertStartTimeClip" id="_insertStartTimeClip">
+
+		<td class="attributes"><code>
+			 public static
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_insertStartTimeClip">#</a>
+		<code><a href="source-class-OrekiUtil.html#26" title="Go to source code">insertStartTimeClip</a>( )</code>
+
+		<div class="description short">
+			
+<p>插入开始时刻
+用于测量代码执行时间（要配合self::calcTimeGap()使用）</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>插入开始时刻
+用于测量代码执行时间（要配合self::calcTimeGap()使用）</p>
+
+
+
+
+
+
+				<h4>Notice</h4>
+				<div class="list">
+						测试阶段，请勿正式使用<br />
+				</div>
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="insertEndTimeClip" id="_insertEndTimeClip">
+
+		<td class="attributes"><code>
+			 public static
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_insertEndTimeClip">#</a>
+		<code><a href="source-class-OrekiUtil.html#35" title="Go to source code">insertEndTimeClip</a>( )</code>
+
+		<div class="description short">
+			
+<p>插入结束时刻
+用于测量代码执行时间（要配合self::calcTimeGap()使用）</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>插入结束时刻
+用于测量代码执行时间（要配合self::calcTimeGap()使用）</p>
+
+
+
+
+
+
+				<h4>Notice</h4>
+				<div class="list">
+						测试阶段，请勿正式使用<br />
+				</div>
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="calcTimeGap" id="_calcTimeGap">
+
+		<td class="attributes"><code>
+			 public static
+			float
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_calcTimeGap">#</a>
+		<code><a href="source-class-OrekiUtil.html#44" title="Go to source code">calcTimeGap</a>( <span>microtime() <var>$start</var> = <span class="php-keyword1">null</span></span>, <span>microtime() <var>$end</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			
+<p>计算时差（含小数部分）</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>计算时差（含小数部分）</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$start</var></dt>
+					<dd><code>microtime()</code></dd>
+					<dt><var>$end</var></dt>
+					<dd><code>microtime()</code></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>float</code><br>秒级时差<br />
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="var_dump_obj" id="_var_dump_obj">
+
+		<td class="attributes"><code>
+			 public static
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_var_dump_obj">#</a>
+		<code><a href="source-class-OrekiUtil.html#58" title="Go to source code">var_dump_obj</a>( <span> <var>$var</var></span>, <span> <var>$layer</var> = <span class="php-num">0</span> </span> )</code>
+
+		<div class="description short">
+			
+<p>输出对象</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>输出对象</p>
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="dump_obj" id="_dump_obj">
+
+		<td class="attributes"><code>
+			 public static
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_dump_obj">#</a>
+		<code><a href="source-class-OrekiUtil.html#77" title="Go to source code">dump_obj</a>( <span> <var>$obj</var></span>, <span> <var>$layer</var> = <span class="php-num">0</span> </span> )</code>
+
+		<div class="description short">
+			
+<p>遍历输出对象</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>遍历输出对象</p>
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="var_dump_array" id="_var_dump_array">
+
+		<td class="attributes"><code>
+			 public static
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_var_dump_array">#</a>
+		<code><a href="source-class-OrekiUtil.html#97" title="Go to source code">var_dump_array</a>( <span> <var>$var</var></span>, <span> <var>$layer</var> = <span class="php-num">0</span> </span> )</code>
+
+		<div class="description short">
+			
+<p>输出数组</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>输出数组</p>
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getconst" id="_getconst">
+
+		<td class="attributes"><code>
+			 public static
+			Ambigous
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getconst">#</a>
+		<code><a href="source-class-OrekiUtil.html#116" title="Go to source code">getconst</a>( <span>string <var>$const</var></span> )</code>
+
+		<div class="description short">
+			
+<p>输出常量(免警告、免if)</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>输出常量(免警告、免if)</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$const</var></dt>
+					<dd><code>string</code><br> 常量名</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>Ambigous</code><br>&lt;boolean, mixed&gt; 常量值<br />
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="findConstantsFromObject" id="_findConstantsFromObject">
+
+		<td class="attributes"><code>
+			 public static
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_findConstantsFromObject">#</a>
+		<code><a href="source-class-OrekiUtil.html#125" title="Go to source code">findConstantsFromObject</a>( <span>Ambigous <var>$object</var></span>, <span>string <var>$filter</var> = <span class="php-keyword1">null</span></span>, <span>mixed <var>$find_value</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$object</var></dt>
+					<dd><code>Ambigous</code><br>&lt;string, object&gt; $object 类名或对象值</dd>
+					<dt><var>$filter</var></dt>
+					<dd><code>string</code><br> 用户匹配常量名的正则表达式</dd>
+					<dt><var>$find_value</var></dt>
+					<dd><code>mixed</code><br> 其中某个常量的值，用于精确查找</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br>常量数组，索引值为所需常量名<br />
+				</div>
+
+
+				<h4>Example</h4>
+				<div class="list">
+						&lt;pre&gt; class Example { const GENDER_UNKNOW = 0; const GENDER_FEMALE = 1;
+const GENDER_MALE = 2; const USER_OFFLINE = false; const USER_ONLINE = true; }
+$all = findConstantsFromObject('Example'); $genders =
+findConstantsFromObject('Example', '/^GENDER_/'); $my_gender = 1; $gender_name =
+findConstantsFromObject('Example', '/^GENDER_/', $my_gender); if
+(isset($gender_name[0])) { $gender_name = str_replace('GENDER_', '',
+key($gender_name)); } else { $gender_name = 'WTF!'; } &lt;/pre&gt;<br />
+				</div>
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="editorContentFilterToDB" id="_editorContentFilterToDB">
+
+		<td class="attributes"><code>
+			 public static
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_editorContentFilterToDB">#</a>
+		<code><a href="source-class-OrekiUtil.html#170" title="Go to source code">editorContentFilterToDB</a>( <span>string <var>$d</var></span> )</code>
+
+		<div class="description short">
+			
+<p>检查编辑器内容，并转换部分不合法内容（从数据库取出时不需要还原）
+去除危险标签、改双引号为单引号</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>检查编辑器内容，并转换部分不合法内容（从数据库取出时不需要还原）
+去除危险标签、改双引号为单引号</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$d</var></dt>
+					<dd><code>string</code><br> 编辑器HTML文档</dd>
+				</dl></div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+	<table class="summary" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="startTimeClip" id="$startTimeClip">
+
+		<td class="attributes"><code>
+			public static
+			
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-OrekiUtil.html#4" title="Go to source code"><var>$startTimeClip</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$startTimeClip" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="endTimeClip" id="$endTimeClip">
+
+		<td class="attributes"><code>
+			public static
+			
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-OrekiUtil.html#5" title="Go to source code"><var>$endTimeClip</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$endTimeClip" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.6.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>
