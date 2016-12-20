@@ -12,4 +12,3 @@ mv /home/wwwroot/Reference /home/wwwroot/doc.yooo.moe
 chmod -R 767 /home/wwwroot/doc.yooo.moe/core/data
 chmod 777 /home/wwwroot/doc.yooo.moe/gitpull.sh
 rm -f -r /home/wwwroot/doc.yooo.moe.trash
-
