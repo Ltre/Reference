@@ -133,4 +133,73 @@
 
 
 
+<font color="blue">3、获取订阅的游戏 jsapi/getGameSubscribe </font>
+	————————————————————————————————————————————————————
+	URL:		http://video.duowan.com/jsapi/getGameSubscribe
+	————————————————————————————————————————————————————
+	参数(get|post):
+		<span style="display:none">limit		个数（默认10，可选）</span>
+		<span style="display:none">page		页码（默认1，可选）</span>
+	————————————————————————————————————————————————————
+	返回(json)：
+		{
+			//游戏列表
+			list: [{
+				"game_id": "638",
+				"game_channel": "mc",
+				"game_name": "我的世界",
+				"game_cover": "http://s1.dwstatic.com/vhuya/C6/29/c6291be2f8ddb5f31fab7fe60071d43c6532.jpg",
+				"game_url": "http://video.duowan.com/mc/",
+				"game_intro": "Minecraft是一款自由度很高的沙盒游戏，《我的世界》、《当个创世神》、《麦块》、《我的手艺》等仅为非官方中文译名。\r\n\t\t\t\t\t",
+				"channel_alias": "mc"
+			}, ..., {}]
+			pages: null //分页信息，貌似有点问题。一般不会给游戏分页，先忽略这个吧
+		}
+	————————————————————————————————————————————————————
+	备注: 
+		需要登录态
+	————————————————————————————————————————————————————
+	示例：
+		http://video.duowan.com/jsapi/GetGameSubscribe
+	————————————————————————————————————————————————————
+
+
+
+
+
+<font color="blue">4、获取订阅的游戏 jsapi/getUserSubscribe </font>
+	————————————————————————————————————————————————————
+	URL:		http://video.duowan.com/jsapi/getUserSubscribe
+	————————————————————————————————————————————————————
+	参数(get|post):
+		<span style="display:none">limit		个数（默认10，可选）</span>
+		<span style="display:none">page		页码（默认1，可选）</span>
+	————————————————————————————————————————————————————
+	返回(json)：
+		{
+			//游戏列表
+			list: [{
+				"game_id": "638",
+				"game_channel": "mc",
+				"game_name": "我的世界",
+				"game_cover": "http://s1.dwstatic.com/vhuya/C6/29/c6291be2f8ddb5f31fab7fe60071d43c6532.jpg",
+				"game_url": "http://video.duowan.com/mc/",
+				"game_intro": "Minecraft是一款自由度很高的沙盒游戏，《我的世界》、《当个创世神》、《麦块》、《我的手艺》等仅为非官方中文译名。\r\n\t\t\t\t\t",
+				"channel_alias": "mc"
+			}, ..., {}]
+			pages: null //分页信息，貌似有点问题。一般不会给游戏分页，先忽略这个吧
+		}
+	————————————————————————————————————————————————————
+	备注: 
+		需要登录态
+	————————————————————————————————————————————————————
+	示例：
+		http://video.duowan.com/jsapi/GetUserSubscribe
+	————————————————————————————————————————————————————
+
+
+
+
+
+
 </pre>
