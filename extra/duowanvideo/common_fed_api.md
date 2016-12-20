@@ -16,26 +16,15 @@
 		{
 			//列表
 			list: [{
-				"user_id": 0,
-				"user_avatar": "http://video.duowan.com/style/img/editor-avatar.png",
-				"user_nickname": "多玩小编",
-				"user_homepage": "http://video.duowan.com/",
-				"vid": 0,
-				"video_title": "",
-				"video_subtitle": "",
-				"video_cover": "http://video.duowan.com/style/img/no-cover.jpg",
-				"video_play_num": 0,
-				"video_raw_play_num": 0,
-				"video_comment_num": 0,
-				"video_raw_comment_num": 0,
-				"video_duration": "00:00",
-				"video_raw_duration": "00:00",
-				"video_url": "http://video.duowan.com/",
-				"video_upload_time": "2015-07-08",
-				"video_raw_upload_time": 0,
-				"video_channel": "unknown",
-				"video_intro": "",
-				"video_tags": ""
+				"user_id": "50075229",
+				"user_avatar": "http://s1.dwstatic.com/vhuya/avatar/50/07/200_200/2a1c68f6caa9088a88fccd3a8df35469.jpg?t=1437745951",
+				"user_nickname": "虎牙LOL",
+				"user_homepage": "http://video.duowan.com/u/50075229",
+				"user_channel": "lol",
+				"user_channel_name": "英雄联盟",
+				"user_video_sum": "8,704",
+				"user_play_sum": "43.0千万",
+				"user_desc": "虎牙LOL视频。"
 			}, ..., {}],
 			//分页信息
 			pages: {
@@ -73,6 +62,74 @@
 		http://video.duowan.com/jsapi/podcasts?p=2&channel=lol
 		http://video.duowan.com/jsapi/podcasts?p=2&channel=lol&limit=12
 	————————————————————————————————————————————————————
+
+
+
+
+
+
+
+
+
+<font color="blue">2、获取用户的视频 jsapi/getUserVideos </font>
+	————————————————————————————————————————————————————
+	URL:		http://video.duowan.com/jsapi/getUserVideos
+	————————————————————————————————————————————————————
+	参数(get|post):
+		uid			用户的YYUID，/u/xxxxxx的xxxxx部分
+		limit		个数（默认10，可选）
+	————————————————————————————————————————————————————
+	返回(json)：
+		{
+			list: [{
+				"user_id": "50014545",
+				"user_avatar": "http://s1.dwstatic.com/vhuya/avatar/50/01/200_200/98d2a3f69b3baffa354413ea9951e7c5.jpg?t=1466045578",
+				"user_nickname": "王尼玛",
+				"user_homepage": "http://video.duowan.com/u/50014545",
+				"vid": 3502275,
+				"video_title": "亚索光速技能三部曲",
+				"video_subtitle": "亚索光速技能三部曲",
+				"video_cover": "http://vimg.dwstatic.com/1647/3502275/4-220x124.jpg",
+				"video_play_num": "165",
+				"video_raw_play_num": 165,
+				"video_comment_num": "0",
+				"video_raw_comment_num": 0,
+				"video_duration": "07:25",
+				"video_raw_duration": 445,
+				"video_url": "http://video.duowan.com/play/3502275.html",
+				"video_upload_time": "2016-11-24 13:07",
+				"video_raw_upload_time": "1479964074",
+				"video_channel": "lol",
+				"video_intro": "",
+				"video_tags": ""
+			}, ..., {}]
+			pageInfo: {
+				"total_count": "35",
+				"page_size": "12",
+				"total_page": 3,
+				"first_page": 1,
+				"prev_page": 1,
+				"next_page": 2,
+				"last_page": 3,
+				"current_page": 1,
+				"all_pages": [
+					1,
+					2,
+					3
+				],
+				"offset": 0,
+				"limit": "12"
+			}
+		}
+	————————————————————————————————————————————————————
+	备注: 
+		无
+	————————————————————————————————————————————————————
+	示例：
+		http://video.duowan.com/jsapi/getUserVideos?uid=50014545&limit=12
+	————————————————————————————————————————————————————
+
+
 
 
 
