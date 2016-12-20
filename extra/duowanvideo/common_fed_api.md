@@ -133,7 +133,7 @@
 
 
 
-<font color="blue">3、获取订阅的游戏 jsapi/getGameSubscribe </font>
+<font color="blue">3、获取订阅的专区 jsapi/getGameSubscribe </font>
 	————————————————————————————————————————————————————
 	URL:		http://video.duowan.com/jsapi/getGameSubscribe
 	————————————————————————————————————————————————————
@@ -157,7 +157,7 @@
 		}
 	————————————————————————————————————————————————————
 	备注: 
-		需要登录态
+		需要dwUDBProxy.isLogin()登录态
 	————————————————————————————————————————————————————
 	示例：
 		http://video.duowan.com/jsapi/GetGameSubscribe
@@ -167,7 +167,7 @@
 
 
 
-<font color="blue">4、获取订阅的游戏 jsapi/getUserSubscribe </font>
+<font color="blue">4、获取订阅的用户 jsapi/getUserSubscribe </font>
 	————————————————————————————————————————————————————
 	URL:		http://video.duowan.com/jsapi/getUserSubscribe
 	————————————————————————————————————————————————————
@@ -191,7 +191,7 @@
 		}
 	————————————————————————————————————————————————————
 	备注: 
-		需要登录态
+		需要dwUDBProxy.isLogin()登录态
 	————————————————————————————————————————————————————
 	示例：
 		http://video.duowan.com/jsapi/GetUserSubscribe
