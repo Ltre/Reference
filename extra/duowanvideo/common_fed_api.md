@@ -2,37 +2,78 @@
 
 <h1><center>多玩视频 - 通用前端API</center></h1>
 
-1、更多视频播放量统计 popular/videoList
+<font color="blue">1、获取播客列表 jsapi/Podcasts </font>
 	————————————————————————————————————————————————————
-	URL:		http://v.huya.com/?r=popular/videoList
+	URL:		http://video.duowan.com/jsapi/podcasts
 	————————————————————————————————————————————————————
 	参数(get|post):
-		keyword		[可选]搜索关键字
-		sort		[可选]默认降序(desc)。升序用asc
-		p			[可选]页码，默认为1，表示第一页
+		sort		排序依据（playsum|videosum），播放数或视频数（默认playsum，可选）
+		p			页码（默认1，可选）
+		limit		获取个数（默认10，可选）
+		channel		专区ID（可选）
 	————————————————————————————————————————————————————
-	返回(json)：
-		count: "5"
-		next_page: ""
-		page: 1
-		videos: [{
-			definition: "yuanhua"
-			duration: "309.986400"
-			edit_title: ""
-			game_id: "1904"
-			uptime: "1427365166"
-			vid: "103270"
-			video_comment_sum: "0"
-			video_cover: "http://vimg.dwstatic.com/1513/103270/7-220x124.jpg"
-			video_intro: null
-			video_play_sum: 0
-			video_title: "【物语动画MAD】AMV _ Videos _ Into The Labyrinth"
-			yesterday_play: 0
-		}, ... ,{...}]
+	返回(json含array)：
+		{
+			//列表
+			list: [{
+				"user_id": 0,
+				"user_avatar": "http://video.duowan.com/style/img/editor-avatar.png",
+				"user_nickname": "多玩小编",
+				"user_homepage": "http://video.duowan.com/",
+				"vid": 0,
+				"video_title": "",
+				"video_subtitle": "",
+				"video_cover": "http://video.duowan.com/style/img/no-cover.jpg",
+				"video_play_num": 0,
+				"video_raw_play_num": 0,
+				"video_comment_num": 0,
+				"video_raw_comment_num": 0,
+				"video_duration": "00:00",
+				"video_raw_duration": "00:00",
+				"video_url": "http://video.duowan.com/",
+				"video_upload_time": "2015-07-08",
+				"video_raw_upload_time": 0,
+				"video_channel": "unknown",
+				"video_intro": "",
+				"video_tags": ""
+			}, ..., {}],
+			//分页信息
+			pages: {
+				"total_count": "3649",//总个数
+				"page_size": 18,//每页个数
+				"total_page": 203,//总页数
+				"first_page": 1,
+				"prev_page": 1,
+				"next_page": 2,
+				"last_page": 203,//最后页码
+				"current_page": 1,
+				"all_pages": [
+					1,
+					2,
+					3,
+					4,
+					5,
+					6,
+					7,
+					8,
+					9,
+					10
+				],
+				"offset": 0,
+				"limit": 18
+			}
+		}
 	————————————————————————————————————————————————————
 	备注: 
-		需要登录态
+		无
 	————————————————————————————————————————————————————
+	示例：
+		http://video.duowan.com/jsapi/podcasts
+		http://video.duowan.com/jsapi/podcasts?p=2
+		http://video.duowan.com/jsapi/podcasts?p=2&channel=lol
+		http://video.duowan.com/jsapi/podcasts?p=2&channel=lol&limit=12
+	————————————————————————————————————————————————————
+
 
 
 </pre>
