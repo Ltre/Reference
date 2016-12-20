@@ -1,6 +1,6 @@
 if [ ! -d "/home/wwwsrc/Reference" ]; then
 	cd /home/wwwsrc
-	git clone https://git.oschina.net/Ltre/Reference.git
+	git clone https://github.com/Ltre/Reference.git
 else
 	cd /home/wwwsrc/Reference
 	git pull
