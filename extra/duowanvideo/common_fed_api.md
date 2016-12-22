@@ -200,7 +200,7 @@
 
 
 
-<font color="blue">5、多玩懂你视频列表 jsapi/videosKnowYou（<font color="red">未完成</font>） </font>
+<font color="blue">5、多玩懂你视频列表 jsapi/videosKnowYou
 	————————————————————————————————————————————————————
 	URL:		http://video.duowan.com/jsapi/videosKnowYou
 	————————————————————————————————————————————————————
