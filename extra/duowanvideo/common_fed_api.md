@@ -207,12 +207,29 @@
 	参数(get|post):
 		limit		个数（默认10，可选）
 	————————————————————————————————————————————————————
-	返回(json)：
-		{
-			list: [{
-			}, ..., {}]
-			pages: {}
-		}
+	返回(array)：
+		[{
+			"user_id": "803575426",
+			"user_avatar": "http://s1.dwstatic.com/vhuya/avatar/80/35/200_200/caca8b842222ab5aa446613cb053026f.jpg?t=1480663433",
+			"user_nickname": "Numen",
+			"user_homepage": "http://video.duowan.com/u/803575426",
+			"vid": 3512943,
+			"video_title": "Numen精彩集锦：剑姬丝血躲伤1V2",
+			"video_subtitle": "Numen精彩集锦：剑姬丝血躲伤1V2",
+			"video_cover": "http://vimg.dwstatic.com/1650/3512943/9-220x124.jpg",
+			"video_play_num": "8",
+			"video_raw_play_num": 8,
+			"video_comment_num": "5",
+			"video_raw_comment_num": 5,
+			"video_duration": "05:49",
+			"video_raw_duration": 349,
+			"video_url": "http://video.duowan.com/play/3512943.html",
+			"video_upload_time": "2016-12-16 11:23",
+			"video_raw_upload_time": 1481858616,
+			"video_channel": "lol",
+			"video_intro": "Numen精彩集锦：剑姬丝血躲伤1V2。",
+			"video_tags": ",游戏视频,娱乐集锦视频,盒子推荐,重点,"
+		}, ..., {}]
 	————————————————————————————————————————————————————
 	备注: 
 		无
