@@ -49,10 +49,10 @@
 	URL:		http://video.duowan.com/?r=cmsapi/getRankByTag
 	————————————————————————————————————————————————————
 	参数(get|post):
-		channel		专区
-		tag			标签（仅单个）
-		sortBy		排序依据（day|week|month）
-		limit		获取个数（默认10）
+		channel		专区（可选）
+		tag			标签（可选，仅接受单个标签）
+		sortBy		排序依据（day|week|month，可选，默认day）
+		limit		获取个数（可选，默认10）
 	————————————————————————————————————————————————————
 	返回(array)：
 		[{
