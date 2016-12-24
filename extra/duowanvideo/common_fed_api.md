@@ -245,9 +245,9 @@
 
 
 
-<font color="blue">6、通过标签获取视频排行榜（前端JS用） cmsapi/getRankByTag </font>
+<font color="blue">6、通过标签获取视频排行榜（前端JS用） jsapi/getRankByTag </font>
 	————————————————————————————————————————————————————
-	URL:		http://video.duowan.com/?r=cmsapi/getRankByTag
+	URL:		http://video.duowan.com/?r=jsapi/getRankByTag
 	————————————————————————————————————————————————————
 	参数(get|post):
 		channel		专区（可选）
@@ -284,7 +284,7 @@
 		无
 	————————————————————————————————————————————————————
 	示例：
-		http://video.duowan.com/?r=cmsapi/getRankByTag&channel=5253wzry&tag=%E8%99%8E%E7%89%99%E8%A7%86%E9%A2%91&sortBy=month&limit=10
+		http://video.duowan.com/?r=jsapi/getRankByTag&channel=5253wzry&tag=%E8%99%8E%E7%89%99%E8%A7%86%E9%A2%91&sortBy=month&limit=10
 	————————————————————————————————————————————————————
 
 
