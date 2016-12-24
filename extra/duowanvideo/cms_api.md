@@ -88,7 +88,7 @@
 
 
 
-<font color="blue">6、按专区获取手动推荐的播客（解说OR用户），多玩首页推荐的channel参数传duowanvideo。</font>
+<font color="blue">3、按专区获取手动推荐的播客（解说OR用户），多玩首页推荐的channel参数传duowanvideo。</font>
 	————————————————————————————————————————————————————
 	URL:		http://video.duowan.com/?r=cmsapi/getUsersByHot
 	————————————————————————————————————————————————————
