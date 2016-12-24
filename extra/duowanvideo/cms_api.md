@@ -29,7 +29,8 @@
 			"video_url": "http://video.duowan.com/",
 			"video_upload_time": "2015-07-08",
 			"video_raw_upload_time": 0,
-			"video_channel": "unknown",
+			"video_channel": "lol",
+            "video_channel_name": "英雄联盟",
 			"video_intro": "",
 			"video_tags": ""
 		}, ..., {}]
@@ -73,7 +74,8 @@
 			"video_url": "http://video.duowan.com/",
 			"video_upload_time": "2015-07-08",
 			"video_raw_upload_time": 0,
-			"video_channel": "unknown",
+			"video_channel": "lol",
+            "video_channel_name": "英雄联盟",
 			"video_intro": "",
 			"video_tags": ""
 		}, ..., {}]

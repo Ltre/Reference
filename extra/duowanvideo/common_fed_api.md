@@ -100,6 +100,7 @@
 				"video_upload_time": "2016-11-24 13:07",
 				"video_raw_upload_time": "1479964074",
 				"video_channel": "lol",
+                "video_channel_name": "英雄联盟",
 				"video_intro": "",
 				"video_tags": ""
 			}, ..., {}]
@@ -179,13 +180,16 @@
 		{
 			//游戏列表
 			list: [{
-				"game_id": "638",
-				"game_channel": "mc",
-				"game_name": "我的世界",
-				"game_cover": "http://s1.dwstatic.com/vhuya/C6/29/c6291be2f8ddb5f31fab7fe60071d43c6532.jpg",
-				"game_url": "http://video.duowan.com/mc/",
-				"game_intro": "Minecraft是一款自由度很高的沙盒游戏，《我的世界》、《当个创世神》、《麦块》、《我的手艺》等仅为非官方中文译名。\r\n\t\t\t\t\t",
-				"channel_alias": "mc"
+                "user_id": "1062484609",
+                "user_avatar": "http://s1.dwstatic.com/vhuya/avatar/10/62/200_200/4173a0e5ae914ae31b0aadf310b1b0ae.jpg?t=1481842948",
+                "user_nickname": "CarryLeeS",
+                "user_homepage": "http://video.duowan.com/u/1062484609",
+                "user_channel": "lol",
+                "user_channel_name": "英雄联盟",
+                "user_video_sum": "180",
+                "user_play_sum": "190万",
+                "user_desc": "",
+                "week_update_num": "202"
 			}, ..., {}]
 			pages: null //分页信息，貌似有点问题。一般不会给游戏分页，先忽略这个吧
 		}
