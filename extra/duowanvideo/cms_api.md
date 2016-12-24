@@ -2,7 +2,7 @@
 
 <h1><center>多玩视频 - 提供给发布器的API</center></h1>
 
-<font color="blue">1、通过专区、文章id获取视频基本信息 cmsapi/getInfoByArticleId </font>
+<font color="blue">1、通过专区、文章id获取视频基本信息（<font color="red">发布器模板用</font>） cmsapi/getInfoByArticleId </font>
 	————————————————————————————————————————————————————
 	URL:		http://video.duowan.com/?r=cmsapi/getInfoByArticleId
 	————————————————————————————————————————————————————
@@ -45,7 +45,7 @@
 
 
 
-<font color="blue">2、通过标签获取视频排行榜 cmsapi/getRankByTag </font>
+<font color="blue">2、通过标签获取视频排行榜（<font color="red">发布器模板用</font>） cmsapi/getRankByTag </font>
 	————————————————————————————————————————————————————
 	URL:		http://video.duowan.com/?r=cmsapi/getRankByTag
 	————————————————————————————————————————————————————
@@ -90,7 +90,7 @@
 
 
 
-<font color="blue">3、按专区获取手动推荐的播客（解说OR用户），多玩首页推荐的channel参数传duowanvideo。</font>
+<font color="blue">3、按专区获取手动推荐的播客（解说OR用户），多玩首页推荐的channel参数传duowanvideo。（<font color="red">发布器模板用</font>）</font>
 	————————————————————————————————————————————————————
 	URL:		http://video.duowan.com/?r=cmsapi/getUsersByHot
 	————————————————————————————————————————————————————

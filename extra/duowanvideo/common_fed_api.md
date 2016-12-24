@@ -244,4 +244,51 @@
 
 
 
+
+<font color="blue">6、通过标签获取视频排行榜（前端JS用） cmsapi/getRankByTag </font>
+	————————————————————————————————————————————————————
+	URL:		http://video.duowan.com/?r=cmsapi/getRankByTag
+	————————————————————————————————————————————————————
+	参数(get|post):
+		channel		专区（可选）
+		tag			标签（可选，仅接受单个标签）
+		sortBy		排序依据（day|week|month，可选，默认day）
+		limit		获取个数（可选，默认10）
+	————————————————————————————————————————————————————
+	返回(array)：
+		[{
+			"user_id": 0,
+			"user_avatar": "http://video.duowan.com/style/img/editor-avatar.png",
+			"user_nickname": "多玩小编",
+			"user_homepage": "http://video.duowan.com/",
+			"vid": 0,
+			"video_title": "",
+			"video_subtitle": "",
+			"video_cover": "http://video.duowan.com/style/img/no-cover.jpg",
+			"video_play_num": 0,
+			"video_raw_play_num": 0,
+			"video_comment_num": 0,
+			"video_raw_comment_num": 0,
+			"video_duration": "00:00",
+			"video_raw_duration": "00:00",
+			"video_url": "http://video.duowan.com/",
+			"video_upload_time": "2015-07-08",
+			"video_raw_upload_time": 0,
+			"video_channel": "lol",
+            "video_channel_name": "英雄联盟",
+			"video_intro": "",
+			"video_tags": ""
+		}, ..., {}]
+	————————————————————————————————————————————————————
+	备注: 
+		无
+	————————————————————————————————————————————————————
+	示例：
+		http://video.duowan.com/?r=cmsapi/getRankByTag&channel=5253wzry&tag=%E8%99%8E%E7%89%99%E8%A7%86%E9%A2%91&sortBy=month&limit=10
+	————————————————————————————————————————————————————
+
+
+
+
+
 </pre>
