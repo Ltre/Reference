@@ -121,5 +121,49 @@
 
 
 
+<font color="blue">4、通过UID获取用户的最新视频  cmsapi/getVideosByUser。（<font color="red">发布器模板用</font>）</font>
+	————————————————————————————————————————————————————
+	URL:		http://video.duowan.com/?r=cmsapi/getVideosByUser。
+	————————————————————————————————————————————————————
+	参数(get|post):
+        uid         用户YYUID
+		limit		获取个数（可选，默认8）
+	————————————————————————————————————————————————————
+	返回(array)：
+		[{
+            "user_id": "50014545",
+            "user_avatar": "http://s1.dwstatic.com/vhuya/avatar/50/01/200_200/98d2a3f69b3baffa354413ea9951e7c5.jpg?t=1466045578",
+            "user_nickname": "王尼玛",
+            "user_homepage": "http://video.duowan.com/u/50014545",
+            "vid": 3082499,
+            "video_title": "祈Inory威风堂堂恶搞",
+            "video_subtitle": "祈Inory威风堂堂恶搞",
+            "video_cover": "http://vimg.dwstatic.com/1634/3082499/4-220x124.jpg",
+            "video_play_num": "1,050",
+            "video_raw_play_num": 1050,
+            "video_comment_num": "0",
+            "video_raw_comment_num": 0,
+            "video_duration": "01:09",
+            "video_raw_duration": 69,
+            "video_url": "http://video.duowan.com/play/3082499.html",
+            "video_upload_time": "2016-08-25 10:29",
+            "video_raw_upload_time": "1472092193",
+            "video_channel": "kan",
+            "video_channel_name": "娱乐",
+            "video_intro": "",
+            "video_tags": ""
+		}, ..., {}]
+	————————————————————————————————————————————————————
+	备注: 
+		无
+	————————————————————————————————————————————————————
+	示例：
+		http://video.duowan.com/?r=cmsapi/getVideosByUser&uid=50014545
+	————————————————————————————————————————————————————
+
+
+
+
+
 
 </pre>
