@@ -44,7 +44,7 @@
 
 
 
-<font color="blue">2、通过标签获取排行榜 cmsapi/getRankByTag </font>
+<font color="blue">2、通过标签获取视频排行榜 cmsapi/getRankByTag </font>
 	————————————————————————————————————————————————————
 	URL:		http://video.duowan.com/?r=cmsapi/getRankByTag
 	————————————————————————————————————————————————————
@@ -85,6 +85,36 @@
 		http://video.duowan.com/?r=cmsapi/getRankByTag&channel=5253wzry&tag=%E8%99%8E%E7%89%99%E8%A7%86%E9%A2%91&sortBy=month&limit=10
 	————————————————————————————————————————————————————
 
+
+
+
+<font color="blue">6、按专区获取手动推荐的播客（解说OR用户），多玩首页推荐的channel参数传duowanvideo。</font>
+	————————————————————————————————————————————————————
+	URL:		http://video.duowan.com/?r=cmsapi/getUsersByHot
+	————————————————————————————————————————————————————
+	参数(get|post):
+        channel     专区（可选）
+		limit		获取个数（可选，默认8）
+	————————————————————————————————————————————————————
+	返回(array)：
+		[{
+            "user_id": "1062484609",
+            "user_avatar": "http://s1.dwstatic.com/vhuya/avatar/10/62/200_200/4173a0e5ae914ae31b0aadf310b1b0ae.jpg?t=1481842948",
+            "user_nickname": "CarryLeeS",
+            "user_homepage": "http://video.duowan.com/u/1062484609",
+            "user_channel": "lol",
+            "user_channel_name": "英雄联盟",
+            "user_video_sum": "117",
+            "user_play_sum": "190万",
+            "user_desc": ""
+		}, ..., {}]
+	————————————————————————————————————————————————————
+	备注: 
+		无
+	————————————————————————————————————————————————————
+	示例：
+		http://video.duowan.com/?r=cmsapi/getRankByTag&channel=5253wzry&tag=%E8%99%8E%E7%89%99%E8%A7%86%E9%A2%91&sortBy=month&limit=10
+	————————————————————————————————————————————————————
 
 
 
