@@ -71,7 +71,7 @@
 
 
 
-<font color="blue">2、获取用户的视频 jsapi/getUserVideos </font>
+<font color="blue">2、通过UID获取用户的最新视频 jsapi/getUserVideos </font>
 	————————————————————————————————————————————————————
 	URL:		http://video.duowan.com/jsapi/getUserVideos
 	————————————————————————————————————————————————————
@@ -254,6 +254,7 @@
 		tag			标签（可选，仅接受单个标签）
 		sortBy		排序依据（day|week|month，可选，默认day）
 		limit		获取个数（可选，默认10）
+        page        页码（默认1，可选）
 	————————————————————————————————————————————————————
 	返回(array)：
 		[{
@@ -281,7 +282,7 @@
 		}, ..., {}]
 	————————————————————————————————————————————————————
 	备注: 
-		无
+		可以给通用视频列表模块的“换一换”功能使用
 	————————————————————————————————————————————————————
 	示例：
 		http://video.duowan.com/jsapi/getRankByTag&channel=5253wzry&tag=%E8%99%8E%E7%89%99%E8%A7%86%E9%A2%91&sortBy=month&limit=10
