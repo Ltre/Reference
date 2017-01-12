@@ -9,5 +9,6 @@ $GLOBALS += array(
 	    'huyaRevenue' => array('extra/huya/revenue.readme.md', '虎牙分成体系(20151023)'),
 		'duowanvideoCmsApi' => array('extra/duowanvideo/cms_api.md', '多玩视频 - 提供给发布器的API(20161220)'),
 		'duowanvideoCommonFedApi' => array('extra/duowanvideo/common_fed_api.md', '多玩视频 - 通用前端API(20161220)'),
+        'adsysDbDesign' => array('extra/adsys/ad_sys_db.md', '多玩广告系统数据库设计草稿(20170112)'),
     ),
 );
