@@ -3,16 +3,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : 61.160.36.225
-Source Server Version : 50546
-Source Host           : 61.160.36.225:3306
-Source Database       : adsystem
+Source Server         : localhost
+Source Server Version : 50711
+Source Host           : localhost:3306
+Source Database       : adsys
 
 Target Server Type    : MYSQL
-Target Server Version : 50546
+Target Server Version : 50711
 File Encoding         : 65001
 
-Date: 2017-01-12 19:23:12
+Date: 2017-01-12 13:29:51
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -43,53 +43,6 @@ CREATE TABLE `ad` (
 -- Records of ad
 -- ----------------------------
 
--- ----------------------------
--- Table structure for `ad_pos`
--- ----------------------------
-DROP TABLE IF EXISTS `ad_pos`;
-CREATE TABLE `ad_pos` (
-  `pos_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '广告位id',
-  `name` varchar(50) CHARACTER SET utf8mb4 NOT NULL COMMENT '广告位名称',
-  `planform_id` bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT '所属平台',
-  `channel_id` bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT '频道id',
-  `template_id` bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT '模板id',
-  `width` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '宽度',
-  `height` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '高度',
-  `sketch_url` varchar(200) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '广告位示意图',
-  `url` varchar(200) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '资源url',
-  `api_url` varchar(200) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT 'api地址',
-  `remark` varchar(200) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '备注',
-  `sell_price` bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT '低价（分）',
-  `sell_type` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '计费方式（1CPM,2CPC',
-  `meterials_id` bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT '打底物料',
-  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `update_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '最后更新时间',
-  `check_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '审核时间',
-  `creator` varchar(30) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '创建者',
-  `changer` varchar(30) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '最后修改',
-  `check_admin` varchar(30) CHARACTER SET utf8mb4 NOT NULL DEFAULT '' COMMENT '审核人',
-  `check_status` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '审核状态(0待审核,1通过,2已拒绝',
-  PRIMARY KEY (`pos_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='广告位';
-
--- ----------------------------
--- Records of ad_pos
--- ----------------------------
-
--- ----------------------------
--- Table structure for `ad_pos_use`
--- ----------------------------
-DROP TABLE IF EXISTS `ad_pos_use`;
-CREATE TABLE `ad_pos_use` (
-  `use_id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `pos_id` bigint(20) NOT NULL COMMENT '广告位ID',
-  `status` tinyint(4) NOT NULL DEFAULT '0' COMMENT '状态：0未投放, 1已投放',
-  PRIMARY KEY (`use_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='广告占位记录';
-
--- ----------------------------
--- Records of ad_pos_use
--- ----------------------------
 
 -- ----------------------------
 -- Table structure for `ad_stats`
@@ -99,8 +52,6 @@ CREATE TABLE `ad_stats` (
   `stats_id` bigint(20) NOT NULL AUTO_INCREMENT,
   `ad_id` bigint(20) NOT NULL DEFAULT '0' COMMENT '对应的推广计划（广告）',
   `stats_time` int(11) NOT NULL DEFAULT '0' COMMENT '统计时间戳',
-  `url` varchar(128) NOT NULL DEFAULT '' COMMENT '所在页面地址',
-  `domain` varchar(32) NOT NULL DEFAULT '' COMMENT '所在域名',
   PRIMARY KEY (`stats_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='广告量记录（前台只写，或用logstash）';
 
@@ -153,23 +104,6 @@ CREATE TABLE `ad_user` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `channel`
--- ----------------------------
-DROP TABLE IF EXISTS `channel`;
-CREATE TABLE `channel` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '频道ID',
-  `name` varchar(50) NOT NULL COMMENT '频道名称',
-  `platform_id` bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT '所属平台id',
-  `desc` varchar(200) DEFAULT NULL COMMENT '描述',
-  `status` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '状态（0失效，1有效',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='频道';
-
--- ----------------------------
--- Records of channel
--- ----------------------------
-
--- ----------------------------
 -- Table structure for `invoice_record`
 -- ----------------------------
 DROP TABLE IF EXISTS `invoice_record`;
@@ -193,22 +127,6 @@ CREATE TABLE `invoice_record` (
 
 -- ----------------------------
 -- Records of invoice_record
--- ----------------------------
-
--- ----------------------------
--- Table structure for `meterials`
--- ----------------------------
-DROP TABLE IF EXISTS `meterials`;
-CREATE TABLE `meterials` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(30) NOT NULL COMMENT '物料名称',
-  `type` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '类型（0图片，1富媒体',
-  `content` text NOT NULL COMMENT '内容（图片是URL，富媒体是代码',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='物料';
-
--- ----------------------------
--- Records of meterials
 -- ----------------------------
 
 -- ----------------------------
@@ -266,43 +184,5 @@ CREATE TABLE `money_record` (
 -- ----------------------------
 -- Records of money_record
 -- ----------------------------
-
--- ----------------------------
--- Table structure for `platform`
--- ----------------------------
-DROP TABLE IF EXISTS `platform`;
-CREATE TABLE `platform` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '平台ID',
-  `name` varchar(50) NOT NULL COMMENT '平台名称',
-  `category` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '产品属性（0网站，1APP，2PC软件',
-  `desc` varchar(200) DEFAULT NULL COMMENT '描述',
-  `status` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '状态（0失效，1有效',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='平台';
-
--- ----------------------------
--- Records of platform
--- ----------------------------
-
--- ----------------------------
--- Table structure for `template`
--- ----------------------------
-DROP TABLE IF EXISTS `template`;
-CREATE TABLE `template` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(30) COLLATE utf8_unicode_ci NOT NULL COMMENT '模板名称',
-  `content` text COLLATE utf8_unicode_ci NOT NULL COMMENT '模板代码',
-  `desc` varchar(300) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '说明',
-  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `creator` varchar(30) COLLATE utf8_unicode_ci NOT NULL COMMENT '创建者',
-  `update_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '最后更新时间',
-  `changer` varchar(30) COLLATE utf8_unicode_ci NOT NULL COMMENT '修改者',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='模板';
-
--- ----------------------------
--- Records of template
--- ----------------------------
-
 
 </pre>

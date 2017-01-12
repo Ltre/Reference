@@ -18,21 +18,74 @@
     charge		出价（元/一单位计费类型）
     start_date	投放开始日期
     end_date	投放结束日期，0不限截止
-    create_time 创建时间
-    check_time  审核时间
-    check_admin 审核人
-    check_status审核状态(待审核0，审核通过(可投放)1，已拒绝2)
+    其它字段：create_time创建时间, check_time审核时间, check_admin审核人, check_status审核状态(待审核0，已通过1，已拒绝2)
+
+
+<!--
+
+<font color="blue">ad_form【广告位模板】</font>
+    charge_type决定尺寸集合，选择尺寸集合后，可知道有多少位置
+    charge_type     计费类型：cpm, cpc
+    width
+    height
+    pos_id
 
 
 
-<font color="blue">ad_pos_use【广告占位记录】</font>
-    use_id
-    pos_id      广告位ID
-    status      状态：0未投放 1投放中
+
+<font color="blue">ad_pos【广告位】</font>
+    pos_id
+    pos_name        
+    charge_type     计费类型：cpm, cpc
+    width
+    height
+    sketch_url      广告位示意图
+-->
 
 
+<!--
+<font color="blue">r_ad_pos【广告位】</font>
+	pos_id
+	pos_name	如“新闻阅读页C1”
+charge_type
 
-<font color="blue">recharge_order【充值订单待建立】</font>
+	dimension	格式【宽,高】，例如1000,90
+	ad_base_id
+	available	是否可用（用于管理员进行上下架）
+	used		是否被占用-->
+	
+
+
+<!--
+<font color="blue">ad_form【广告位模板】</font>
+    form_id
+    form_type       模板类型：1图片类型 2复杂类型（信息流广告）
+    form_name       描述名，如“新闻banner图片广告1000x90”
+    
+
+<font color="blue">ad_form_field【广告位模板扩展字段】</font>
+    field_id
+    form_type       模板类型：同ad_form.form_type
+    field_type      扩展字段类型：number数字, string字符串, text大文本
+    field_name      扩展字段名
+    field_desc      字段描述
+    default_value   字段默认值
+    widget_type     后台表单控件类型，如image, input, textarea, select, radio, checkbox
+
+
+<font color="blue">ad_form_data【广告位模板扩展数据】</font>
+    data_id
+    form_id         数据所属的广告位模板
+    field_name      字段名（冗余存储ad_form_field.field_name）
+    field_type      字段类型（冗余存储ad_form_field.field_type）
+    number_value    数字类型的数据
+    string_value    字符串数据
+    text_value      大文本数据
+    update_time     添加或更新时间-->
+
+
+		
+<font color="blue">recharge_order【充值订单】</font>
     order_id
     uid
     money       订单金额
@@ -55,8 +108,8 @@
 <font color="blue">money_daysum【资金变动汇总（日）】</font>
 	sum_id
 	uid
-	income      存入
-	expend      支出
+	存入
+	支出
 	note		备注（好像没什么用）
 	stats_date	统计日期
 
@@ -64,8 +117,8 @@
 <font color="blue">money_monthsum【资金变动汇总（月）】</font>
 	sum_id
 	uid
-	income      存入
-	expend      支出
+	存入
+	支出
 	note		备注（好像没什么用）
 	stats_month	统计月份
 
@@ -74,9 +127,6 @@
 	stats_id
 	ad_id		对应的推广计划（广告）
 	stats_time	统计时间戳
-    url         所在地址
-    domain      所在域名
-
 
 
 <font color="blue">ad_stats_sum【广告量统计-汇总】</font>
