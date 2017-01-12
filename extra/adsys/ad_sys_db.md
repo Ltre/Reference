@@ -2,8 +2,6 @@
 
 
 <h1><center>多玩广告系统数据库设计草稿(20170112)</center></h1>
-
-
 <h2>
     <center><a href="/doc/adsysDbDesignSql" target="_blank">多玩广告系统数据库设计SQL(20170112)</a></center>
 </h2>
