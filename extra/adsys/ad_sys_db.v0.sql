@@ -43,6 +43,24 @@ CREATE TABLE `ad` (
 -- Records of ad
 -- ----------------------------
 
+-- ----------------------------
+-- Table structure for `ad_pos`
+-- ----------------------------
+DROP TABLE IF EXISTS `ad_pos`;
+CREATE TABLE `ad_pos` (
+  `pos_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `pos_name` varchar(50) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '广告位描述名，如“新闻阅读页C1”',
+  `dimension` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '宽高比，如"1000,90"',
+  `domain` varchar(64) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '匹配域名的正则',
+  `uri` varchar(256) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '除去域名，匹配URI部分的正则',
+  `available` tinyint(4) NOT NULL DEFAULT '0' COMMENT '是否可用',
+  `used` tinyint(4) NOT NULL DEFAULT '0' COMMENT '是否被占用：1已占, 0未占',
+  PRIMARY KEY (`pos_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='广告位置';
+
+-- ----------------------------
+-- Records of ad_pos
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for `ad_stats`

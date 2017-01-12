@@ -8,91 +8,32 @@
 
 
 <font color="blue">ad【推广计划（广告）】</font>
-    ad_id
-    ad_name
-    budget_day	每日预算
-    pos_ids     (ad_pos.id)，多个逗号隔开
-    src         素材地址
-    link		广告链接
-    charge_type	计费类型(CPM/CPC/CPA)
-    charge		出价（元/一单位计费类型）
-    start_date	投放开始日期
-    end_date	投放结束日期，0不限截止
-    其它字段：create_time创建时间, check_time审核时间, check_admin审核人, check_status审核状态(待审核0，已通过1，已拒绝2)
-
-
-<!--
-
-<font color="blue">ad_form【广告位模板】</font>
-    charge_type决定尺寸集合，选择尺寸集合后，可知道有多少位置
-    charge_type     计费类型：cpm, cpc
-    width
-    height
-    pos_id
+	ad_id
+	ad_name
+	budget_day	每日预算
+	pos_id  (ad_pos.id)
+	src		素材地址
+	link		广告链接
+	charge_type	计费类型(CPM/CPC/CPA)
+	charge		出价（元/一单位计费类型）
+	start_date	投放开始日期
+	end_date	投放结束日期，0不限截止
+	其它字段：create_time创建时间, check_time审核时间, check_admin审核人, check_status审核状态(待审核0，已通过1，已拒绝2)
 
 
 
 
 <font color="blue">ad_pos【广告位】</font>
-    pos_id
-    pos_name        
-    charge_type     计费类型：cpm, cpc
-    width
-    height
-    sketch_url      广告位示意图
--->
-
-
-<!--
-<font color="blue">r_ad_pos【广告位】</font>
 	pos_id
 	pos_name	如“新闻阅读页C1”
-charge_type
-
 	dimension	格式【宽,高】，例如1000,90
-	ad_base_id
+	domain		匹配的域名（正则）
+	uri		匹配的URI，如【/\/abcde/12345.html/】
 	available	是否可用（用于管理员进行上下架）
-	used		是否被占用-->
+	used		是否被占用
 	
 
-
-<!--
-<font color="blue">ad_form【广告位模板】</font>
-    form_id
-    form_type       模板类型：1图片类型 2复杂类型（信息流广告）
-    form_name       描述名，如“新闻banner图片广告1000x90”
-    
-
-<font color="blue">ad_form_field【广告位模板扩展字段】</font>
-    field_id
-    form_type       模板类型：同ad_form.form_type
-    field_type      扩展字段类型：number数字, string字符串, text大文本
-    field_name      扩展字段名
-    field_desc      字段描述
-    default_value   字段默认值
-    widget_type     后台表单控件类型，如image, input, textarea, select, radio, checkbox
-
-
-<font color="blue">ad_form_data【广告位模板扩展数据】</font>
-    data_id
-    form_id         数据所属的广告位模板
-    field_name      字段名（冗余存储ad_form_field.field_name）
-    field_type      字段类型（冗余存储ad_form_field.field_type）
-    number_value    数字类型的数据
-    string_value    字符串数据
-    text_value      大文本数据
-    update_time     添加或更新时间-->
-
-
 		
-<font color="blue">recharge_order【充值订单】</font>
-    order_id
-    uid
-    money       订单金额
-    其它字段。。。需要跟支付系统了解
-
-
-
 <font color="blue">money_record【资金变动记录】</font>
 	record_id
 	uid
