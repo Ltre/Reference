@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50546
 File Encoding         : 65001
 
-Date: 2017-01-13 12:28:26
+Date: 2017-01-13 13:41:51
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -106,10 +106,11 @@ CREATE TABLE `ad_loc_occupy` (
 -- ----------------------------
 DROP TABLE IF EXISTS `ad_plan`;
 CREATE TABLE `ad_plan` (
-  `ad_id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `ad_name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '广告名',
+  `plan_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `plan_name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '广告名',
+  `uid` bigint(20) NOT NULL,
   `budget_day` double(10,2) NOT NULL DEFAULT '0.00' COMMENT '每日预算（元）',
-  `pos_ids` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '需占用的广告位ID, 多个逗号隔开, 作为ad_loc_occupy.loc_id的冗余存储',
+  `loc_ids` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '需占用的广告位ID, 多个逗号隔开, 作为ad_loc_occupy.loc_id的冗余存储',
   `src` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '素材地址',
   `link` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '广告链接',
   `extra_json` text COLLATE utf8mb4_unicode_ci COMMENT '复杂信息流广告数据json',
@@ -121,7 +122,7 @@ CREATE TABLE `ad_plan` (
   `check_time` int(11) NOT NULL DEFAULT '0' COMMENT '审核时间',
   `check_admin` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '审核人账号',
   `check_status` tinyint(4) NOT NULL DEFAULT '0' COMMENT '审核状态：0待审核，1已通过，2已拒绝',
-  PRIMARY KEY (`ad_id`)
+  PRIMARY KEY (`plan_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='推广计划（广告）';
 
 -- ----------------------------
