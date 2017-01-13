@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50546
 File Encoding         : 65001
 
-Date: 2017-01-13 15:06:14
+Date: 2017-01-13 17:19:10
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -92,6 +92,7 @@ CREATE TABLE `ad_loc` (
 DROP TABLE IF EXISTS `ad_loc_occupy`;
 CREATE TABLE `ad_loc_occupy` (
   `occupy_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `loc_id` bigint(20) NOT NULL DEFAULT '0' COMMENT '广告位ID',
   `plan_id` bigint(20) NOT NULL DEFAULT '0' COMMENT '推广计划ID',
   `status` tinyint(4) NOT NULL DEFAULT '0' COMMENT '状态：1未投放，2投放中',
   PRIMARY KEY (`occupy_id`)
@@ -144,21 +145,6 @@ CREATE TABLE `ad_platform` (
 
 -- ----------------------------
 -- Records of ad_platform
--- ----------------------------
-
--- ----------------------------
--- Table structure for `ad_pos_use`
--- ----------------------------
-DROP TABLE IF EXISTS `ad_pos_use`;
-CREATE TABLE `ad_pos_use` (
-  `use_id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `pos_id` bigint(20) NOT NULL COMMENT '广告位ID',
-  `status` tinyint(4) NOT NULL DEFAULT '0' COMMENT '状态：0未投放, 1已投放',
-  PRIMARY KEY (`use_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='广告占位记录';
-
--- ----------------------------
--- Records of ad_pos_use
 -- ----------------------------
 
 -- ----------------------------
