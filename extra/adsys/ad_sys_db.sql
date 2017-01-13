@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50546
 File Encoding         : 65001
 
-Date: 2017-01-13 13:41:51
+Date: 2017-01-13 15:06:14
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -205,6 +205,8 @@ CREATE TABLE `ad_stats_daysum` (
   `cpm_num` bigint(20) NOT NULL DEFAULT '0' COMMENT '展现量',
   `cpc_num` bigint(20) NOT NULL DEFAULT '0' COMMENT '点击量',
   `stats_date` varchar(8) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '统计日期',
+  `create_time` int(11) NOT NULL DEFAULT '0',
+  `update_time` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`sum_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='广告量统计-日汇总';
 
@@ -222,6 +224,8 @@ CREATE TABLE `ad_stats_hoursum` (
   `cpm_num` bigint(20) NOT NULL DEFAULT '0' COMMENT '展现量',
   `cpc_num` bigint(20) NOT NULL DEFAULT '0' COMMENT '点击量',
   `stats_hour` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '统计小时，如2017011213表示20170112的13时',
+  `create_time` int(11) NOT NULL DEFAULT '0',
+  `update_time` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`sum_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='广告量统计-按小时汇总';
 
@@ -239,6 +243,8 @@ CREATE TABLE `ad_stats_monthsum` (
   `cpm_num` bigint(20) NOT NULL DEFAULT '0' COMMENT '展现量',
   `cpc_num` bigint(20) NOT NULL DEFAULT '0' COMMENT '点击量',
   `stats_month` varchar(6) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '统计月份',
+  `create_time` int(11) NOT NULL DEFAULT '0',
+  `update_time` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`sum_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='广告量统计-月汇总';
 
@@ -294,6 +300,8 @@ DROP TABLE IF EXISTS `invoice_record`;
 CREATE TABLE `invoice_record` (
   `record_id` bigint(20) NOT NULL AUTO_INCREMENT,
   `apply_time` int(11) NOT NULL DEFAULT '0' COMMENT '申请时间',
+  `check_time` int(11) NOT NULL DEFAULT '0' COMMENT '审核时间',
+  `express_time` int(11) NOT NULL DEFAULT '0' COMMENT '快递发出时间',
   `money` int(11) NOT NULL DEFAULT '0' COMMENT '申请金额（正数）',
   `invoice_header` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '发票抬头',
   `invoice_type` tinyint(4) NOT NULL DEFAULT '0' COMMENT '发票项目（即类型），0默认类型',
@@ -324,6 +332,8 @@ CREATE TABLE `money_daysum` (
   `income` double(10,2) NOT NULL DEFAULT '0.00' COMMENT '存入',
   `note` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '备注',
   `stats_date` varchar(8) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '汇总日期',
+  `create_time` int(11) NOT NULL DEFAULT '0',
+  `update_time` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`sum_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='资金变动汇总（日）';
 
@@ -342,6 +352,8 @@ CREATE TABLE `money_monthsum` (
   `income` double(10,2) NOT NULL DEFAULT '0.00' COMMENT '存入',
   `note` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '备注',
   `stats_month` varchar(6) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '汇总月份',
+  `create_time` int(11) NOT NULL DEFAULT '0',
+  `update_time` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`sum_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='资金变动汇总（月）';
 
@@ -407,10 +419,10 @@ CREATE TABLE `user` (
   `update_time` int(11) NOT NULL DEFAULT '0' COMMENT '更新时间',
   `company` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '公司名',
   `address` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '地址',
-  `contact` varchar(16) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '联系人（名）',
-  `phone` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '手机或电话',
-  `email` varchar(64) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '邮箱',
-  `qq` varchar(16) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT 'QQ',
+  `contact` varchar(16) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '联系人（名）',
+  `phone` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '手机或电话',
+  `email` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '邮箱',
+  `qq` varchar(16) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'QQ',
   PRIMARY KEY (`uid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='广告商用户';
 
