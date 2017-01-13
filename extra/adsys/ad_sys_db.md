@@ -9,8 +9,8 @@
 
 <font color="blue">ad_plan【推广计划】</font>
     plan_id
-    uid 
     plan_name   计划名
+    uid 
     day_budget	每日预算
     loc_ids     (ad_loc.id)，多个逗号隔开（冗余存储）
     src         素材地址
