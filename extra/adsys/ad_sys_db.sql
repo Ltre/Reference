@@ -402,7 +402,7 @@ CREATE TABLE `recharge_order` (
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
-  `uid` bigint(20) NOT NULL,
+  `uid` bigint(20) NOT NULL AUTO_INCREMENT,
   `username` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '登录账号',
   `password` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '密码不可逆值',
   `license_img` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '营业执照图',
