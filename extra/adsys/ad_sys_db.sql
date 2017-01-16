@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50546
 File Encoding         : 65001
 
-Date: 2017-01-13 18:22:21
+Date: 2017-01-16 12:06:23
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -44,7 +44,7 @@ CREATE TABLE `ad_js` (
   `desc` varchar(300) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '说明',
   `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `creator` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '创建者',
-  `update_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '最后更新时间',
+  `update_time` timestamp NULL DEFAULT NULL COMMENT '最后更新时间',
   `changer` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '修改者',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='模板JS代码';
@@ -71,10 +71,10 @@ CREATE TABLE `ad_loc` (
   `sell_price` bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT '底价（分）',
   `sell_type` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '计费方式（1CPM,2CPC',
   `max_per_ip` bigint(20) unsigned NOT NULL DEFAULT '10' COMMENT '每IP最大显示数量',
-  `max_pre_uv` bigint(20) unsigned NOT NULL DEFAULT '10' COMMENT '每UV最大显示数量',
+  `max_per_uv` bigint(20) unsigned NOT NULL DEFAULT '10' COMMENT '每UV最大显示数量',
   `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `update_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '最后更新时间',
-  `check_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '审核时间',
+  `update_time` timestamp NULL DEFAULT NULL COMMENT '最后更新时间',
+  `check_time` timestamp NULL DEFAULT NULL COMMENT '审核时间',
   `creator` varchar(30) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '创建者',
   `changer` varchar(30) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '最后修改',
   `check_admin` varchar(30) CHARACTER SET utf8mb4 NOT NULL DEFAULT '' COMMENT '审核人',
@@ -177,7 +177,7 @@ CREATE TABLE `ad_stats` (
   `url` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '所在页面地址',
   `domain` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '所在域名',
   PRIMARY KEY (`stats_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='广告量记录（前台只写，或用logstash）';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='广告量流水（前台只写，或用logstash）';
 
 -- ----------------------------
 -- Records of ad_stats
@@ -193,6 +193,12 @@ CREATE TABLE `ad_stats_daysum` (
   `loc_id` bigint(20) NOT NULL DEFAULT '0' COMMENT '广告ID',
   `cpm_num` bigint(20) NOT NULL DEFAULT '0' COMMENT '展现量',
   `cpc_num` bigint(20) NOT NULL DEFAULT '0' COMMENT '点击量',
+  `cpm_ip_invalid_num` bigint(20) NOT NULL DEFAULT '0' COMMENT 'CPM无效IP量，用于防刷',
+  `cpc_ip_invalid_num` bigint(20) NOT NULL DEFAULT '0' COMMENT 'CPC无效IP量，用于防刷',
+  `cpm_uv_invalid_num` bigint(20) NOT NULL DEFAULT '0' COMMENT 'CPM无效UV量，用于防刷',
+  `cpc_uv_invalid_num` bigint(20) NOT NULL DEFAULT '0' COMMENT 'CPC无效UV量，用于防刷',
+  `cpm_other_invalid_num` bigint(20) NOT NULL DEFAULT '0' COMMENT 'CPM其它无效量，用于防刷',
+  `cpc_other_invalid_num` bigint(20) NOT NULL DEFAULT '0' COMMENT 'CPC其它无效量，用于防刷',
   `stats_date` varchar(8) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '统计日期',
   `create_time` int(11) NOT NULL DEFAULT '0',
   `update_time` int(11) NOT NULL DEFAULT '0',
@@ -213,6 +219,12 @@ CREATE TABLE `ad_stats_hoursum` (
   `loc_id` bigint(20) NOT NULL DEFAULT '0' COMMENT '广告位ID',
   `cpm_num` bigint(20) NOT NULL DEFAULT '0' COMMENT '展现量',
   `cpc_num` bigint(20) NOT NULL DEFAULT '0' COMMENT '点击量',
+  `cpm_ip_invalid_num` bigint(20) NOT NULL DEFAULT '0' COMMENT 'CPM无效IP量，用于防刷',
+  `cpc_ip_invalid_num` bigint(20) NOT NULL DEFAULT '0' COMMENT 'CPC无效IP量，用于防刷',
+  `cpm_uv_invalid_num` bigint(20) NOT NULL DEFAULT '0' COMMENT 'CPM无效UV量，用于防刷',
+  `cpc_uv_invalid_num` bigint(20) NOT NULL DEFAULT '0' COMMENT 'CPC无效UV量，用于防刷',
+  `cpm_other_invalid_num` bigint(20) NOT NULL DEFAULT '0' COMMENT 'CPM其它无效量，用于防刷',
+  `cpc_other_invalid_num` bigint(20) NOT NULL DEFAULT '0' COMMENT 'CPC其它无效量，用于防刷',
   `stats_hour` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '统计小时，如2017011213表示20170112的13时',
   `create_time` int(11) NOT NULL DEFAULT '0',
   `update_time` int(11) NOT NULL DEFAULT '0',
@@ -233,6 +245,12 @@ CREATE TABLE `ad_stats_monthsum` (
   `loc_id` bigint(20) NOT NULL DEFAULT '0' COMMENT '广告位ID',
   `cpm_num` bigint(20) NOT NULL DEFAULT '0' COMMENT '展现量',
   `cpc_num` bigint(20) NOT NULL DEFAULT '0' COMMENT '点击量',
+  `cpm_ip_invalid_num` bigint(20) NOT NULL DEFAULT '0' COMMENT 'CPM无效IP量，用于防刷',
+  `cpc_ip_invalid_num` bigint(20) NOT NULL DEFAULT '0' COMMENT 'CPC无效IP量，用于防刷',
+  `cpm_uv_invalid_num` bigint(20) NOT NULL DEFAULT '0' COMMENT 'CPM无效UV量，用于防刷',
+  `cpc_uv_invalid_num` bigint(20) NOT NULL DEFAULT '0' COMMENT 'CPC无效UV量，用于防刷',
+  `cpm_other_invalid_num` bigint(20) NOT NULL DEFAULT '0' COMMENT 'CPM其它无效量，用于防刷',
+  `cpc_other_invalid_num` bigint(20) NOT NULL DEFAULT '0' COMMENT 'CPC其它无效量，用于防刷',
   `stats_month` varchar(6) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '统计月份',
   `create_time` int(11) NOT NULL DEFAULT '0',
   `update_time` int(11) NOT NULL DEFAULT '0',
@@ -241,26 +259,6 @@ CREATE TABLE `ad_stats_monthsum` (
 
 -- ----------------------------
 -- Records of ad_stats_monthsum
--- ----------------------------
-
--- ----------------------------
--- Table structure for `admin`
--- ----------------------------
-DROP TABLE IF EXISTS `admin`;
-CREATE TABLE `admin` (
-  `admin_id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `role` tinyint(4) NOT NULL DEFAULT '0' COMMENT '角色：数值待定，0为默认管理员',
-  `udb` varchar(32) NOT NULL DEFAULT '' COMMENT 'UDB账号',
-  `yyuid` bigint(20) NOT NULL DEFAULT '0' COMMENT '创建人',
-  `creator` varchar(32) NOT NULL DEFAULT '' COMMENT '创建人',
-  `changer` varchar(32) NOT NULL DEFAULT '' COMMENT '修改人',
-  `create_time` int(11) NOT NULL DEFAULT '0',
-  `update_time` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`admin_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='管理员';
-
--- ----------------------------
--- Records of admin
 -- ----------------------------
 
 -- ----------------------------
