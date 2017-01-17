@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50546
 File Encoding         : 65001
 
-Date: 2017-01-16 12:06:23
+Date: 2017-01-17 11:42:47
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -70,8 +70,8 @@ CREATE TABLE `ad_loc` (
   `remark` varchar(200) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '备注',
   `sell_price` bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT '底价（分）',
   `sell_type` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '计费方式（1CPM,2CPC',
-  `max_per_ip` bigint(20) unsigned NOT NULL DEFAULT '10' COMMENT '每IP最大显示数量',
-  `max_per_uv` bigint(20) unsigned NOT NULL DEFAULT '10' COMMENT '每UV最大显示数量',
+  `max_per_ip` bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT '每IP最大显示数量',
+  `max_per_uv` bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT '每UV最大显示数量',
   `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `update_time` timestamp NULL DEFAULT NULL COMMENT '最后更新时间',
   `check_time` timestamp NULL DEFAULT NULL COMMENT '审核时间',
@@ -94,7 +94,7 @@ CREATE TABLE `ad_loc_occupy` (
   `occupy_id` bigint(20) NOT NULL AUTO_INCREMENT,
   `loc_id` bigint(20) NOT NULL DEFAULT '0' COMMENT '广告位ID',
   `plan_id` bigint(20) NOT NULL DEFAULT '0' COMMENT '推广计划ID',
-  `status` tinyint(4) NOT NULL DEFAULT '0' COMMENT '状态：0未投放，1投放中',
+  `status` tinyint(4) NOT NULL DEFAULT '0' COMMENT '状态：0审核中，1投放中，2已过期，3广告位下架，4推广计划暂停，5推广计划被删，6余额不足',
   PRIMARY KEY (`occupy_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='广告占位记录';
 
@@ -123,6 +123,8 @@ CREATE TABLE `ad_plan` (
   `check_time` int(11) NOT NULL DEFAULT '0' COMMENT '审核时间',
   `check_admin` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '审核人账号',
   `check_status` tinyint(4) NOT NULL DEFAULT '0' COMMENT '审核状态：0待审核，1已通过，2已拒绝',
+  `is_pause` tinyint(4) NOT NULL DEFAULT '0' COMMENT '是否暂停：0正常 1已暂停',
+  `is_del` tinyint(4) NOT NULL DEFAULT '0' COMMENT '是否被删：1已删 0未删',
   PRIMARY KEY (`plan_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='推广计划（广告）';
 
@@ -268,7 +270,7 @@ DROP TABLE IF EXISTS `deduct_order`;
 CREATE TABLE `deduct_order` (
   `order_id` bigint(20) NOT NULL AUTO_INCREMENT,
   `uid` bigint(20) NOT NULL,
-  `money` bigint(20) NOT NULL DEFAULT '0' COMMENT '金额（分）',
+  `money` bigint(20) NOT NULL DEFAULT '0' COMMENT '实际扣款（分）',
   `day_cpc_num` int(11) NOT NULL DEFAULT '0' COMMENT '当日CPC量',
   `day_cpm_num` int(11) NOT NULL DEFAULT '0' COMMENT '当日CPM量',
   `deduct_date` varchar(8) NOT NULL DEFAULT '' COMMENT '扣款日期YYYYMMDD',
@@ -276,6 +278,7 @@ CREATE TABLE `deduct_order` (
   `update_time` int(11) NOT NULL DEFAULT '0' COMMENT '更新时间',
   `note` varchar(64) NOT NULL DEFAULT '' COMMENT '备注',
   `status` tinyint(4) NOT NULL DEFAULT '0' COMMENT '状态：0待完成，1已完成，2中止',
+  `pre_money` bigint(20) NOT NULL DEFAULT '0' COMMENT '应扣取的费用（分）',
   PRIMARY KEY (`order_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='系统结算扣款订单';
 
