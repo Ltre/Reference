@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50546
 File Encoding         : 65001
 
-Date: 2017-01-17 11:42:47
+Date: 2017-01-20 11:44:14
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -72,6 +72,7 @@ CREATE TABLE `ad_loc` (
   `sell_type` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '计费方式（1CPM,2CPC',
   `max_per_ip` bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT '每IP最大显示数量',
   `max_per_uv` bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT '每UV最大显示数量',
+  `max_per_click` bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT '最大点击数',
   `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `update_time` timestamp NULL DEFAULT NULL COMMENT '最后更新时间',
   `check_time` timestamp NULL DEFAULT NULL COMMENT '审核时间',
@@ -94,7 +95,7 @@ CREATE TABLE `ad_loc_occupy` (
   `occupy_id` bigint(20) NOT NULL AUTO_INCREMENT,
   `loc_id` bigint(20) NOT NULL DEFAULT '0' COMMENT '广告位ID',
   `plan_id` bigint(20) NOT NULL DEFAULT '0' COMMENT '推广计划ID',
-  `status` tinyint(4) NOT NULL DEFAULT '0' COMMENT '状态：0审核中，1投放中，2已过期，3广告位下架，4推广计划暂停，5推广计划被删，6余额不足',
+  `status` tinyint(4) NOT NULL DEFAULT '0' COMMENT '状态：0审核中，1投放中，2已过期，3广告位下架，4推广计划暂停，5推广计划被删，6欠费',
   PRIMARY KEY (`occupy_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='广告占位记录';
 
@@ -110,7 +111,7 @@ CREATE TABLE `ad_plan` (
   `plan_id` bigint(20) NOT NULL AUTO_INCREMENT,
   `plan_name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '广告名',
   `uid` bigint(20) NOT NULL,
-  `budget_day` bigint(20) NOT NULL DEFAULT '0' COMMENT '每日预算（元）',
+  `budget_day` bigint(20) NOT NULL DEFAULT '0' COMMENT '每日预算（分）',
   `loc_ids` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '需占用的广告位ID, 多个逗号隔开, 作为ad_loc_occupy.loc_id的冗余存储',
   `src` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '素材地址',
   `link` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '广告链接',
@@ -270,6 +271,8 @@ DROP TABLE IF EXISTS `deduct_order`;
 CREATE TABLE `deduct_order` (
   `order_id` bigint(20) NOT NULL AUTO_INCREMENT,
   `uid` bigint(20) NOT NULL,
+  `plan_id` bigint(20) NOT NULL DEFAULT '0' COMMENT '对应的推广计划',
+  `loc_id` bigint(20) NOT NULL DEFAULT '0' COMMENT '对应的广告位',
   `money` bigint(20) NOT NULL DEFAULT '0' COMMENT '实际扣款（分）',
   `day_cpc_num` int(11) NOT NULL DEFAULT '0' COMMENT '当日CPC量',
   `day_cpm_num` int(11) NOT NULL DEFAULT '0' COMMENT '当日CPM量',
@@ -383,19 +386,86 @@ CREATE TABLE `money_record` (
 -- ----------------------------
 DROP TABLE IF EXISTS `recharge_order`;
 CREATE TABLE `recharge_order` (
-  `order_id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `uid` bigint(20) NOT NULL,
-  `money` bigint(20) NOT NULL DEFAULT '0' COMMENT '充值金额（分）',
+  `order_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '我方系统产生的订单ID，与支付系统的订单ID不同',
+  `shop_id` bigint(20) NOT NULL DEFAULT '0' COMMENT '支付接口预提供的shop_id，约定为7',
+  `goods_name` varchar(32) NOT NULL DEFAULT '' COMMENT '商品名',
+  `total_fee` bigint(20) NOT NULL DEFAULT '0' COMMENT '充值金额（分）',
+  `remark` varchar(64) NOT NULL DEFAULT '' COMMENT '备注',
+  `user_id` bigint(20) NOT NULL,
+  `return_url` varchar(128) NOT NULL DEFAULT '' COMMENT '充值结果返回URL',
+  `notify_url` varchar(128) NOT NULL DEFAULT '' COMMENT '异步通知URL',
+  `create_ip` varchar(20) NOT NULL DEFAULT '',
+  `update_ip` varchar(20) NOT NULL DEFAULT '',
   `create_time` int(11) NOT NULL DEFAULT '0' COMMENT '创建时间',
   `update_time` int(11) NOT NULL DEFAULT '0' COMMENT '更新时间',
-  `note` varchar(64) NOT NULL DEFAULT '' COMMENT '备注',
-  `response` text COMMENT '充值接口响应内容',
-  `status` tinyint(4) NOT NULL DEFAULT '0' COMMENT '状态：0待完成，1已完成，2中止',
+  `create_refer` varchar(128) NOT NULL DEFAULT '' COMMENT '用户的HTTP_REFERER',
+  `update_refer` varchar(128) NOT NULL DEFAULT '' COMMENT '用户的HTTP_REFERER',
+  `create_ua` text COMMENT '用户UA',
+  `update_ua` text COMMENT '用户UA',
+  `jump_url` text COMMENT '接口返回的跳转支付URL',
+  `remote_order_id` varchar(50) NOT NULL DEFAULT '' COMMENT '提交订单后，接口返回的订单ID',
+  `remote_order_sn` varchar(50) NOT NULL DEFAULT '' COMMENT '提交订单后，接口返回的订单SN码',
+  `remote_msg` varchar(50) NOT NULL DEFAULT '' COMMENT '接口返回的msg字段',
+  `remote_code` varchar(10) NOT NULL DEFAULT '' COMMENT '接口返回的错误码，0正常，其他异常',
+  `remote_result` varchar(10) NOT NULL DEFAULT '' COMMENT '接口返回的处理结果：1：成功，0：失败',
+  `response` text COMMENT '订单提交接口响应的整串内容',
+  `sign` varchar(50) NOT NULL DEFAULT '' COMMENT '接口调用签名',
+  `status` tinyint(4) NOT NULL DEFAULT '0' COMMENT '状态：0待完成，1已完成，2进行中（跳到支付页），3网络调用失败， 4过期,  5订单提交接口处理失败',
   PRIMARY KEY (`order_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='自助充值订单';
 
 -- ----------------------------
 -- Records of recharge_order
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `recharge_order_callback`
+-- ----------------------------
+DROP TABLE IF EXISTS `recharge_order_callback`;
+CREATE TABLE `recharge_order_callback` (
+  `callback_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `callback_uri` varchar(128) NOT NULL DEFAULT '' COMMENT '回调时的URI，如/finance/notifyRecharge?xxx=yyy&yyy=xxx',
+  `ch_id` varchar(50) NOT NULL DEFAULT '' COMMENT '支付渠道，如WX',
+  `out_trade_no` varchar(50) NOT NULL DEFAULT '' COMMENT '财务订单号',
+  `remote_order_id` varchar(50) NOT NULL DEFAULT '' COMMENT '支付中心订单号',
+  `total_fee` varchar(50) NOT NULL DEFAULT '' COMMENT '总支付金额（分）',
+  `pay_status` varchar(50) NOT NULL DEFAULT '' COMMENT '支付状态：成功success, 失败fail',
+  `user_id` bigint(20) NOT NULL DEFAULT '0',
+  `sign` varchar(50) NOT NULL DEFAULT '' COMMENT '回调签名',
+  `return_msg` text NOT NULL COMMENT '回调完成后，提供给回调者的msg字段，附带调试错误信息',
+  `return_code` tinyint(4) NOT NULL DEFAULT '0' COMMENT '返回给回调者的错误码：0正常，其他异常',
+  `return_result` tinyint(4) NOT NULL DEFAULT '0' COMMENT '返回给回调者的处理结果：1成功，0失败',
+  `create_time` int(11) NOT NULL DEFAULT '0' COMMENT '创建时间',
+  `update_time` int(11) NOT NULL DEFAULT '0' COMMENT '更新时间',
+  `create_ip` varchar(20) NOT NULL DEFAULT '',
+  `update_ip` varchar(20) NOT NULL DEFAULT '',
+  `create_refer` varchar(128) NOT NULL DEFAULT '' COMMENT 'HTTP_REFERER',
+  `update_refer` varchar(128) NOT NULL,
+  `create_ua` text COMMENT 'UA',
+  `update_ua` text COMMENT 'UA',
+  PRIMARY KEY (`callback_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='充值订单回调记录';
+
+-- ----------------------------
+-- Records of recharge_order_callback
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `tmp_log`
+-- ----------------------------
+DROP TABLE IF EXISTS `tmp_log`;
+CREATE TABLE `tmp_log` (
+  `log_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `name` text NOT NULL COMMENT '日志句柄',
+  `note` text NOT NULL COMMENT '注释',
+  `content` longtext NOT NULL,
+  `log_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `log_ip` varchar(15) NOT NULL,
+  PRIMARY KEY (`log_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='临时日志表';
+
+-- ----------------------------
+-- Records of tmp_log
 -- ----------------------------
 
 -- ----------------------------
