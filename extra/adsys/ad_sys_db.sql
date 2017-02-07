@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50546
 File Encoding         : 65001
 
-Date: 2017-01-20 11:44:14
+Date: 2017-02-07 09:34:20
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -29,10 +29,6 @@ CREATE TABLE `ad_channel` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='频道';
 
 -- ----------------------------
--- Records of ad_channel
--- ----------------------------
-
--- ----------------------------
 -- Table structure for `ad_js`
 -- ----------------------------
 DROP TABLE IF EXISTS `ad_js`;
@@ -46,12 +42,9 @@ CREATE TABLE `ad_js` (
   `creator` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '创建者',
   `update_time` timestamp NULL DEFAULT NULL COMMENT '最后更新时间',
   `changer` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '修改者',
+  `status` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '是否有效',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='模板JS代码';
-
--- ----------------------------
--- Records of ad_js
--- ----------------------------
 
 -- ----------------------------
 -- Table structure for `ad_loc`
@@ -67,6 +60,7 @@ CREATE TABLE `ad_loc` (
   `default_js_id` bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT '打底物料',
   `spec_id` bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT '规格ID',
   `sketch_url` varchar(200) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '广告位示意图',
+  `page_url` varchar(200) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '所在页面url',
   `remark` varchar(200) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '备注',
   `sell_price` bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT '底价（分）',
   `sell_type` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '计费方式（1CPM,2CPC',
@@ -84,10 +78,6 @@ CREATE TABLE `ad_loc` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='广告位';
 
 -- ----------------------------
--- Records of ad_loc
--- ----------------------------
-
--- ----------------------------
 -- Table structure for `ad_loc_occupy`
 -- ----------------------------
 DROP TABLE IF EXISTS `ad_loc_occupy`;
@@ -98,10 +88,6 @@ CREATE TABLE `ad_loc_occupy` (
   `status` tinyint(4) NOT NULL DEFAULT '0' COMMENT '状态：0审核中，1投放中，2已过期，3广告位下架，4推广计划暂停，5推广计划被删，6欠费',
   PRIMARY KEY (`occupy_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='广告占位记录';
-
--- ----------------------------
--- Records of ad_loc_occupy
--- ----------------------------
 
 -- ----------------------------
 -- Table structure for `ad_plan`
@@ -130,10 +116,6 @@ CREATE TABLE `ad_plan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='推广计划（广告）';
 
 -- ----------------------------
--- Records of ad_plan
--- ----------------------------
-
--- ----------------------------
 -- Table structure for `ad_platform`
 -- ----------------------------
 DROP TABLE IF EXISTS `ad_platform`;
@@ -147,10 +129,6 @@ CREATE TABLE `ad_platform` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='广告平台';
 
 -- ----------------------------
--- Records of ad_platform
--- ----------------------------
-
--- ----------------------------
 -- Table structure for `ad_spec`
 -- ----------------------------
 DROP TABLE IF EXISTS `ad_spec`;
@@ -162,10 +140,6 @@ CREATE TABLE `ad_spec` (
   `desc` varchar(200) DEFAULT NULL COMMENT '说明',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='广告规格';
-
--- ----------------------------
--- Records of ad_spec
--- ----------------------------
 
 -- ----------------------------
 -- Table structure for `ad_stats`
@@ -209,10 +183,6 @@ CREATE TABLE `ad_stats_daysum` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='广告量统计-日汇总';
 
 -- ----------------------------
--- Records of ad_stats_daysum
--- ----------------------------
-
--- ----------------------------
 -- Table structure for `ad_stats_hoursum`
 -- ----------------------------
 DROP TABLE IF EXISTS `ad_stats_hoursum`;
@@ -233,10 +203,6 @@ CREATE TABLE `ad_stats_hoursum` (
   `update_time` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`sum_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='广告量统计-按小时汇总';
-
--- ----------------------------
--- Records of ad_stats_hoursum
--- ----------------------------
 
 -- ----------------------------
 -- Table structure for `ad_stats_monthsum`
@@ -286,10 +252,6 @@ CREATE TABLE `deduct_order` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='系统结算扣款订单';
 
 -- ----------------------------
--- Records of deduct_order
--- ----------------------------
-
--- ----------------------------
 -- Table structure for `invoice_record`
 -- ----------------------------
 DROP TABLE IF EXISTS `invoice_record`;
@@ -318,6 +280,25 @@ CREATE TABLE `invoice_record` (
 -- ----------------------------
 
 -- ----------------------------
+-- Table structure for `mixed`
+-- ----------------------------
+DROP TABLE IF EXISTS `mixed`;
+CREATE TABLE `mixed` (
+  `mid` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL COMMENT '代号,用于标识配置项',
+  `content` longtext NOT NULL COMMENT '配置值(多个值存储时需序列化)',
+  `note` varchar(64) NOT NULL DEFAULT '' COMMENT '注释',
+  `create_ip` varchar(15) NOT NULL DEFAULT '',
+  `create_time` int(11) NOT NULL DEFAULT '0',
+  `update_ip` varchar(15) NOT NULL DEFAULT '0',
+  `update_time` int(11) NOT NULL DEFAULT '0',
+  `create_user` bigint(20) NOT NULL DEFAULT '0' COMMENT '创建人的user_id',
+  `update_user` bigint(20) NOT NULL DEFAULT '0' COMMENT '修改人的user_id',
+  `valid` tinyint(4) NOT NULL DEFAULT '1' COMMENT '是否有效',
+  PRIMARY KEY (`mid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='杂项配置';
+
+-- ----------------------------
 -- Table structure for `money_daysum`
 -- ----------------------------
 DROP TABLE IF EXISTS `money_daysum`;
@@ -332,10 +313,6 @@ CREATE TABLE `money_daysum` (
   `update_time` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`sum_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='资金变动汇总（日）';
-
--- ----------------------------
--- Records of money_daysum
--- ----------------------------
 
 -- ----------------------------
 -- Table structure for `money_monthsum`
@@ -354,10 +331,6 @@ CREATE TABLE `money_monthsum` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='资金变动汇总（月）';
 
 -- ----------------------------
--- Records of money_monthsum
--- ----------------------------
-
--- ----------------------------
 -- Table structure for `money_record`
 -- ----------------------------
 DROP TABLE IF EXISTS `money_record`;
@@ -374,12 +347,10 @@ CREATE TABLE `money_record` (
   `stats_date` varchar(8) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '统计日期（冗余存储）',
   `stats_month` varchar(6) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '统计月份（冗余存储）',
   `stats_time` int(11) NOT NULL DEFAULT '0' COMMENT '统计时间戳',
+  `img_url` varchar(200) CHARACTER SET utf8mb4 NOT NULL DEFAULT '' COMMENT '单据截图url',
+  `admin` varchar(20) CHARACTER SET utf8mb4 NOT NULL DEFAULT '' COMMENT '后台操作管理员',
   PRIMARY KEY (`record_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='资金变动记录（精确到次）';
-
--- ----------------------------
--- Records of money_record
--- ----------------------------
 
 -- ----------------------------
 -- Table structure for `recharge_order`
@@ -415,16 +386,12 @@ CREATE TABLE `recharge_order` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='自助充值订单';
 
 -- ----------------------------
--- Records of recharge_order
--- ----------------------------
-
--- ----------------------------
 -- Table structure for `recharge_order_callback`
 -- ----------------------------
 DROP TABLE IF EXISTS `recharge_order_callback`;
 CREATE TABLE `recharge_order_callback` (
   `callback_id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `callback_uri` varchar(128) NOT NULL DEFAULT '' COMMENT '回调时的URI，如/finance/notifyRecharge?xxx=yyy&yyy=xxx',
+  `callback_uri` text COMMENT '回调时的URI，如/finance/notifyRecharge?xxx=yyy&yyy=xxx',
   `ch_id` varchar(50) NOT NULL DEFAULT '' COMMENT '支付渠道，如WX',
   `out_trade_no` varchar(50) NOT NULL DEFAULT '' COMMENT '财务订单号',
   `remote_order_id` varchar(50) NOT NULL DEFAULT '' COMMENT '支付中心订单号',
@@ -432,7 +399,7 @@ CREATE TABLE `recharge_order_callback` (
   `pay_status` varchar(50) NOT NULL DEFAULT '' COMMENT '支付状态：成功success, 失败fail',
   `user_id` bigint(20) NOT NULL DEFAULT '0',
   `sign` varchar(50) NOT NULL DEFAULT '' COMMENT '回调签名',
-  `return_msg` text NOT NULL COMMENT '回调完成后，提供给回调者的msg字段，附带调试错误信息',
+  `return_msg` text COMMENT '回调完成后，提供给回调者的msg字段，附带调试错误信息',
   `return_code` tinyint(4) NOT NULL DEFAULT '0' COMMENT '返回给回调者的错误码：0正常，其他异常',
   `return_result` tinyint(4) NOT NULL DEFAULT '0' COMMENT '返回给回调者的处理结果：1成功，0失败',
   `create_time` int(11) NOT NULL DEFAULT '0' COMMENT '创建时间',
@@ -447,10 +414,6 @@ CREATE TABLE `recharge_order_callback` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='充值订单回调记录';
 
 -- ----------------------------
--- Records of recharge_order_callback
--- ----------------------------
-
--- ----------------------------
 -- Table structure for `tmp_log`
 -- ----------------------------
 DROP TABLE IF EXISTS `tmp_log`;
@@ -463,10 +426,6 @@ CREATE TABLE `tmp_log` (
   `log_ip` varchar(15) NOT NULL,
   PRIMARY KEY (`log_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='临时日志表';
-
--- ----------------------------
--- Records of tmp_log
--- ----------------------------
 
 -- ----------------------------
 -- Table structure for `user`
@@ -488,7 +447,3 @@ CREATE TABLE `user` (
   `qq` varchar(16) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'QQ',
   PRIMARY KEY (`uid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='广告商用户';
-
--- ----------------------------
--- Records of user
--- ----------------------------
