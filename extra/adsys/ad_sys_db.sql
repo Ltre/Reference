@@ -85,7 +85,7 @@ CREATE TABLE `ad_loc_occupy` (
   `occupy_id` bigint(20) NOT NULL AUTO_INCREMENT,
   `loc_id` bigint(20) NOT NULL DEFAULT '0' COMMENT '广告位ID',
   `plan_id` bigint(20) NOT NULL DEFAULT '0' COMMENT '推广计划ID',
-  `status` tinyint(4) NOT NULL DEFAULT '0' COMMENT '状态：0审核中，1投放中，2已过期，3广告位下架，4推广计划暂停，5推广计划被删，6欠费',
+  `status` tinyint(4) NOT NULL DEFAULT '0' COMMENT '状态：0审核中，1投放中，2已过期，3广告位下架，4推广计划暂停，5推广计划被删，6欠费，7未开始',
   PRIMARY KEY (`occupy_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='广告占位记录';
 
