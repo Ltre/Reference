@@ -260,12 +260,14 @@ CREATE TABLE `deduct_order` (
 DROP TABLE IF EXISTS `invoice_record`;
 CREATE TABLE `invoice_record` (
   `record_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `uid` bigint(20) NOT NULL COMMENT '用户ID',
   `apply_time` int(11) NOT NULL DEFAULT '0' COMMENT '申请时间',
   `check_time` int(11) NOT NULL DEFAULT '0' COMMENT '审核时间',
   `express_time` int(11) NOT NULL DEFAULT '0' COMMENT '快递发出时间',
   `money` bigint(11) NOT NULL DEFAULT '0' COMMENT '申请金额（分）',
   `invoice_header` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '发票抬头',
-  `invoice_type` tinyint(4) NOT NULL DEFAULT '0' COMMENT '发票项目（即类型），0默认类型',
+  `invoice_type` tinyint(4) NOT NULL DEFAULT '0' COMMENT '发票类型：0增值税普票，1增值税专票',
+  `invoice_item` tinyint(4) NOT NULL DEFAULT '0' COMMENT '发票项目：0广告费，1广告发布费',
   `charge_month` varchar(6) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '充值月份',
   `status` tinyint(4) NOT NULL DEFAULT '0' COMMENT '状态：0申请中，1已通过，2被拒绝，3已快递',
   `express_name` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '快递公司',
@@ -274,6 +276,13 @@ CREATE TABLE `invoice_record` (
   `phone` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '收货电话',
   `email` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '收货通知邮件',
   `contact` varchar(16) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '收货联系人',
+  `tax_license_img` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '纳税人资质文件截图（用于纳税扩展信息）',
+  `tax_company` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '纳税公司名称（用于纳税扩展信息）',
+  `tax_bankname` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '开户行（用于纳税扩展信息）',
+  `tax_man_id` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '纳税人识别号（用于纳税扩展信息）',
+  `tax_bankcard` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '银行卡号（用于纳税扩展信息）',
+  `tax_address` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '地址（用于纳税扩展信息）',
+  `tax_phone` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '电话（用于纳税扩展信息）',
   `note` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '备注',
   PRIMARY KEY (`record_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='发票开具记录';
