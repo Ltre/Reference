@@ -1,6 +1,6 @@
 <pre>
 
-<h1><center>多玩视频 - 提供给饭盒视频助手的API</center></h1>
+<h1><center>多玩视频 - 提供给饭盒视频助手的API (20170306)</center></h1>
 
 
 <font color="blue">1、【newclientapi/GetVideoData】拉取vid指定的视频，作为其新的饭盒视频插入来源或已有数据编辑来源 </font>
