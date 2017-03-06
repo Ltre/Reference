@@ -98,6 +98,7 @@ CREATE TABLE `ad_plan` (
   `plan_name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '广告名',
   `uid` bigint(20) NOT NULL,
   `budget_day` bigint(20) NOT NULL DEFAULT '0' COMMENT '每日预算（分）',
+  `spec_id` bigint(20) NOT NULL DEFAULT '0' COMMENT '选择的尺寸规格ID',
   `loc_ids` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '需占用的广告位ID, 多个逗号隔开, 作为ad_loc_occupy.loc_id的冗余存储',
   `src` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '素材地址',
   `link` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '广告链接',
@@ -265,7 +266,7 @@ CREATE TABLE `invoice_record` (
   `check_time` int(11) NOT NULL DEFAULT '0' COMMENT '审核时间',
   `express_time` int(11) NOT NULL DEFAULT '0' COMMENT '快递发出时间',
   `money` bigint(11) NOT NULL DEFAULT '0' COMMENT '申请金额（分）',
-  `invoice_header` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '发票抬头',
+  `invoice_header` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '发票抬头',
   `invoice_type` tinyint(4) NOT NULL DEFAULT '0' COMMENT '发票类型：0增值税普票，1增值税专票',
   `invoice_item` tinyint(4) NOT NULL DEFAULT '0' COMMENT '发票项目：0广告费，1广告发布费',
   `charge_month` varchar(6) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '充值月份',
@@ -290,6 +291,23 @@ CREATE TABLE `invoice_record` (
 -- ----------------------------
 -- Records of invoice_record
 -- ----------------------------
+
+
+-- ----------------------------
+-- Table structure for `mixed`
+-- ----------------------------
+CREATE TABLE `invoice_record_add_log` (
+  `log_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `invoice_record_id` bigint(20) NOT NULL,
+  `all_data` text COMMENT '在发票页面上所有填写内容(json)',
+  `submit_data` text COMMENT '在发票页面上提交的内容(json)',
+  `create_time` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`log_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='成功插入发票申请后，记录日志';
+-- ----------------------------
+-- Records of invoice_record
+-- ----------------------------
+
 
 -- ----------------------------
 -- Table structure for `mixed`
