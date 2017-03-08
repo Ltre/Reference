@@ -37,7 +37,10 @@
                     "video_channel_name": "多玩视频",
                     "video_intro": "",
                     "video_tags": ",视频测试,图片,",
-                    "video_square_cover": "http://ojiastoreimage.bs2dl.yy.com/1488784065250_len97228.png"
+                    "video_square_cover": "http://ojiastoreimage.bs2dl.yy.com/1488784065250_len97228.png",
+                    "src": "http://dw-w6.dwstatic.com/2/11/1523/123455-101-1433332813.mp4",
+                    "album_id": 321,
+                    "album_name": "呵呵"
                 },
                 "fanheVideo": {
                     "id": "3339",
