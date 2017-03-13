@@ -318,15 +318,25 @@
                 "video_raw_duration": 250,
                 "video_url": "http://video.duowan.com/play/123456.html",
                 "video_upload_time": "2015-06-03 19:57",
-                "video_raw_upload_time": "1433332660",
+                "video_raw_upload_time": 1433332660,
                 "video_channel": "wows",
-                "video_channel_name": "多玩视频",
-                "video_intro": "",
-                "video_tags": "",
+                "video_channel_name": "多玩视频",  //专区显示名
+                "video_intro": "视频简介",
+                "video_tags": ["游戏视频", "比赛视频"],
+                "video_tag_links": [
+                    {
+                        "tag": "游戏视频",
+                        "tag_link": "http://video.duowan.com/youxishipin8210.html"
+                    },
+                    {
+                        "tag": "比赛视频",
+                        "tag_link": "http://video.duowan.com/lol/bisai.html"
+                    }
+                ],
                 "video_square_cover": "http://s1.dwstatic.com/duowanvideo/20170221/11/5238501.jpg",
-                "comment3_uniqid": "bb7d509c92c98b48c2a94b8254aa50d2",
+                "comment3_uniqid": "bb7d509c92c98b48c2a94b8254aa50d2",  //通用评论uniqid
                 "c": "加密字符串",
-                "result": 1
+                "result": 1   // 1 正常(以此为准)  0无效数据
             },
             "654321" : {
                 ...,
