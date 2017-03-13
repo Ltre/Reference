@@ -292,4 +292,102 @@
 
 
 
+<font color="blue">7、获取视频信息及视频源、评论uniqid、相关标签等（视频站播放页专用） jsapi/playPageVideoInfo </font>
+	————————————————————————————————————————————————————
+	URL:		http://video.duowan.com/jsapi/playPageVideoInfo
+	————————————————————————————————————————————————————
+	参数(get|post):
+		vids            视频，多个用半角逗号隔开
+	————————————————————————————————————————————————————
+	返回(json)：
+        {
+            "123456": {
+                "user_id": "1002099688",
+                "user_avatar": "http://s1.dwstatic.com/boke_avatar/FB/9E/fb9e256e85a1e00ee2fb12b2beaf6bae5475.jpg",
+                "user_nickname": "咖啡",
+                "user_homepage": "http://video.duowan.com/u/1002099688",
+                "vid": 123456,
+                "video_title": "【战舰世界】【舰队】Des Moines.mp4_WebBilibili",
+                "video_subtitle": "【战舰世界】【舰队】Des Moines.mp4_WebBilibili",
+                "video_cover": "http://vimg.dwstatic.com/1523/123456/4-220x124.jpg",
+                "video_play_num": "853",
+                "video_raw_play_num": 853,
+                "video_comment_num": "0",
+                "video_raw_comment_num": 0,
+                "video_duration": "04:10",
+                "video_raw_duration": 250,
+                "video_url": "http://video.duowan.com/play/123456.html",
+                "video_upload_time": "2015-06-03 19:57",
+                "video_raw_upload_time": "1433332660",
+                "video_channel": "wows",
+                "video_channel_name": "多玩视频",
+                "video_intro": "",
+                "video_tags": "",
+                "video_square_cover": "http://s1.dwstatic.com/duowanvideo/20170221/11/5238501.jpg",
+                "comment3_uniqid": "bb7d509c92c98b48c2a94b8254aa50d2",
+                "c": "加密字符串",
+                "result": 1
+            },
+            "654321" : {
+                ...,
+                ... 结构同"123456"...,
+                ...
+            }, 
+            ...
+        }
+	————————————————————————————————————————————————————
+	备注: 
+		字段c解密：
+            方法：
+                var srcMap = {};
+                if (JSON.parse) {
+                    srcMap = JSON.parse(decr(c)); 
+                } else {
+                    srcMap = eval('('+decr(c)+')');
+                }
+            结果示例：
+                有数据时，
+                    得到：{
+                        "all": {
+                            "350": {
+                                "src": "http://dw-w6.dwstatic.com/1/12/1523/123456-98-1433333060.mp4",
+                                "definition": "350",
+                                "definition_name": "流畅"
+                            },
+                            "1000": {
+                                "src": "http://dw-w6.dwstatic.com/1/9/1523/123456-99-1433333060.mp4",
+                                "definition": "1000",
+                                "definition_name": "高清"
+                            },
+                            "1300": {
+                                "src": "http://dw-w6.dwstatic.com/1/11/1523/123456-100-1433333060.mp4",
+                                "definition": "1300",
+                                "definition_name": "超清"
+                            },
+                            "yuanhua": {
+                                "src": "http://dw-w6.dwstatic.com/1/12/1523/123456-101-1433333060.mp4",
+                                "definition": "yuanhua",
+                                "definition_name": "原画"
+                            }
+                        },
+                        "select": {
+                            "src": "",
+                            "definition": "1300",
+                            "definition_name": "超清"
+                        }
+                    }
+                没数据时，
+                    得到：[]
+            示例源码：<a href="http://cms.acggeek.com/%E5%A4%9A%E7%8E%A9%E8%A7%86%E9%A2%91GCVS%E8%A7%86%E9%A2%91%E6%BA%90%E6%8E%A5%E5%8F%A3%E8%A7%A3%E5%AF%86%E7%A4%BA%E4%BE%8B">详见</a>
+	————————————————————————————————————————————————————
+	示例：
+		http://video.duowan.com/jsapi/getRankByTag&channel=5253wzry&tag=%E8%99%8E%E7%89%99%E8%A7%86%E9%A2%91&sortBy=month&limit=10
+	————————————————————————————————————————————————————
+
+
+
+
+
+
+
 </pre>
