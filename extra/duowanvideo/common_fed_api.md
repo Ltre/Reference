@@ -404,4 +404,145 @@
 
 
 
+
+<font color="blue">8、操作接口 - 收藏视频动作 jsapi/collectByVid </font>
+	————————————————————————————————————————————————————
+	URL:		http://video.duowan.com/jsapi/collectByVid
+	————————————————————————————————————————————————————
+	参数(get|post):
+		vids	    视频ID，多个用半角逗号隔开
+	————————————————————————————————————————————————————
+	返回(json)：
+		{
+			"rs": true,//true即成功
+            "msg": "操作成功"
+		}
+	————————————————————————————————————————————————————
+	备注: 
+		需要登录态
+	————————————————————————————————————————————————————
+	示例：
+		http://video.duowan.com/jsapi/collectByVid?vids=111111,123456
+	————————————————————————————————————————————————————
+
+
+
+
+
+<font color="blue">9、操作接口 - 取消收藏视频动作 jsapi/collectByVid </font>
+	————————————————————————————————————————————————————
+	URL:		http://video.duowan.com/jsapi/removeCollectByVid
+	————————————————————————————————————————————————————
+	参数(get|post):
+		vids	    视频ID，多个用半角逗号隔开
+	————————————————————————————————————————————————————
+	返回(json)：
+		{
+			"rs": true,//true即成功
+            "msg": "操作成功"
+		}
+	————————————————————————————————————————————————————
+	备注: 
+		需要登录态
+	————————————————————————————————————————————————————
+	示例：
+		http://video.duowan.com/jsapi/removeCollectByVid?vids=11111,123456
+	————————————————————————————————————————————————————
+
+
+
+
+<font color="blue">10、判断接口 - 是否已收藏视频 jsapi/isVideoCollected </font>
+	————————————————————————————————————————————————————
+	URL:		http://video.duowan.com/jsapi/isVideoCollected
+	————————————————————————————————————————————————————
+	参数(get|post):
+		vids	    视频ID，多个用半角逗号隔开
+	————————————————————————————————————————————————————
+	返回(json)：
+		{
+			"rs": true,//true即成功
+            "msg": "操作成功",
+            "map": {
+                "111111": true, //已收藏
+                "123456": false //未收藏
+            }
+		}
+	————————————————————————————————————————————————————
+	备注: 
+		需要登录态
+	————————————————————————————————————————————————————
+	示例：
+		http://video.duowan.com/jsapi/isVideoCollected?vids=111111,123456
+	————————————————————————————————————————————————————
+
+
+
+
+<font color="blue">11、数据接口 - 获取已收藏的视频列表 jsapi/getVideoCollected </font>
+	————————————————————————————————————————————————————
+	URL:		http://video.duowan.com/jsapi/getVideoCollected
+	————————————————————————————————————————————————————
+	参数(get|post):
+		p   	    页码，默认1，可选
+        limit       每页条目数，默认16，可选
+	————————————————————————————————————————————————————
+	返回(json)：
+		{
+			"rs": true,//true即成功
+            "msg": "获取成功",
+            "list": [ <font color=red>//这里的视频信息，是最基本的VideoInfo结构，跟jsapi/playPageVideoInfo返回的还是有区别的，注意不用使用不存在的字段</font>
+                {
+                    "user_id": "5452110",
+                    "user_avatar": "http://s1.dwstatic.com/vhuya/avatar/54/52/200_200/c05f22834f003f77e912ea1896713396.jpg?t=1473320930",
+                    "user_nickname": "小学生院长",
+                    "user_homepage": "http://video.duowan.com/u/5452110",
+                    "vid": 1638206,
+                    "video_title": "北美第一锐雯BoxBox 用手柄也能打爆你",
+                    "video_subtitle": "北美第一锐雯BoxBox 手柄打爆你",
+                    "video_cover": "http://vimg.dwstatic.com/1614/1638206/9-220x124.jpg",
+                    "video_play_num": "4.2万",
+                    "video_raw_play_num": 42253,
+                    "video_comment_num": "22",
+                    "video_raw_comment_num": 22,
+                    "video_duration": "49:42",
+                    "video_raw_duration": 2982,
+                    "video_url": "http://video.duowan.com/play/1638206.html",
+                    "video_upload_time": "2016-04-07 12:07",
+                    "video_raw_upload_time": 1460002058,
+                    "video_channel": "lol",
+                    "video_channel_name": "英雄联盟",
+                    "video_intro": "　　北美第一锐雯BoxBox用手柄玩上单锐雯，这操作与手速比普通人用键盘还溜。",
+                    "video_tags": ",游戏视频,高手视频,主播视频,英雄视频,上单视频,放逐之刃锐雯视频,盒子推荐,",
+                    "video_square_cover": "http://s1.dwstatic.com/duowanvideo/20170221/11/5238501.jpg",
+                    "game_url": "http://video.duowan.com/lol/",
+                    "game_name": "英雄联盟"
+                },
+                ...,
+                {...}
+            ],
+            "pages": { //分页信息，结构由PHPBASE框架生成。<font color=red>当没有生成分页数据时，值为null</font>
+                "total_count": "10", //总数据量
+                "page_size": 2, //每页条数
+                "total_page": 5, //总页数
+                "first_page": 1, //首页
+                "prev_page": 1, //上一页
+                "next_page": 2, //下一页
+                "last_page": 5, //最后一页
+                "current_page": 1, //当前页
+                "all_pages": [1, 2, 3, 4, 5], //当前可见页码表
+                "offset": 0, //起始数据位置
+                "limit": 2
+            }
+		}
+	————————————————————————————————————————————————————
+	备注: 
+		需要登录态
+	————————————————————————————————————————————————————
+	示例：
+		http://video.duowan.com/jsapi/getVideoCollected?p=1&limit=2
+	————————————————————————————————————————————————————
+
+
+
 </pre>
