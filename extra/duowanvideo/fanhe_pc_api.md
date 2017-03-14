@@ -119,7 +119,7 @@
 
 <font color="blue">3、获取发布器编辑姓名，也可判断是否为发布器编辑</font>
 	————————————————————————————————————————————————————
-	URL:		http://video.duowan.com/?r=newclientapi/del
+	URL:		http://video.duowan.com/?r=newclientapi/getCmsEditorRealname
 	————————————————————————————————————————————————————
 	参数(get|post):
 		udb		YY通行证
