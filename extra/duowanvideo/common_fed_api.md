@@ -310,6 +310,7 @@
                 "video_title": "【战舰世界】【舰队】Des Moines.mp4_WebBilibili",
                 "video_subtitle": "【战舰世界】【舰队】Des Moines.mp4_WebBilibili",
                 "video_cover": "http://vimg.dwstatic.com/1523/123456/4-220x124.jpg",
+                "video_big_cover": "http://vimg.dwstatic.com/1523/123456/4-640x360.jpg",
                 "video_play_num": "853",
                 "video_raw_play_num": 853,
                 "video_comment_num": "0",
