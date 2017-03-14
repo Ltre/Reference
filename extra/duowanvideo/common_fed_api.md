@@ -335,6 +335,8 @@
                 ],
                 "video_square_cover": "http://s1.dwstatic.com/duowanvideo/20170221/11/5238501.jpg",
                 "comment3_uniqid": "bb7d509c92c98b48c2a94b8254aa50d2",  //通用评论uniqid
+                "comment3_domain": "psv.duowan.com", //通用评论domain参数
+                "comment3_url": "/1411/281119815775.html", //通用评论url参数
                 "c": "加密字符串",
                 "result": 1   // 1 正常(以此为准)  0无效数据
             },
