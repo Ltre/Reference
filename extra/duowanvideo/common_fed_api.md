@@ -94,6 +94,8 @@
 				"video_raw_play_num": 165,
 				"video_comment_num": "0",
 				"video_raw_comment_num": 0,
+                "video_support": "0",
+                "video_raw_support": 0,
 				"video_duration": "07:25",
 				"video_raw_duration": 445,
 				"video_url": "http://video.duowan.com/play/3502275.html",
@@ -225,6 +227,8 @@
 			"video_raw_play_num": 8,
 			"video_comment_num": "5",
 			"video_raw_comment_num": 5,
+            "video_support": "0",
+            "video_raw_support": 0,
 			"video_duration": "05:49",
 			"video_raw_duration": 349,
 			"video_url": "http://video.duowan.com/play/3512943.html",
@@ -270,6 +274,8 @@
 			"video_raw_play_num": 0,
 			"video_comment_num": 0,
 			"video_raw_comment_num": 0,
+            "video_support": "0",
+            "video_raw_support": 0,
 			"video_duration": "00:00",
 			"video_raw_duration": "00:00",
 			"video_url": "http://video.duowan.com/",
@@ -315,6 +321,8 @@
                 "video_raw_play_num": 853,
                 "video_comment_num": "0",
                 "video_raw_comment_num": 0,
+                "video_support": "0",
+                "video_raw_support": 0,
                 "video_duration": "04:10",
                 "video_raw_duration": 250,
                 "video_url": "http://video.duowan.com/play/123456.html",
@@ -505,6 +513,10 @@
                     "video_raw_play_num": 42253,
                     "video_comment_num": "22",
                     "video_raw_comment_num": 22,
+                    "video_support": "0",
+                    "video_raw_support": 0,
+                    "video_support": "0",
+                    "video_raw_support": 0,
                     "video_duration": "49:42",
                     "video_raw_duration": 2982,
                     "video_url": "http://video.duowan.com/play/1638206.html",
@@ -544,5 +556,39 @@
 	————————————————————————————————————————————————————
 
 
+
+<font color="blue">12、获取用户信息 jsapi/getUserInfo </font>
+	————————————————————————————————————————————————————
+	URL:		http://video.duowan.com/jsapi/getUserInfo
+	————————————————————————————————————————————————————
+	参数(get|post):
+		uid 	    YYUID（详见备注）
+	————————————————————————————————————————————————————
+	返回(json)：
+        {
+            "rs": true,
+            "msg": "",
+            "data": {
+                "user_id": "50014545",
+                "user_avatar": "http://s1.dwstatic.com/vhuya/avatar/50/01/200_200/98d2a3f69b3baffa354413ea9951e7c5.jpg?t=1466045578",
+                "user_nickname": "王尼玛",
+                "user_homepage": "http://video.duowan.com/u/50014545",
+                "user_channel": "",
+                "user_channel_name": "",
+                "user_video_sum": "41",
+                "user_play_sum": "4,288",
+                "user_desc": "范德萨范德萨范德萨发撒发送"
+            }
+        }
+	————————————————————————————————————————————————————
+	备注: 
+		uid参数为空时，需要登录态才能看到自己的用户信息；
+        uid不为空时，则获取指定用户信息，不需登录态
+	————————————————————————————————————————————————————
+	示例：
+		http://video.duowan.com/jsapi/isVideoCollected?vids=111111,123456
+	————————————————————————————————————————————————————
+
+GetUserInfo
 
 </pre>
