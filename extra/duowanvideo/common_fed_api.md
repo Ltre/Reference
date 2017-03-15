@@ -487,7 +487,34 @@
 
 
 
-<font color="blue">11、数据接口 - 获取已收藏的视频列表 jsapi/getVideoCollected </font>
+<font color="blue">11、获取单个视频的被收藏数 jsapi/GetCollectNumByVid </font>
+	————————————————————————————————————————————————————
+	URL:		http://video.duowan.com/jsapi/GetCollectNumByVid
+	————————————————————————————————————————————————————
+	参数(get|post):
+		vids 	        视频ID，多个用半角逗号隔开
+	————————————————————————————————————————————————————
+	返回(json)：
+        {
+            "rs": true,
+            "msg": "获取成功",
+            "map": {
+                "111111": 0,  //被收藏数
+                "123456": 456 //被收藏数
+            }
+        }
+	————————————————————————————————————————————————————
+	备注: 
+		无
+	————————————————————————————————————————————————————
+	示例：
+		http://video.duowan.com/jsapi/getCollectNumByVid?vids=123456,111111
+	————————————————————————————————————————————————————
+
+
+
+
+<font color="blue">12、数据接口 - 获取已收藏的视频列表 jsapi/getVideoCollected </font>
 	————————————————————————————————————————————————————
 	URL:		http://video.duowan.com/jsapi/getVideoCollected
 	————————————————————————————————————————————————————
@@ -557,7 +584,7 @@
 
 
 
-<font color="blue">12、获取用户信息 jsapi/getUserInfo </font>
+<font color="blue">13、获取用户信息 jsapi/getUserInfo </font>
 	————————————————————————————————————————————————————
 	URL:		http://video.duowan.com/jsapi/getUserInfo
 	————————————————————————————————————————————————————
@@ -589,6 +616,7 @@
 		http://video.duowan.com/jsapi/getUserInfo?uid=50014545
 	————————————————————————————————————————————————————
 
-GetUserInfo
+
+
 
 </pre>
