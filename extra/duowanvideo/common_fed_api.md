@@ -619,4 +619,54 @@
 
 
 
+
+
+<font color="blue">14、获取某视频的相关视频 jsapi/getVideoRelate </font>
+	————————————————————————————————————————————————————
+	URL:		http://video.duowan.com/jsapi/getVideoRelate
+	————————————————————————————————————————————————————
+	参数(get|post):
+		relate_vid 	    单个视频ID
+        limit           获取个数，最大20
+	————————————————————————————————————————————————————
+	返回(array)：
+        [
+            {
+                "user_id": "1351878416",
+                "user_avatar": "http://video.duowan.com/style/img/editor-avatar.png",
+                "user_nickname": "战舰世界·官方直播团·博士",
+                "user_homepage": "http://video.duowan.com/u/1351878416",
+                "vid": 335648,
+                "video_title": "火焰之地之舞 战舰世界天城级战列舰作战秀",
+                "video_subtitle": "火焰之地之舞 战舰世界天城级战列舰作战秀",
+                "video_cover": "http://vimg.dwstatic.com/1551/335648/9-220x124.jpg",
+                "video_play_num": "4,189",
+                "video_raw_play_num": 4189,
+                "video_comment_num": "4",
+                "video_raw_comment_num": 4,
+                "video_support": "0",
+                "video_raw_support": 0,
+                "video_duration": "42:49",
+                "video_raw_duration": 2569,
+                "video_url": "http://video.duowan.com/play/335648.html",
+                "video_upload_time": "2015-12-17 10:33",
+                "video_raw_upload_time": 1450319632,
+                "video_channel": "wows",
+                "video_channel_name": "战舰世界",
+                "video_intro": "",
+                "video_tags": ",游戏视频,重点,经验技巧,战列舰经验,战舰经验,日本战列舰,天城攻略,地图,灰烬群岛,图片,战列舰视频,日系战列视频,天城视频,",
+                "video_square_cover": "http://s1.dwstatic.com/duowanvideo/20170221/11/5238501.jpg"
+            },
+            ...,
+            ,{...}
+        ]
+	————————————————————————————————————————————————————
+	备注: 
+		无
+	————————————————————————————————————————————————————
+	示例：
+		http://video.duowan.com/jsapi/getVideoRelate?relate_vid=123456&limit=5
+	————————————————————————————————————————————————————
+
+
 </pre>
