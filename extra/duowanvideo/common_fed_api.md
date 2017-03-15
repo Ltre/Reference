@@ -586,7 +586,7 @@
         uid不为空时，则获取指定用户信息，不需登录态
 	————————————————————————————————————————————————————
 	示例：
-		http://video.duowan.com/jsapi/isVideoCollected?vids=111111,123456
+		http://video.duowan.com/jsapi/getUserInfo?uid=50014545
 	————————————————————————————————————————————————————
 
 GetUserInfo
