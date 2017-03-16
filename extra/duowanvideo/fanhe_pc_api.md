@@ -132,6 +132,7 @@
         }
 	————————————————————————————————————————————————————
 	备注: 
+        需要登录态
 		code为正数表示删除成功；
         code为负数表示异常，如
             -1      参数错误
@@ -140,5 +141,156 @@
 	————————————————————————————————————————————————————
 	示例：
 		http://video.duowan.com/?r=newclientapi/getCmsEditorRealname&udb=dw_xxx
+	————————————————————————————————————————————————————
+
+
+
+
+
+
+<font color="blue">4、获取已发布的饭盒视频</font>
+	————————————————————————————————————————————————————
+	URL:		http://video.duowan.com/?r=newclientapi/getMyPublished
+	————————————————————————————————————————————————————
+	参数(get|post):
+		p           页码，默认1
+        limit       每页数量，默认10（有时可能在非首页，出现的数据量少于limit，这个不必在意）
+	————————————————————————————————————————————————————
+	返回(json object)：
+        {
+            "code": 1,
+            "msg": "获取成功",
+            "data": {
+                "list": [ //列表
+                    {
+                        "duowanVideo": {
+                            "user_id": "50014545",
+                            "user_avatar": "http://s1.dwstatic.com/vhuya/avatar/50/01/200_200/98d2a3f69b3baffa354413ea9951e7c5.jpg?t=1466045578",
+                            "user_nickname": "王尼玛",
+                            "user_homepage": "http://video.duowan.com/u/50014545",
+                            "vid": "3560324",
+                            "video_title": "部落冲突 皇室战争-瓦基丽武神 迷你皮卡 哥布林小屋",
+                            "video_subtitle": "部落冲突 皇室战争-瓦基丽武神 迷你皮卡 哥布林小屋",
+                            "video_cover": "http://ojiastoreimage.bs2dl.yy.com/1487899301440_len94848.png",
+                            "video_play_num": "768",
+                            "video_raw_play_num": 768,
+                            "video_comment_num": "0",
+                            "video_raw_comment_num": 0,
+                            "video_support": "0",
+                            "video_raw_support": 0,
+                            "video_duration": "10:10",
+                            "video_raw_duration": 610,
+                            "video_url": "http://video.duowan.com/play/3560324.html",
+                            "video_upload_time": "2017-02-24 09:21",
+                            "video_raw_upload_time": 1487899288,
+                            "video_channel": "oujtest",
+                            "video_channel_name": "多玩视频",
+                            "video_intro": "",
+                            "video_tags": "",
+                            "video_square_cover": "http://ojiastoreimage.bs2dl.yy.com/1487899300854_len91129.png",
+                            "src": "http://dw-w7.dwstatic.com/59/9/1708/3560324-98-1487899300.mp4",
+                            "album_id": "0",
+                            "album_name": ""
+                        },
+                        "fanheVideo": {
+                            "id": "1186",
+                            "vid": "3560324",
+                            "channel": "",
+                            "title": "部落冲突 皇室战争-瓦基丽武神 迷你皮卡 哥布林小屋",
+                            "uid": "50014545",
+                            "cover": "http://ojiastoreimage.bs2dl.yy.com/1487899301440_len94848.png",
+                            "square_cover": "http://ojiastoreimage.bs2dl.yy.com/1487899300854_len91129.png",
+                            "gif_cover": "http://ojiastorevideos.bs2dl.yy.com/1487899302373_len578368.gif",
+                            "cms_tags": "",
+                            "fanhe_main_tags": "二次元",
+                            "fanhe_tags": ",呵呵,",
+                            "album_id": "0",
+                            "serie_id": "0",
+                            "collection_name": "",
+                            "digest": "",
+                            "upload_uid": "50014545",
+                            "upload_udb_name": "dw_fangkunbiao",
+                            "article_id": "0",
+                            "article_url": "",
+                            "status": "3",
+                            "is_del": "0"
+                        }
+                    },
+                    {
+                        "duowanVideo": {
+                            "user_id": "50014545",
+                            "user_avatar": "http://s1.dwstatic.com/vhuya/avatar/50/01/200_200/98d2a3f69b3baffa354413ea9951e7c5.jpg?t=1466045578",
+                            "user_nickname": "王尼玛",
+                            "user_homepage": "http://video.duowan.com/u/50014545",
+                            "vid": "3557527",
+                            "video_title": "部落冲突 皇室战争-瓦基丽武神 迷你皮卡 哥布林小屋",
+                            "video_subtitle": "部落冲突 皇室战争-瓦基丽武神 迷你皮卡 哥布林小屋",
+                            "video_cover": "http://ojiastoreimage.bs2dl.yy.com/1487664007878_len101245.png",
+                            "video_play_num": "1,028",
+                            "video_raw_play_num": 1028,
+                            "video_comment_num": "0",
+                            "video_raw_comment_num": 0,
+                            "video_support": "0",
+                            "video_raw_support": 0,
+                            "video_duration": "10:10",
+                            "video_raw_duration": 610,
+                            "video_url": "http://video.duowan.com/play/3557527.html",
+                            "video_upload_time": "2017-02-21 15:58",
+                            "video_raw_upload_time": 1487663929,
+                            "video_channel": "ceshi",
+                            "video_channel_name": "多玩视频",
+                            "video_intro": "",
+                            "video_tags": "",
+                            "video_square_cover": "http://ojiastoreimage.bs2dl.yy.com/1487664007540_len97228.png",
+                            "src": "http://dw-w5.dwstatic.com/55/3/1708/3557527-98-1487664005.mp4",
+                            "album_id": "1326",
+                            "album_name": "尼玛死"
+                        },
+                        "fanheVideo": {
+                            "id": "613",
+                            "vid": "3557527",
+                            "channel": "ceshi",
+                            "title": "部落冲突 皇室战争-瓦基丽武神 迷你皮卡 哥布林小屋[非重复值1f456d4as961sd65a4fs6]",
+                            "uid": "50014545",
+                            "cover": "http://ojiastoreimage.bs2dl.yy.com/1487664007878_len101245.png",
+                            "square_cover": "http://ojiastoreimage.bs2dl.yy.com/1487664007540_len97228.png",
+                            "gif_cover": "http://ojiastorevideos.bs2dl.yy.com/1487664010603_len578368.gif",
+                            "cms_tags": ",呵呵,",
+                            "fanhe_main_tags": "二次元",
+                            "fanhe_tags": ",呵呵,",
+                            "album_id": "1326",
+                            "serie_id": "0",
+                            "collection_name": "",
+                            "digest": "发大水发生大幅",
+                            "upload_uid": "50014545",
+                            "upload_udb_name": "dw_fangkunbiao",
+                            "article_id": "351620444040",
+                            "article_url": "",
+                            "status": "3",
+                            "is_del": "0"
+                        }
+                    }
+                ],
+                "pages": {
+                    "total_count": "4",//总数据量
+                    "page_size": 2,//每页数量
+                    "total_page": 2,//总页数
+                    "first_page": 1,//首页
+                    "prev_page": 1,//上一页
+                    "next_page": 2,//下一页
+                    "last_page": 2,//尾页
+                    "current_page": 1,//当前页
+                    "all_pages": [1, 2],//当前可见页码
+                    "offset": 0,//记录起始偏移量
+                    "limit": 2
+                }
+            }
+        }
+	————————————————————————————————————————————————————
+	备注: 
+        需要登录态
+	————————————————————————————————————————————————————
+	示例：
+		http://video.duowan.com/?r=newclientapi/GetMyPublished&p=1&limit=2
 	————————————————————————————————————————————————————
 
