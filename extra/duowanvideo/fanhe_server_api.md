@@ -46,6 +46,7 @@
                 'nickname' => '这是昵称', //可选，不需要时，需传空字符串
                 'userIntro' => '个人简介', //可选，不需要时，需传空字符串
                 'homeNotice' => '个人主页公告', //可选，不需要时，需传空字符串
+                'homeCover' => 'http://s1.dwstatic.com/duowanvideo/20170313/20/1225823.gif', //可选，不需要时，需传空字符串
                 'avatar' => 'http://s1.dwstatic.com/duowanvideo/20170313/20/1225823.gif', //可选，不需要时，需传空字符串
                 'time' => (string) time(), //时间戳，一定要字符串，否则两方系统数据类型不一致
             );
