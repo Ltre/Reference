@@ -343,6 +343,7 @@
                     }
                 ],
                 "video_square_cover": "http://s1.dwstatic.com/duowanvideo/20170221/11/5238501.jpg",
+                "article_id": "4986156746494646",//文章ID
                 "comment3_uniqid": "bb7d509c92c98b48c2a94b8254aa50d2",  //通用评论uniqid
                 "comment3_domain": "psv.duowan.com", //通用评论domain参数
                 "comment3_url": "/1411/281119815775.html", //通用评论url参数
@@ -666,6 +667,60 @@
 	————————————————————————————————————————————————————
 	示例：
 		http://video.duowan.com/jsapi/getVideoRelate?relate_vid=123456&limit=5
+	————————————————————————————————————————————————————
+
+
+
+<font color="blue">15、获取视频分P播放列表 jsapi/getVideoParts </font>
+	————————————————————————————————————————————————————
+	URL:		http://video.duowan.com/jsapi/getVideoParts
+	————————————————————————————————————————————————————
+	参数(get|post):
+		vid 	        单个视频ID（必要）
+        articleId       文章ID（可选）
+        channel         专区ID（可选）
+	————————————————————————————————————————————————————
+	返回(array)：
+{
+    "rs": true,
+    "msg": "获取成功",
+    "list": [
+        {
+            "user_id": 0,
+            "user_avatar": "http://video.duowan.com/style/img/editor-avatar.png",
+            "user_nickname": "多玩小编",
+            "user_homepage": "http://video.duowan.com/",
+            "vid": 0,
+            "video_title": "",
+            "video_subtitle": "",
+            "video_cover": "http://video.duowan.com/style/img/no-cover.jpg",
+            "video_play_num": 0,
+            "video_raw_play_num": 0,
+            "video_comment_num": 0,
+            "video_raw_comment_num": 0,
+            "video_support": 0,
+            "video_raw_support": 0,
+            "video_duration": "00:00",
+            "video_raw_duration": "00:00",
+            "video_url": "http://video.duowan.com/",
+            "video_upload_time": "2015-07-08",
+            "video_raw_upload_time": 0,
+            "video_channel": "unknown",
+            "video_channel_name": "多玩视频",
+            "video_intro": "",
+            "video_tags": "",
+            "video_square_cover": "http://s1.dwstatic.com/duowanvideo/20170221/11/5238501.jpg"
+        }
+        ...,
+        ,{...}
+    ]
+}
+	————————————————————————————————————————————————————
+	备注: 
+		无
+	————————————————————————————————————————————————————
+	示例：
+		http://video.duowan.com/jsapi/getVideoParts?vid=111111&channel=vhuyatv&articleId=327418767976
 	————————————————————————————————————————————————————
 
 
