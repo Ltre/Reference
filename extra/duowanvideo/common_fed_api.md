@@ -717,7 +717,7 @@
 }
 	————————————————————————————————————————————————————
 	备注: 
-		无
+		<font color=red>当articleId及channel都传入时，才会输出分P信息，否则列表只给出一个视频</font>
 	————————————————————————————————————————————————————
 	示例：
 		http://video.duowan.com/jsapi/getVideoParts?vid=111111&channel=vhuyatv&articleId=327418767976
