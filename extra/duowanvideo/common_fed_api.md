@@ -89,6 +89,7 @@
 				"vid": 3502275,
 				"video_title": "亚索光速技能三部曲",
 				"video_subtitle": "亚索光速技能三部曲",
+                "video_rawtitle": "",
 				"video_cover": "http://vimg.dwstatic.com/1647/3502275/4-220x124.jpg",
 				"video_play_num": "165",
 				"video_raw_play_num": 165,
@@ -222,6 +223,7 @@
 			"vid": 3512943,
 			"video_title": "Numen精彩集锦：剑姬丝血躲伤1V2",
 			"video_subtitle": "Numen精彩集锦：剑姬丝血躲伤1V2",
+            "video_rawtitle": "",
 			"video_cover": "http://vimg.dwstatic.com/1650/3512943/9-220x124.jpg",
 			"video_play_num": "8",
 			"video_raw_play_num": 8,
@@ -269,6 +271,7 @@
 			"vid": 0,
 			"video_title": "",
 			"video_subtitle": "",
+            "video_rawtitle": "",
 			"video_cover": "http://video.duowan.com/style/img/no-cover.jpg",
 			"video_play_num": 0,
 			"video_raw_play_num": 0,
@@ -315,6 +318,7 @@
                 "vid": 123456,
                 "video_title": "【战舰世界】【舰队】Des Moines.mp4_WebBilibili",
                 "video_subtitle": "【战舰世界】【舰队】Des Moines.mp4_WebBilibili",
+                "video_rawtitle": "",
                 "video_cover": "http://vimg.dwstatic.com/1523/123456/4-220x124.jpg",
                 "video_big_cover": "http://vimg.dwstatic.com/1523/123456/4-640x360.jpg",
                 "video_play_num": "853",
@@ -536,6 +540,7 @@
                     "vid": 1638206,
                     "video_title": "北美第一锐雯BoxBox 用手柄也能打爆你",
                     "video_subtitle": "北美第一锐雯BoxBox 手柄打爆你",
+                    "video_rawtitle": "fdsadfsfsdf",
                     "video_cover": "http://vimg.dwstatic.com/1614/1638206/9-220x124.jpg",
                     "video_play_num": "4.2万",
                     "video_raw_play_num": 42253,
@@ -640,6 +645,7 @@
                 "vid": 335648,
                 "video_title": "火焰之地之舞 战舰世界天城级战列舰作战秀",
                 "video_subtitle": "火焰之地之舞 战舰世界天城级战列舰作战秀",
+                "video_rawtitle": "fdasfasf",
                 "video_cover": "http://vimg.dwstatic.com/1551/335648/9-220x124.jpg",
                 "video_play_num": "4,189",
                 "video_raw_play_num": 4189,
@@ -693,6 +699,7 @@
             "vid": 0,
             "video_title": "",
             "video_subtitle": "",
+            "video_rawtitle": "",
             "video_cover": "http://video.duowan.com/style/img/no-cover.jpg",
             "video_play_num": 0,
             "video_raw_play_num": 0,
@@ -720,7 +727,7 @@
 		<font color=red>当articleId及channel都传入时，才会输出分P信息，否则列表只给出一个视频</font>
 	————————————————————————————————————————————————————
 	示例：
-		http://video.duowan.com/jsapi/getVideoParts?vid=111111&channel=vhuyatv&articleId=327418767976
+		http://video.duowan.com/jsapi/getVideoParts?vid=1951187&channel=x1&articleId=326914899577
 	————————————————————————————————————————————————————
 
 
