@@ -8,6 +8,7 @@ $GLOBALS += array(
 	    'huyaUserHome' => array('extra/huya/userhome.readme.md', '虎牙个人主页相关接口(20150916)'),
 	    'huyaRevenue' => array('extra/huya/revenue.readme.md', '虎牙分成体系(20151023)'),
 		'duowanvideoCmsApi' => array('extra/duowanvideo/cms_api.md', '多玩视频 - 提供给发布器的API(20161220)'),
+        'duowanvideoMipApi' => array('extra/duowanvideo/mip_api.md', '多玩视频 - 提供给百度MIP的内部API(20170413)'),
 		'duowanvideoCommonFedApi' => array('extra/duowanvideo/common_fed_api.md', '多玩视频 - 通用前端API(20161220)'),
         'duowanvideoFanhePcApi' => array('extra/duowanvideo/fanhe_pc_api.md', '多玩视频 - 提供给饭盒视频助手的API(20170306)'),
         'duowanvideoFanheServerApi' => array('extra/duowanvideo/fanhe_server_api.md', '多玩视频 - 提供给饭盒后端的API (20170313)'),
