@@ -302,4 +302,111 @@
 
 
 
+
+<font color="blue">5、获取常用专区信息</font>
+    ————————————————————————————————————————————————————
+    URL:		http://video.duowan.com/?r=mip/GetUsuallyGames
+    ————————————————————————————————————————————————————
+    参数(get|post):
+        无
+    ————————————————————————————————————————————————————
+    返回(json)：
+        {
+            "byChannel": {
+                "ycvideo": {
+                "game_id": "1907",
+                "game_channel": "ycvideo",
+                "game_name": "多玩原创",
+                "game_cover": "http://s1.dwstatic.com/vhuya/BE/31/be31d3504c2cb9d2eac65af1af191dde4470.jpg",
+                "game_url": "http://video.duowan.com/ycvideo/",
+                "game_intro": "由多玩原创视频团队出品，推出各类游戏视频周播栏目，涵盖资讯、推荐、娱乐、综艺等游戏内容，并延展推出动画、生活综艺等新型栏目。每周一到周日均有更新。旨在为玩家提供好玩好看的游戏视频节目。\r\n\t\t\t\t\t",
+                "channel_alias": "ycvideo"
+                },
+                "lol": {
+                "game_id": "1",
+                "game_channel": "lol",
+                "game_name": "英雄联盟",
+                "game_cover": "http://s1.dwstatic.com/vhuya/6F/85/6f85a9e4f86b054721e8020c7dd8e99e1179.jpg",
+                "game_url": "http://video.duowan.com/lol/",
+                "game_intro": "《英雄联盟》（简称lol）是由美国Riot Games开发，腾讯游戏运营的英雄对战网游。\r\n\t\t\t\t\t",
+                "channel_alias": "lol"
+                },
+                "df": {
+                "game_id": "2",
+                "game_channel": "df",
+                "game_name": "地下城与勇士",
+                "game_cover": "http://s1.dwstatic.com/vhuya/05/8B/058b97f2478e5408446bbf6b15f575e92823.jpg",
+                "game_url": "http://video.duowan.com/dnf/",
+                "game_intro": "《地下城与勇士》是一款韩国网络游戏公司NEOPLE开发的免费角色扮演2D游戏，由三星电子发行，并于2005年8月在韩国正式发布。由腾讯游戏代理发行。\r\n\t\t\t\t\t",
+                "channel_alias": "dnf"
+                },
+                "kan": {
+                "game_id": "1912",
+                "game_channel": "kan",
+                "game_name": "娱乐",
+                "game_cover": "http://s1.dwstatic.com/vhuya/B4/82/b482cbe1100f6ed0f7b5cd22419c95bd1937.jpg",
+                "game_url": "http://video.duowan.com/yule/",
+                "game_intro": "脑洞大开，捧腹大笑，妈妈再也不用担心我没腹肌。",
+                "channel_alias": "yule"
+                }
+            },
+            "byAlias": {
+                "dnf": {
+                    "game_id": "1936",
+                    "game_channel": "vhuyadnf",
+                    "game_name": "地下城与勇士",
+                    "game_cover": "http://s1.dwstatic.com/vhuya/05/8B/058b97f2478e5408446bbf6b15f575e92823.jpg",
+                    "game_url": "http://video.duowan.com/dnf/",
+                    "game_intro": "《地下城与勇士》是一款韩国网络游戏公司NEOPLE开发的免费角色扮演2D游戏，由三星电子发行，并于2005年8月在韩国正式发布。由腾讯游戏代理发行。",
+                    "channel_alias": "dnf"
+                },
+                "yule": {
+                    "game_id": "1945",
+                    "game_channel": "vhuyayule",
+                    "game_name": "娱乐",
+                    "game_cover": "http://s1.dwstatic.com/vhuya/B4/82/b482cbe1100f6ed0f7b5cd22419c95bd1937.jpg",
+                    "game_url": "http://video.duowan.com/yule/",
+                    "game_intro": "脑洞大开，捧腹大笑，妈妈再也不用担心我没腹肌。",
+                    "channel_alias": "yule"
+                },
+                "anime": {
+                    "game_id": "1904",
+                    "game_channel": "vhuyadm",
+                    "game_name": "动漫",
+                    "game_cover": "http://s1.dwstatic.com/vhuya/27/FE/27febf554cea977db947befd75940f562081.gif",
+                    "game_url": "http://video.duowan.com/anime/",
+                    "game_intro": "\t\t\t\t\t\r\n\t\t\t\t\t\r\n\t\t\t\t\t",
+                    "channel_alias": "anime"
+                },
+                "sy": {
+                    "game_id": "1961",
+                    "game_channel": "5253video",
+                    "game_name": "多玩手游",
+                    "game_cover": "http://s1.dwstatic.com/vhuya/7A/C3/7ac359d4b8c05dec278f0bda997adaad9207.jpg",
+                    "game_url": "http://video.duowan.com/sy/",
+                    "game_intro": "国内外最新手游预告、试玩，最近有什么好玩的手游，一看便知。",
+                    "channel_alias": "sy"
+                }
+            }
+        }
+    ————————————————————————————————————————————————————
+    示例：
+        http://video.duowan.com/?r=mip/GetUsuallyGames
+    ————————————————————————————————————————————————————
+    备注: 
+        byChannel - 以专区ID为键
+        byAlias - 以URL关键字为键，例如http://video.duowan.com/kan 的 “kan”
+        元数据中各个字段释义
+            game_channel - 专区ID
+            game_game - 专区显示名
+            game_cover - 专区封面
+            game_url - 专区链接
+            game_url - 专区简介
+            channel_alias - 专区链接中的关键字，如http://video.duowan.com/kan 的 “kan”，用来表示专区首页
+    ————————————————————————————————————————————————————
+
+
+
+
+
 </pre>
