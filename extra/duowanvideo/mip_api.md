@@ -303,7 +303,7 @@
 
 
 
-<font color="blue">5、获取常用专区信息</font>
+<font color="blue">5、获取常用专区信息列表</font>
     ————————————————————————————————————————————————————
     URL:		http://video.duowan.com/?r=mip/GetUsuallyGames
     ————————————————————————————————————————————————————
