@@ -297,3 +297,55 @@
 		http://video.duowan.com/?r=newclientapi/GetMyPublished&p=1&limit=2
 	————————————————————————————————————————————————————
 
+
+
+
+
+
+
+
+
+
+<font color="blue">5、保存视频</font>
+	————————————————————————————————————————————————————
+	URL:		http://video.duowan.com/?r=newclientapi/save
+	————————————————————————————————————————————————————
+	参数(get|post):
+		articleJson		字段集
+	————————————————————————————————————————————————————
+	返回(json object)：
+        {
+            "code": 1,
+            "msg": "操作成功",
+        }
+	————————————————————————————————————————————————————
+	备注: 
+        编辑已有视频时，不能修改订阅号
+	————————————————————————————————————————————————————
+	示例：
+        var data = {
+            videoId:1773,
+            channel:'ceshi',
+            title:'测试视频002',
+            uid:'50001131',
+            cover:'http://res.miku.us/res/img/default/2016/07/24/010233-353-hex238.jpg',
+            cms_cover:'http://res.miku.us/res/img/default/2016/11/24/091644-204-hex95.jpg',
+            gifCover:'http://ojiastorevideos.bs2dl.yy.com/1487227598555_len220641.gif',
+            cmsTags:['视频测试','美女','娱乐','游戏'],
+            mainTag:'游戏',
+            tags:['英雄联盟','英雄联盟-LCK联赛'],
+            album:113,
+            serie:0,
+            collection:'',  
+            describe:'这是一个测试视频，请无视',
+            udb_name:'dw_zhaotao'
+        };
+        $.get('http://video.duowan.com/?r=newclientapi/save', {articleJson: JSON.stringify(data)}, function(j){
+            console.log(j);
+        }, 'jsonp');
+	————————————————————————————————————————————————————
+
+
+
+
+
