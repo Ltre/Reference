@@ -171,7 +171,45 @@
 
 
 
-<font color="blue">5、获取饭盒标签</font>
+<font color="blue">5、获取发布器专区的标签节点树</font>
+	————————————————————————————————————————————————————
+	URL:	http://grab-v.duowan.com/jsapi/cmsTags
+            http://grab-author.webdev2.duowan.com/jsapi/cmsTags
+	————————————————————————————————————————————————————
+	参数(get|post):
+        无
+	————————————————————————————————————————————————————
+    返回：
+        [
+            {
+                "tagName": "撸圈八卦",
+                "tagId": "1",
+                "tagParentId": "0",
+                "tagParentName": "无"
+            },
+            {
+                "tagName": "撸时代",
+                "tagId": "2",
+                "tagParentId": "163",
+                "tagParentName": "动画短片"
+            },
+            {
+                "tagName": "囧视频",
+                "tagId": "3",
+                "tagParentId": "1110",
+                "tagParentName": "游戏视频"
+            },
+            ... ,
+            {...}
+        ]
+	————————————————————————————————————————————————————
+    备注：无
+    ————————————————————————————————————————————————————
+
+
+
+
+<font color="blue">6、获取饭盒标签</font>
 	————————————————————————————————————————————————————
 	URL:	http://admin-svideo.duowan.com/tag/all.do
 	————————————————————————————————————————————————————
