@@ -258,8 +258,71 @@
 
 
 
+videosInAuthorTask
+<font color="blue">7、获取单个作者任务中的视频列表</font>
+	————————————————————————————————————————————————————
+	URL:	http://grab-v.duowan.com/jsapi/videosInAuthorTask
+            http://grab-author.webdev2.duowan.com/jsapi/videosInAuthorTask
+	————————————————————————————————————————————————————
+	参数(get|post):
+        authorTaskId    作者任务ID
+	————————————————————————————————————————————————————
+    返回：
+        {
+            "list": [
+                {
+                    "id": "3",
+                    "author_task_id": "1",
+                    "url_task_id": "74",
+                    "recom_id": "0",
+                    "author_id": "3",
+                    "vid": "0",
+                    "status": 1,
+                    "status_desc": "发布成功",
+                    "create_time": "0",
+                    "videourl": "www.bilibili.com/video/av5726734",
+                    "title": "【血与酒】黑桐谷歌视频攻略 07 攻下一城",
+                    "cover": "//i1.hdslb.com/bfs/archive/adbba6349cd8041f38e8e9449b33aa4f3117d767.jpg"
+                },
+                {
+                    "id": "3",
+                    "author_task_id": "1",
+                    "url_task_id": "74",
+                    "recom_id": "0",
+                    "author_id": "3",
+                    "vid": "0",
+                    "status": 1,
+                    "status_desc": "发布成功",
+                    "create_time": "0",
+                    "videourl": "www.bilibili.com/video/av5726734",
+                    "title": "【血与酒】黑桐谷歌视频攻略 07 攻下一城",
+                    "cover": "//i1.hdslb.com/bfs/archive/adbba6349cd8041f38e8e9449b33aa4f3117d767.jpg"
+                },
+                ... ,
+                {...}
+            ],
+            "pages": null,
+            "count": "1",
+            "author": {
+                "author_name": "sb"
+            },
+            "authorTask": {
+                "task_id": "1",
+                "author_id": "3",
+                "author_url": "https://space.bilibili.com/43536#!/",
+                "recom_id": "0",
+                "task_status": "9"
+            }
+        }
+	————————————————————————————————————————————————————
+    备注：无
+    ————————————————————————————————————————————————————
 
-<font color="blue">7、删除单个视频子任务及对应的视频、文章、饭盒视频</font>
+
+
+
+
+<font color="blue">8、删除单个视频子任务及对应的视频、文章、饭盒视频</font>
 	————————————————————————————————————————————————————
 	URL:	http://grab-v.duowan.com/jsapi/delVideo
             http://grab-author.webdev2.duowan.com/jsapi/delVideo
@@ -278,7 +341,7 @@
 
 
 
-<font color="blue">8、重传抓取的视频</font>
+<font color="blue">9、重传抓取的视频</font>
 	————————————————————————————————————————————————————
 	URL：无
 	————————————————————————————————————————————————————
@@ -292,7 +355,9 @@
     ————————————————————————————————————————————————————
 
 
-<font color="blue">9、剪辑、修改视频</font>
+
+
+<font color="blue">10、剪辑、修改视频</font>
 	————————————————————————————————————————————————————
 	URL：无
 	————————————————————————————————————————————————————
