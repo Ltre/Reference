@@ -13,6 +13,7 @@ $GLOBALS += array(
         'duowanvideoFanhePcApi' => array('extra/duowanvideo/fanhe_pc_api.md', '多玩视频 - 提供给饭盒视频助手的API(20170306)'),
         'duowanvideoFanheServerApi' => array('extra/duowanvideo/fanhe_server_api.md', '多玩视频 - 提供给饭盒后端的API (20170313)'),
         'duowanvideoAuthorgrabFedApi' => array('extra/duowanvideo/authorgrab_fed_api.md', '订阅号追踪 - 前端API (20170616)'),
+        'duowanvideoAuthorgrabServerApi' => array('extra/duowanvideo/authorgrab_server_api.md', '订阅号追踪 - 后端API (20170616)'),
         'adsysDbDesign' => array('extra/adsys/ad_sys_db.md', '多玩广告系统数据库设计草稿(20170112)'),
         'adsysDbDesignSql' => array('extra/adsys/ad_sys_db.sql', '多玩广告系统数据库设计SQL(20170112)'),
     ),
