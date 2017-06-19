@@ -150,16 +150,16 @@
     返回：
         [
             {
-            "channelId": "5253video",
-            "channelName": "5253视频"
+                "channelId": "5253video",
+                "channelName": "5253视频"
             },
             {
-            "channelId": "d3",
-            "channelName": "暗黑3"
+                "channelId": "d3",
+                "channelName": "暗黑3"
             },
             {
-            "channelId": "bb",
-            "channelName": "BOOM BEACH"
+                "channelId": "bb",
+                "channelName": "BOOM BEACH"
             },
             ... ,
             {...}
