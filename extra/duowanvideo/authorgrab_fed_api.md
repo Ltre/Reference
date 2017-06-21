@@ -9,14 +9,14 @@
             http://grab-author.webdev2.duowan.com/jsapi/authorGrab
 	————————————————————————————————————————————————————
 	参数(get|post):
-		authorName      自定义作者名称
-        homeUrl         作者主页
-        tplYyuid        推荐模板yyuid，即要分配至的订阅号
-        channel         专区
-        cmsTags         发布器标签，逗号隔开，逗号不限制全角或半角
-        fanheTags       饭盒标签，逗号隔开，逗号不限制全角或半角
-        fanheMainTags   饭盒主标签，逗号隔开，逗号不限制全角或半角
-        pushVideosite   是否发布到视频站（即发布器文章对外展现URL是否形如http://video.duowan.com/play/xxxxxx.html）
+		authorName      【必填】自定义作者名称
+        homeUrl         【必填】作者主页
+        tplYyuid        【必填】推荐模板yyuid，即要分配至的订阅号
+        channel         【必填】专区
+        cmsTags         【可选】发布器标签，逗号隔开，逗号不限制全角或半角
+        fanheTags       【必填】饭盒标签，逗号隔开，逗号不限制全角或半角
+        fanheMainTags   【可选】饭盒主标签，逗号隔开，逗号不限制全角或半角
+        pushVideosite   【必填】是否发布到视频站（即发布器文章对外展现URL是否形如http://video.duowan.com/play/xxxxxx.html）
 	————————————————————————————————————————————————————
 	返回: 
 		rs              操作结果：true|false
