@@ -12,6 +12,7 @@
 		authorName      自定义作者名称
         homeUrl         作者主页
         tplYyuid        推荐模板yyuid，即要分配至的订阅号
+        channel         专区
         cmsTags         发布器标签，逗号隔开，逗号不限制全角或半角
         fanheTags       饭盒标签，逗号隔开，逗号不限制全角或半角
         fanheMainTags   饭盒主标签，逗号隔开，逗号不限制全角或半角
