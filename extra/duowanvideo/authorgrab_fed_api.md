@@ -28,7 +28,7 @@
                             authorTaskId为当前新建的任务id
 	————————————————————————————————————————————————————
 	示例：
-        http://grab-author.webdev2.duowan.com/jsapi/authorGrab?homeUrl=http://video.duowan.com/u/50014545&authorName=%E7%8E%8B%E5%B0%BC%E7%8E%9B2&tplYyuid=50014545&cmsTags=%E6%B8%B8%E6%88%8F%E8%A7%86%E9%A2%91&fanheTags=BS&fanheMainTags=%E6%B8%B8%E6%88%8F
+        http://grab-author.webdev2.duowan.com/jsapi/authorGrab?homeUrl=http://video.duowan.com/u/50014545&authorName=%E7%8E%8B%E5%B0%BC%E7%8E%9B2&tplYyuid=50014545&cmsTags=%E6%B8%B8%E6%88%8F%E8%A7%86%E9%A2%91&fanheTags=BS&fanheMainTags=%E6%B8%B8%E6%88%8F&channel=ceshi
     返回：
         {
             "rs": true,
