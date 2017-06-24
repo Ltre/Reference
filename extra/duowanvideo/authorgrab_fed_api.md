@@ -390,4 +390,7 @@ videosInAuthorTask
         }
 	————————————————————————————————————————————————————
     备注：<font color=red>需要登录态</font>
+	————————————————————————————————————————————————————
+	示例：
+        http://grab-author.webdev2.duowan.com/jsapi/delAuthorTask?authorTaskId=1
     ————————————————————————————————————————————————————
