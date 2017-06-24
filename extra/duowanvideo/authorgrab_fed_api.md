@@ -375,3 +375,19 @@ videosInAuthorTask
 
 
 
+<font color="blue">11、删除作者抓取的任务</font>
+	————————————————————————————————————————————————————
+	URL: http://grab-v.duowan.com/jsapi/delAuthorTask
+         http://grab-author.webdev2.duowan.com/jsapi/delAuthorTask
+	————————————————————————————————————————————————————
+	参数(get|post):
+        authorTaskId    作者任务ID
+	————————————————————————————————————————————————————
+    返回：
+        {
+            "rs": true,
+            "msg": "操作成功"
+        }
+	————————————————————————————————————————————————————
+    备注：<font color=red>需要登录态</font>
+    ————————————————————————————————————————————————————
