@@ -12,7 +12,7 @@
 		authorName      【必填】自定义作者名称
         homeUrl         【必填】作者主页
         tplYyuid        【必填】推荐模板yyuid，即要分配至的订阅号
-        channel         【必填】专区
+        channel         【可选】专区
         cmsTags         【可选】发布器标签，逗号隔开，逗号不限制全角或半角
         fanheTags       【必填】饭盒标签，逗号隔开，逗号不限制全角或半角
         fanheMainTags   【可选】饭盒主标签，逗号隔开，逗号不限制全角或半角
