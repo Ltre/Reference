@@ -376,7 +376,30 @@ videosInAuthorTask
 
 
 
-<font color="blue">11、删除作者抓取的任务</font>
+<font color="blue">11、重抓单个视频</font>
+	————————————————————————————————————————————————————
+    URL: http://grab-v.duowan.com/jsapi/reGrabVideo
+         http://grab-author.webdev2.duowan.com/jsapi/reGrabVideo
+	————————————————————————————————————————————————————
+    参数(get|post):
+        id          某个视频的抓取流水ID（不是视频平台的vid）
+	————————————————————————————————————————————————————
+    返回：
+        {
+            "rs": true,
+            "msg": "操作成功，请等待异步处理"
+        }
+	————————————————————————————————————————————————————
+    备注：<font color=red>需要登录态</font>
+	————————————————————————————————————————————————————
+	示例：
+        http://grab-author.webdev2.duowan.com/jsapi/reGrabVideo?id=1
+    ————————————————————————————————————————————————————
+
+
+
+
+<font color="blue">12、删除作者抓取的任务</font>
 	————————————————————————————————————————————————————
     URL: http://grab-v.duowan.com/jsapi/delAuthorTask
          http://grab-author.webdev2.duowan.com/jsapi/delAuthorTask
