@@ -269,6 +269,18 @@ videosInAuthorTask
 	————————————————————————————————————————————————————
 	参数(get|post):
         authorTaskId    作者任务ID
+        p               页码，默认1
+        limit           每页条数，默认10
+        status          【可选】抓取及发布的综合状态，值如下：
+                            PUBLISH_SUCCESS     - VideoInfo发布状态：发布成功
+                            PUBLISH_FAIL        - VideoInfo发布状态：发布失败
+                            PUBLISH_DEL         - VideoInfo发布状态：被删除
+                            PUBLISH_NOTFOUND    - VideoInfo发布状态：查无记录
+                            PUBLISH_OTHER       - VideoInfo发布状态：其它状态
+                            GRAB_WAIT           - 抓取状态：待抓取
+                            GRAB_ING            - 抓取状态：抓取中
+                            GRAB_RETRY          - 抓取状态：正在重试
+                            GRAB_FAIL           - 抓取状态：抓取失败
 	————————————————————————————————————————————————————
     返回：
         {
