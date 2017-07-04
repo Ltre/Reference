@@ -261,7 +261,6 @@
 
 
 
-videosInAuthorTask
 <font color="blue">7、获取单个作者任务中的视频列表</font>
 	————————————————————————————————————————————————————
 	URL:	http://grab-v.duowan.com/jsapi/videosInAuthorTask
