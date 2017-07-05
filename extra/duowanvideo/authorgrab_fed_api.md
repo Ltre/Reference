@@ -296,7 +296,46 @@
                     "create_time": "0",
                     "videourl": "www.bilibili.com/video/av5726734",
                     "title": "【血与酒】黑桐谷歌视频攻略 07 攻下一城",
-                    "cover": "//i1.hdslb.com/bfs/archive/adbba6349cd8041f38e8e9449b33aa4f3117d767.jpg"
+                    "cover": "//i1.hdslb.com/bfs/archive/adbba6349cd8041f38e8e9449b33aa4f3117d767.jpg",
+                    "has_article": true, //有文章
+                    "articles": [
+                        363193754808: {
+                            article_id: "363193754808",
+                            author: "辣鸡王尼玛",
+                            channel: "ceshi",
+                            channel_name: "测试",
+                            comment3_uniqid: "e475564203856a2bc7ff846b29961cae",
+                            comment_num: "0",
+                            content: "&lt;div class="embed-video"&gt;&lt;script type="text/javascript"&gt;var player_conf = {"letvVideoUnique":"","userUnique":"","videoId":"0","vid":"8421141","channelId":"ceshi","continous_play":"0","autoPlay": "1","height":"498","width":"610"};&lt;/script&gt;&lt;script type="text/javascript" src="http://assets.dwstatic.com/video/vp.js"&gt;&lt;/script&gt;&lt;/div&gt;",
+                            digest: "",
+                            diy1: "",
+                            diy2: "",
+                            diy3: "",
+                            diy4: "",
+                            diy5: "",
+                            id: "232149",
+                            picture_url: "http://s1.dwstatic.com/author-grab/20170705/14/5057455.jpeg",
+                            publish_time: "2017-07-05 15:09:14",
+                            source: "多玩饭盒视频机器人",
+                            stat_update_time: "1499244663",
+                            subtitle: "",
+                            tags: ",图片,",
+                            title: "【暴走大事件第四季】61 反诈骗新章！铁柱已跌入爱情悬崖",
+                            title_color: "",
+                            update_time: "2017-07-05 16:51:03",
+                            url: "http://ceshi.duowan.com/1707/363193754808.html",
+                            user_id: "编辑的姓名",
+                            video_day_sum: "0",
+                            video_month_sum: "0",
+                            video_play_sum : "0",
+                            video_week_sum: "0",
+                            vids: ",8421141,"
+                        },
+                        363193754809: {
+                            ....
+                        },
+                        ...
+                    ]
                 },
                 {
                     "id": "3",
@@ -310,7 +349,9 @@
                     "create_time": "0",
                     "videourl": "www.bilibili.com/video/av5726734",
                     "title": "【血与酒】黑桐谷歌视频攻略 07 攻下一城",
-                    "cover": "//i1.hdslb.com/bfs/archive/adbba6349cd8041f38e8e9449b33aa4f3117d767.jpg"
+                    "cover": "//i1.hdslb.com/bfs/archive/adbba6349cd8041f38e8e9449b33aa4f3117d767.jpg",
+                    "has_article": true, //没文章
+                    "articles": []
                 },
                 ... ,
                 {...}
