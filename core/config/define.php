@@ -9,6 +9,7 @@ switch ($hostname) {
         case '192.168.1.99':
 	case 'localhost':
 	case 'reference.webdev.duowan.com':
+    case 'di-reference.webdev.ouj.com':
 	    {
 	        define('DI_ROUTE_REWRITE', true);
 	        break;
