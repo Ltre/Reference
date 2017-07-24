@@ -21,7 +21,8 @@ if (in_array($hostname, array(
     }
     
 } elseif (in_array($hostname, array(
-	'reference.webdev.duowan.com'
+	'reference.webdev.duowan.com',
+    'ltre-reference.webdev.ouj.com',
 ))) {
     
     class DIDBConfig {
