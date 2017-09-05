@@ -141,23 +141,44 @@
             http://grab-author.webdev2.duowan.com/uploadclientapi/delUrlTask
     ————————————————————————————————————————————————————
     参数(get|post):
-        urlTaskId       抓取任务ID
+        urlTaskIdList       抓取任务ID，多个可用[逗号隔开]或[数字数组]两种形式
     ————————————————————————————————————————————————————
     返回: 
         rs          true|false
         msg         提示
+        errList     错误列表, 详见示例
     ————————————————————————————————————————————————————
     示例：
-        http://grab-v.duowan.com/uploadclientapi/delUrlTask?urlTaskIdList=778
+        http://grab-v.duowan.com/uploadclientapi/delUrlTask?urlTaskIdList=123,456
         返回成功例如：
         {
             "rs": true,
             "msg": "操作成功",
+            "errList": []
         }
+        http://grab-v.duowan.com/uploadclientapi/delUrlTask?urlTaskIdList=12345,12346,12347,abcde
         返回失败例如：
         {
             "rs": false,
-            "msg": "不能删除别人的任务",
+            "msg": "删除不完全成功，存在异常",
+            "errList": [
+                {
+                    "msg": "任务ID不存在",
+                    "urlTaskId": "12345"
+                },
+                {
+                    "msg": "删除失败",
+                    "urlTaskId": "12346"
+                },
+                {
+                    "msg": "不能删除别人的任务",
+                    "urlTaskId": "12347"
+                },
+                {
+                    "msg": "ID参数值[abcde]有误",
+                    "urlTaskId": "abcde"
+                }
+            ]
         }
     ————————————————————————————————————————————————————
     备注：<font color="red">需要登录态! </font>
