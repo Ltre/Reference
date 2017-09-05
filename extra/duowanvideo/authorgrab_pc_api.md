@@ -104,8 +104,7 @@
             http://grab-author.webdev2.duowan.com/uploadclientapi/getComprehensiveStatus
     ————————————————————————————————————————————————————
     参数(get|post):
-        url             外站播放页URL
-        channel         [可选]指定上传至的发布器专区ID
+        urlTaskId       抓取任务ID
     ————————————————————————————————————————————————————
     返回: 
         rs          执行结果：成功true|失败false
@@ -135,4 +134,32 @@
     ————————————————————————————————————————————————————
 
 
+
+<font color="blue">4、删除抓取任务</font>
+    ————————————————————————————————————————————————————
+    URL:    http://grab-v.duowan.com/uploadclientapi/delUrlTask
+            http://grab-author.webdev2.duowan.com/uploadclientapi/delUrlTask
+    ————————————————————————————————————————————————————
+    参数(get|post):
+        urlTaskId       抓取任务ID
+    ————————————————————————————————————————————————————
+    返回: 
+        rs          true|false
+        msg         提示
+    ————————————————————————————————————————————————————
+    示例：
+        http://grab-v.duowan.com/uploadclientapi/delUrlTask?urlTaskIdList=778
+        返回成功例如：
+        {
+            "rs": true,
+            "msg": "操作成功",
+        }
+        返回失败例如：
+        {
+            "rs": false,
+            "msg": "不能删除别人的任务",
+        }
+    ————————————————————————————————————————————————————
+    备注：<font color="red">需要登录态! </font>
+    ————————————————————————————————————————————————————
 
