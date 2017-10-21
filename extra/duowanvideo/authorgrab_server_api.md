@@ -47,6 +47,6 @@
             "rs": true
         }
     ————————————————————————————————————————————————————
-    备注：测试用例见：http://cms.acggeek.com/%E6%B5%8B%E8%AF%95api/grabOneVideo
+    备注：测试用例见：<a href="http://cms.acggeek.com/%E6%B5%8B%E8%AF%95api/grabOneVideo" target="_blank">这里</a>
     ————————————————————————————————————————————————————
 
