@@ -1,0 +1,94 @@
+<!-- S 模板-播客 -->
+
+<!-- 
+    手动推荐的热门播客列表，详见“多玩视频”专区的筛选器“播客推荐位-热门解说”； 
+    若播客数量过少，则会循环显示。
+-->
+#set ($getVideosByUser="http://video.duowan.com/?r=cmsapi/getVideosByUser")
+#set ($getRecommendHotUsers="http://video.duowan.com/?r=cmsapi/getUsersByHot")
+#set ($getRecommendHotUsersByDuowanVideo="${getRecommendHotUsers}&channel=duowanvideo&limit=20")
+#set ($userList = $data.getJsonList($getRecommendHotUsersByDuowanVideo))
+
+<div class="g-row mod-boke" id="boke">
+    <div class="g-col-880 s-gap">
+        <div class="g-col-hd">
+            <h1 class="g-col-title title-boke">播客</h1>
+            <div class="g-col-controls">
+                <a href="http://video.duowan.com/index.php?r=podcast/apply" target="_blank" class="bt-boke1">成为播客</a>
+                <a href="http://video.duowan.com/index.php?r=manage/subusers" target="_blank" class="bt-hotgame">订阅管理</a>
+                <a href="http://video.duowan.com/podcasts.html" target="_blank" class="link-more">更多</a>
+            </div>
+        </div>
+        <div class="g-col-bd">
+            <div class="boke-lists">
+                <div class="ui-carousel" data-role="carousel-boke">
+                    <div class="ui-carousel__scroller">
+                        <ul class="ui-carousel__content" data-switchable-role="content">
+                            #foreach($user in $userList)
+                                #set ($currVideoUrl=$user.get('user_homepage'))
+                                <li class="ui-carousel__item boke-item" data-uid="$user.get('user_id')" onclick="window.open('$currVideoUrl', '_blank')">
+                                    <div class="boke-avatar"><!-- 使用tp1类可标识为已订阅 -->
+                                        <span><img src="$user.get('user_avatar')" alt="$user.get('user_nickname')"></span>
+                                        <em></em>
+                                    </div>
+                                    <h3>$user.get("user_nickname")</h3>
+                                </li>
+                            #end
+                        </ul>
+                    </div>
+                    <span class="ui-carousel__prev" data-switchable-role="prev"></span>
+                    <span class="ui-carousel__next" data-switchable-role="next"></span>
+                </div>
+            </div>
+            <div class="boke-wrap">
+                #foreach($user in $userList)
+                    <div class="g-col-tabPanel expand-slideUp">
+                        <ul class="g-col-gList">
+                            #set ($videoList=$data.getJsonList("${getVideosByUser}&limit=5&uid=$user.get('user_id')"))
+                            #foreach ($video in $videoList)
+                                <li class="g-col-gItem">
+                                    <a href="$video.get('video_url')" title="$video.get('video_title')" target="_blank">
+                                        <div class="gItem-pic">
+                                            <img src="$video.get('video_cover')" alt="$video.get('video_subtitle')">
+                                            <div class="gItem-mask"></div>
+                                            <span class="gItem-tag">$video.get('video_channel_name')</span>
+                                            <span class="gItem-vdIcon"></span>
+                                            <span class="gItem-vdTime">$video.get('video_duration')</span>
+                                        </div>
+                                        <h3 class="gItem-title">$video.get('video_subtitle')</h3>
+                                        <div class="gItem-info">
+                                            <span>$video.get('user_nickname')</span>
+                                            <em>$video.get('video_play_num')</em>
+                                        </div>
+                                    </a>
+                                </li>
+                            #end
+                        </ul>
+                    </div>
+                #end
+            </div>
+        </div>
+    </div>
+    <div class="g-col-290">
+        <div class="g-ranking-list">
+            <div class="ui-tab ext-ranking-tab" data-role="tab-boke">
+                <div class="ui-tab__hd">
+                    <h2>博客排行</h2>
+                    <ul class="ui-tab__nav" data-switchable-role="nav">
+                        <li class="ui-tab__trigger is-active"><a href="javascript:;">播放量</a></li>
+                        <li class="ui-tab__trigger"><a href="javascript:;">视频数</a></li>
+                    </ul>
+                </div>
+                <div class="ui-tab__bd" data-switchable-role="content">
+                    <div class="ui-tab__panel">
+                        <ul class="boke-ranks tp-playsum"></ul>
+                    </div>
+                    <div class="ui-tab__panel u-hide">
+                        <ul class="boke-ranks tp-videosum"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- E 模板-播客 -->

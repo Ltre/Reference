@@ -470,3 +470,70 @@
 	示例：
         http://grab-author.webdev2.duowan.com/jsapi/delAuthorTask?authorTaskId=1
     ————————————————————————————————————————————————————
+
+
+
+<font color="blue">13、提交勾选需要抓取的视频</font>
+	————————————————————————————————————————————————————
+    URL: http://grab-v.duowan.com/jsapi/toggleNeedRunUrlTasks
+         http://grab-author.webdev2.duowan.com/jsapi/toggleNeedRunUrlTasks
+	————————————————————————————————————————————————————
+    参数(get|post):
+        urlTaskIdList    视频任务ID集合，用逗号隔开
+	————————————————————————————————————————————————————
+    返回：
+        {
+            "rs": true,
+            "msg": "操作成功"
+        }
+	————————————————————————————————————————————————————
+    备注：<font color=red>需要登录态</font>
+	————————————————————————————————————————————————————
+	示例：
+        http://grab-author.webdev2.duowan.com/jsapi/toggleNeedRunUrlTasks?authorTaskId=1
+    ————————————————————————————————————————————————————
+
+
+
+<font color="blue">14、获取待勾选抓取的视频任务</font>
+	————————————————————————————————————————————————————
+    URL: http://grab-v.duowan.com/jsapi/GetWaitRunUrlTasks
+         http://grab-author.webdev2.duowan.com/jsapi/GetWaitRunUrlTasks
+	————————————————————————————————————————————————————
+    参数(get|post):
+        authorTaskId    作者任务ID
+	————————————————————————————————————————————————————
+    返回：
+        {
+            "rs": true,
+            "msg": "操作成功"
+        }
+	————————————————————————————————————————————————————
+    备注：<font color=red>需要登录态</font>
+	————————————————————————————————————————————————————
+	示例：
+        http://grab-author.webdev2.duowan.com/jsapi/GetWaitRunUrlTasks?authorTaskId=1
+    ————————————————————————————————————————————————————
+
+
+
+<font color="blue">15、提交作者任务后，获取该作者页下可抓的视频任务列表（这步比较慢，要等待）</font>
+	————————————————————————————————————————————————————
+    URL: http://grabauthornode-v.duowan.com/api/getUrlByAuthor.do
+	————————————————————————————————————————————————————
+    参数(get|post):
+        taskId     作者任务ID（这个值由jsapi/authorGrab接口返回的JSON.data.authorTaskId提供）
+	————————————————————————————————————————————————————
+    返回：
+        {
+            "rs": true,
+            "msg": "操作成功"
+        }
+	————————————————————————————————————————————————————
+    备注：<font color=red>需要登录态</font>
+	————————————————————————————————————————————————————
+	示例：
+        http://grabauthornode-v.duowan.com/api/getUrlByAuthor.do?taskId=130
+    ————————————————————————————————————————————————————
+
+

@@ -1,0 +1,113 @@
+http://vhuyadm.duowan.com/1511/m_310660883735.html
+
+
+====================================================================================
+
+
+<!DOCTYPE html>
+<html>
+<head lang="zh">
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="Keywords" content="">
+    <meta name="description" content="">
+    <link rel="stylesheet" type="text/css" href="http://assets.dwstatic.com/project/huya-v/2.0.0/css/c.css?t=1447129259727">
+    <meta name="renderer" content="webkit">
+    <meta name="front-end" content="MrF">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--[if lt IE 9]>
+    <script> (function(){ var tags=['header','footer','nav','section','article','aside'];for(var i in tags){document.createElement(tags[i]);}})()</script>
+    <style>
+        .main{width:980px}#wrap{min-width:980px}.info-video-scroll .info-video-scroll-wrap1{width:960px}.channel-header nav ul{width:688px}.channel-header nav ul li{width:80px}.span-48{width:720px}.gb-col2 .info-video-list{width:720px;height:404px;overflow:hidden}
+    </style>
+    <![endif]-->
+</head>
+<body class="comic-channel">
+<!--SEO start-->
+<h1 class="hide"></h1>
+<!--SEO end-->
+<!-- 虎牙视频头部{ -->
+{[公共模板=虎牙视频:旧模板通用 - 头部]} 
+<!-- }虎牙视频头部 -->
+<!--虎牙视频内容{-->
+<div id="wrap">
+    <!-- 专区头部{-->
+    {[模板=虎牙视频 - 首页头部]}
+    <!-- }专区头部-->
+    <!-- 专区内容{-->
+    <div class="main clearfix">
+        <div class="tag-wrap2 clearfix">
+            <div class="tag-col fltL mr10">
+                <h3>按时区/时间</h3>
+                <div class="tag-box">
+                    <a href="http://assets.dwstatic.com/project/huya-v/2.0.0/?t=1446628935188" target="_blank">今日热门</a>
+                    <a href="http://assets.dwstatic.com/project/huya-v/2.0.0/?t=1446628935188" target="_blank"> 一周最热</a>
+                    <a href="http://assets.dwstatic.com/project/huya-v/2.0.0/?t=1446628935188" target="_blank">月度最热</a>
+                    <a href="http://assets.dwstatic.com/project/huya-v/2.0.0/?t=1446628935188" target="_blank">最新上映</a>
+                    <a href="http://assets.dwstatic.com/project/huya-v/2.0.0/?t=1446628935188" target="_blank">历史最热</a>
+                </div>
+            </div>
+            <div class="tag-col fltL mr10">
+                <h3>按类型</h3>
+                <div class="tag-box">
+                    <a href="http://assets.dwstatic.com/project/huya-v/2.0.0/?t=1446628935188" target="_blank">今日热门</a>
+                    <a href="http://assets.dwstatic.com/project/huya-v/2.0.0/?t=1446628935188" target="_blank"> 一周最热</a>
+                    <a href="http://assets.dwstatic.com/project/huya-v/2.0.0/?t=1446628935188" target="_blank">月度最热</a>
+                    <a href="http://assets.dwstatic.com/project/huya-v/2.0.0/?t=1446628935188" target="_blank">最新上映</a>
+                    <a href="http://assets.dwstatic.com/project/huya-v/2.0.0/?t=1446628935188" target="_blank">历史最热</a>
+                </div>
+            </div>
+            <div class="tag-col fltL">
+                <h3>按热搜词</h3>
+                <div class="tag-box">
+                    <a href="http://assets.dwstatic.com/project/huya-v/2.0.0/?t=1446628935188" target="_blank">今日热门</a>
+                    <a href="http://assets.dwstatic.com/project/huya-v/2.0.0/?t=1446628935188" target="_blank"> 一周最热</a>
+                    <a href="http://assets.dwstatic.com/project/huya-v/2.0.0/?t=1446628935188" target="_blank">月度最热</a>
+                    <a href="http://assets.dwstatic.com/project/huya-v/2.0.0/?t=1446628935188" target="_blank">最新上映</a>
+                    <a href="http://assets.dwstatic.com/project/huya-v/2.0.0/?t=1446628935188" target="_blank">历史最热</a>
+                </div>
+            </div>
+        </div>
+
+        <!--人气推荐{-->
+        {[模板=虎牙视频 - 首页 - 人气推荐]}
+        <!-- }人气推荐-->
+        <!--最新视频{-->
+        <section class="gb-col  gb-col2 clearfix">
+           {[模板=虎牙视频 - 首页视频模块]}
+           {[模板=虎牙视频 - 首页视频排行榜模块]}
+        </section>
+        <!-- }最新视频-->
+        <!-- 滚动视频{-->
+        {[模板=虎牙视频-频道页模板-滚动视频]}
+        <!-- }滚动视频-->
+    </div>
+    <!-- }专区内容-->
+</div>
+<!--}虎牙视频内容-->
+<!--虎牙视频底部{-->
+{[公共模板=虎牙视频:旧模板通用 - 底部]} 
+<!--}虎牙视频底部-->
+<script src="http://assets.dwstatic.com/b=lego/2.0.0/js&f=lego.switchable.js"></script>
+<script>
+    LEGO.slide("#slider", {effect: "scrollX", autoPlay: true,delay:4000});
+    seajs.use(['http://assets.dwstatic.com/f=project/huya-v/2.0.0/js/com.js'],function(com){
+        com.userShow();
+        com.newsbox('.gb-col-tab');
+
+        com.fixNav();
+        $('.info-video-scroll').each(function(){
+            var _this = this
+            com.listMove({
+                containerSelector:_this,
+                moveContainerSelector:'.info-video-scroll-wrap2',
+                subitemsSelector:$(_this).find('.video-sm-cont'),
+                prevSelector:$(_this).find('.scroll-btn-prev'),
+                nextSelector:$(_this).find('.scroll-btn-next'),
+                visibleSize:5
+            });
+        });
+    })
+</script>
+</body>
+</html>

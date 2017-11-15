@@ -1,0 +1,150 @@
+<!-- S 模板-鬼畜 -->
+
+#set ($myChannelId="kan") 
+#set ($getInfoByArticleId="http://video.duowan.com/?r=cmsapi/getInfoByArticleId") 
+#set ($getInfoByArticleIdUrl="${getInfoByArticleId}&channel=${myChannelId}&articleId=")
+#set ($getRankByTag = "http://video.duowan.com/?r=cmsapi/getRankByTag&channel=${myChannelId}&")
+
+<div class="g-row mod-ghost" id="ghost">
+    <div class="g-col-880 s-gap">
+        <div class="g-col-hd">
+            <h1 class="g-col-title title-ghost">鬼畜</h1>
+            <ul class="g-col-subtags">
+                <li class="is-active"><a href="">最新</a></li>
+                <li><a href="">胆小勿入</a></li>
+                <li><a href="">科普人文</a></li>
+            </ul>
+            <div class="g-col-controls">
+                <a href="" class="link-more">更多</a>
+            </div>
+        </div>
+        <div class="g-col-bd">
+            <div class="g-col-tabPanel">
+                <ul class="g-col-gList tp-row2">
+
+                    #set ($i=0) 
+                    #set ($list=$data.getListOther($myChannelId,"鬼畜",60,255,10)) 
+                    #set ($length=$data.getLength($list)) 
+                    #foreach($one in $list) 
+                        #set ($json = $data.getJsonData("${getInfoByArticleIdUrl}$one.getString('articleid')"))
+                        <li class="g-col-gItem">
+                            <a href="$json.get('video_url')" title="$json.get('video_title')" target="_blank">
+                                <div class="gItem-pic">
+                                    <img src="$json.get('video_cover')" alt="">
+                                    <div class="gItem-mask"></div>
+                                    <span class="gItem-tag">$json.get('video_channel_name')</span>
+                                    <span class="gItem-vdIcon"></span>
+                                    <span class="gItem-vdTime">$json.get('video_duration')</span>
+                                </div>
+                                <h3 class="gItem-title">$json.get('video_subtitle')</h3>
+                                <div class="gItem-info">
+                                    <span>$json.get('user_nickname')</span>
+                                    <em>$json.get('video_play_num')</em>
+                                </div>
+                            </a>
+                        </li>
+                    #end
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="g-col-290">
+        <div class="g-ranking-list">
+            <div class="ui-tab ext-ranking-tab" data-role="tab-ghost">
+                <div class="ui-tab__hd">
+                    <h2>鬼畜视频排行</h2>
+                    <ul class="ui-tab__nav" data-switchable-role="nav">
+                        <li class="ui-tab__trigger is-active"><a href="javascript:;">周榜</a></li>
+                        <li class="ui-tab__trigger"><a href="javascript:;">月榜</a></li>
+                    </ul>
+                </div>
+                <div class="ui-tab__bd" data-switchable-role="content">
+                    <div class="ui-tab__panel">
+                        <div class="ranking-box-bd">
+                            <ul>
+
+                                #set ($i=0) 
+                                #foreach($json in $data.getJsonList("${getRankByTag}tag=鬼畜&sortBy=week&limit=7")) 
+                                    #set ($i=$i+1)
+                                    #if($i==1)
+                                        <li class="is-active">
+                                            <div class="ranking-col-fl">
+                                                <a href="$json.get('video_url')"  target="_blank" >
+                                                    <div class="img-wrap">
+                                                        <img src="$json.get('video_cover')" alt="$json.get('video_subtitle')">
+                                                        <div class="index is-active">$i</div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="ranking-col-fr">
+                                                <h3>
+                                                    <a href="$json.get('video_url')" title="$json.get('video_title')" target="_blank" >$json.get('video_subtitle')</a>
+                                                </h3>
+                                                <p>
+                                                    <span class="ranking-name">$json.get('user_nickname')</span>
+                                                    <span class="ranking-count">$json.get('video_play_num')</span>
+                                                </p>
+                                            </div>
+                                        </li>
+                                    #else
+                                        <li>
+                                            <div class="index">$i</div>
+                                            <a href="$json.get('video_url')" title="$json.get('video_url')" target="_blank">$json.get('video_subtitle')</a>
+                                        </li>
+                                    #end 
+                                #end
+
+                            </ul>
+                        </div>
+                        <div class="ranking-box-ft">
+                            <a href="#" target="_blank">查看更多<i>&gt;</i></a>
+                        </div>
+                    </div>
+                    <div class="ui-tab__panel u-hide">
+                        <div class="ranking-box-bd">
+                            <ul>
+
+                                #set ($i=0) 
+                                #foreach($json in $data.getJsonList("${getRankByTag}tag=鬼畜&sortBy=month&limit=7")) 
+                                    #set ($i=$i+1)
+                                    #if($i==1)
+                                        <li class="is-active">
+                                            <div class="ranking-col-fl">
+                                                <a href="$json.get('video_url')" title="$json.get('video_title')" target="_blank" >
+                                                    <div class="img-wrap">
+                                                        <img src="$json.get('video_cover')" alt="$json.get('video_subtitle')">
+                                                        <div class="index is-active">$i</div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="ranking-col-fr">
+                                                <h3>
+                                                    <a href="$json.get('video_url')" title="$json.get('video_title')" target="_blank" >$json.get('video_subtitle')</a>
+                                                </h3>
+                                                <p>
+                                                    <span class="ranking-name">$json.get('user_nickname')</span>
+                                                    <span class="ranking-count">$json.get('video_play_num')</span>
+                                                </p>
+                                            </div>
+                                        </li>
+                                    #else
+                                        <li>
+                                            <div class="index">$i</div>
+                                            <a href="$json.get('video_url')" title="$json.get('video_url')" target="_blank" >$json.get('video_subtitle')</a>
+                                        </li>
+                                    #end 
+                                #end
+
+                            </ul>
+                        </div>
+                        <div class="ranking-box-ft">
+                            <a href="#" target="_blank">查看更多<i>&gt;</i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- E 模板-鬼畜 -->

@@ -1,0 +1,124 @@
+<!-- Backend Script begin .. -->
+<script>
+$(function(){
+
+    var CookieUtil = {
+        get : function(name) {
+            var arr = document.cookie.match(new RegExp("(^| )" + name
+                    + "=([^;]*)(;|$)"));
+            if (arr != null) return decodeURIComponent(arr[2]);
+            return null;
+        },
+        set : function(name, value, expire, path, domain) {
+            var exp = new Date();
+            exp.setTime(exp.getTime() + expire * 1000);
+            document.cookie = [ name, '=', encodeURIComponent(value),
+                expire ? '; expires=' + exp.toGMTString() : '',
+                path ? '; path=' + path : '',
+                domain ? '; domain=' + domain : '', ].join('');
+        }
+    };
+    
+    //数字格式转换
+    function numFormat(num){
+        var rs;
+        if(num > 999999){
+            rs = Math.round( num / 10000 ) + "万";
+            return rs;
+        }else if(num > 9999){
+            rs = Math.round(num / 10000 * 10) / 10 + "万";
+            return rs;
+        }else if( num > 999 ){
+            return parseFloat(num).toLocaleString();
+        }else{
+            return num;
+        }
+    }
+    
+    function fixVideoPlayNum(vid, playNum, channel){
+        var salt = parseInt(parseInt(vid) * 1.2);
+        var saltStr = ""+salt;
+        salt = parseInt( saltStr.substr(saltStr.length - 3, 3) );
+        salt = salt > 500 ? salt : (1000 - salt);
+        return parseInt(playNum*2.2) + salt;        
+    }
+    
+    //更新播放数 
+    var updateVideoPlayNum = {
+        init: function(vid){
+            debugger
+            var _this = this;
+            $.get('http://playstats.v.duowan.com/index.php?r=api/get', {vid:vid},
+                function(json){
+                    if( !json[vid] ) return;
+                    var videoSection = $('.dw-video-section[data-vid='+vid+']');
+                    var new_num = fixVideoPlayNum(vid, json[vid], videoSection.data('channel'));
+                    var playnumNode = videoSection.find('[data-playnum]:first');
+                    var old_num = parseInt(playnumNode.data('playnum') || 0);
+                    // var old_num = videoSection.data('playnum');
+                    playnumNode.text(numFormat(new_num));
+                    if ( new_num != old_num ) {
+                        _this.requestUpdate(vid);
+                    }
+            }, 'jsonp');
+        },
+        //请求服务器更新 
+        requestUpdate:function(vid){
+            $.get('http://video.duowan.com/jsapi/updateVideoPlayNum', {vid:vid}, function(){}, 'jsonp');         
+        }
+    };
+    
+    /**
+     * 记录多玩懂你业务所需cookie：
+     * 已播放视频的最新五个专区
+     */
+    ~ function(){
+        var ckName = 'DwKnowYouChannels';
+        var channel = $('#__CHANNEL__').val();//取自后端直接在模板提供的数据
+        var cStr = CookieUtil.get(ckName) || '';
+        var cArr = cStr.split(',', 5);
+        //console.log([ckName, channel, cStr, cArr, cArr.indexOf(channel)]);
+        if (-1 == cArr.indexOf(channel)) {
+        cArr.unshift(channel);
+            for (var i in cArr) {
+                if (cArr[i] == '') {
+                    delete cArr[i];
+                }
+            }
+        }
+        if (cArr.length > 0) {
+            cStr = cArr.join(',');
+            CookieUtil.set(ckName, cStr, 86400*20, '/');
+        }
+    }();
+    
+
+    ~ function(){
+        var played = [];
+        var bound = [];
+        setInterval(function(){
+            $('.dplayer-video').each(function(){
+                var videoSection = $(this).parents('.dw-video-section');
+                if (1 == videoSection.size()) {
+                    var vid = videoSection.data('vid');
+                    if (vid && -1 == bound.indexOf(vid)) {
+                        bound.push(vid);
+                        $(this).on('play', function(){
+                            if (-1 == played.indexOf(vid)) {
+                                played.push(vid);
+                                //视频推荐201704版上报，每个视频有且仅有上报一次
+                                var url = 'http://video.duowan.com/jsapi/ReportForVer201704VideoRecommend?vid=' + vid;
+                                (new Image).src = url;
+                                //按需异步更新播放数
+                                updateVideoPlayNum.init(vid);
+                            }
+                        });
+                    }
+                }
+            });
+        }, 300);
+    }();
+    
+});
+</script>
+<!-- Backend Script end ! -->
