@@ -1,0 +1,24 @@
+<div class="info-video-list-bd info-video-list-comic">
+    <div class="info-video-list-cont clearfix" style="display: block;">
+    <!-- 大视频{-->
+    <{if $list }>
+        <{foreach $list as $k=>$v}>
+            <div class="video-big2-cont fltL">
+                <a href="<{url r='anime/detail' filter_url=$v['filter_url'] }>" target="_blank" title="">
+                    <img src="<{$v['anime_cover']}>" alt="">
+                    <div class="video-info">
+                        更新至第<{$v['total_num']}>集
+                    </div>
+                    <p class="video-title"><{$v['anime_name']}></p>
+                </a>
+                <div class="video-meta clearfix">
+                    <span class="video-meta-user"><{$v['anime_akira']}></span>
+                </div>
+            </div>
+        <{/foreach}>
+
+    <{/if}>
+    <!-- }大视频-->
+    </div>
+</div>
+<{Page2 r='anime/ajaxlist' page=$pages ver=$ver type=$type area=$area order=$order }>

@@ -1,0 +1,13 @@
+<h3>剧集列表<span>十分感谢播客提供以下内容~</span></h3>
+<div class="comic-list-num">
+       <{foreach $data['pages']['all_pages'] as $v}>
+            <a href="javascript:;"  class="select_page <{if $v == $data['pages']['current_page'] }> current<{/if}>"  data-page="<{$v}>">
+             <{($v-1)*20+1}> - <{if $v < $data['pages']['total_page']}><{$v*20}><{else}><{$data['pages']['total_count']}><{/if}>  
+            </a>
+        <{/foreach}>
+</div>
+ <ul class="comic-list-title clearfix" id="video_play">
+    <{foreach $data['videos'] as $k=>$video  }>
+        <li><a href="<{$video['video_url']}>"><{$video['video_title']}></a></li>
+    <{/foreach}>   
+</ul>

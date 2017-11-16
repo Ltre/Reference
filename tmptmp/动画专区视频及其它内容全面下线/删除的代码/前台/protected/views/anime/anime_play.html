@@ -1,0 +1,637 @@
+<!doctype html>
+<html xmlns:wb="http://open.weibo.com/wb">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="Keywords" content="<{$pageKeywords}>">
+    <meta name="mobile-agent" content="format=html5;url=http://video.duowan.cn/play/<{$video.vid}>.html">
+    <meta name="description" content="<{$pageDescription}>"> 
+    <title><{$pageTitle}></title>
+    <link rel='canonical' href='http://video.duowan.com/play/<{$video.vid}><{if $article AND (count($vids) gt 1)}>-<{$article.article_id}><{/if}>.html' />
+    <link href="http://assets.dwstatic.com/project/huya-v/1.4.0/css/global.css?t=1451008036" rel="stylesheet">
+
+    <script src="http://assets.dwstatic.com/common/js/jquery.js"></script>
+    <script src="http://assets.dwstatic.com/amkit/entry.js"></script>
+     <!--[if gt IE 6]><!-->
+    <script type="text/javascript">
+    !function(t){t.loadScript(["http://szhuodong.duowan.com/feq/vhuya/yy-f2e-header-vhuya.min"])}(function(){function t(t){var e=n(t);document.write(e)}function n(t){for(var n,r="",c=0;n=t[c];c++)r+=e(n);return r}function e(t){var n=[unescape("%3Cscript%20type%3D%22text/javascript%22%20src%3D%22"),"",unescape("%22%3E%3C/script%3E")],e=new Date;return e.setSeconds(0),e.setMilliseconds(0),e=e.getTime(),t+="?t_="+e,n[1]=t,n.join("")}return{loadScript:function(n){n&&n.length&&n instanceof Array&&t(n)}}}())
+    </script>
+    <!--<![endif]-->
+    <script>    
+        if (/Android|webOS|iPhone|Windows Phone|iPod|BlackBerry|SymbianOS/i.test(window.navigator.userAgent) && !/[\?&]pc(?:[=&].*|$)/.test(window.location.href)) {
+            //window.location.href = "<{str_replace('duowan.com', 'duowan.cn', $article.url)}>";
+            window.location.href = "<{str_replace('video.duowan.com', 'video.duowan.cn', $video.video_url)}>"; 
+        }
+    </script>
+    <!-- 动漫{ -->
+    <{filterContent filter_name='播放页-统计代码' channel=$video.video_channel}>
+    <!-- }动漫-->
+</head>
+<body class="play-page comic-play">
+<!--[if lt IE 9]>
+<script> (function(){ var tags=['header','footer','nav','section','article','aside'];for(var i in tags){document.createElement(tags[i]);}})()</script>
+<![endif]-->
+<!-- 虎牙视频头部{ -->
+ <{include file='common/huya-header2.html'}>
+<!-- }虎牙视频头部 -->
+
+
+<div id="maiContainer" class="vedio-box">
+    <!-- 多玩视频主内容{ -->
+    <div class="vedio-box__main play-living video_nav_open">
+        <div class="crumbs">
+             <{if $game.short_name}>
+                <a href="http://<{$smarty.server.HTTP_HOST}>/<{$game.short_name}>/"><{$game.full_name}></a>
+            <{else if $game.full_name}> 
+                <a href="<{url r='default/channelmore' cid=$game.game_id}>"><{$game.full_name}></a>
+            <{else}>               
+                <a href="http://video.duowan.com/anime/">多玩动漫</a>
+            <{/if}>
+                <i></i><a href="<{$video.user_homepage}>"><{$video.user_nickname}></a>
+                <i></i><{$video.video_title}>
+        </div>
+        <script>
+            $(function() {
+                $('.relate_switch').click(function() {
+                    $('.play-living').removeClass('video_nav_open').addClass('video_nav_close');
+                    $('.open_bar').show()
+                });
+
+                $('.open_bar').click(function() {
+                    $('.play-living').removeClass('video_nav_close').addClass('video_nav_open');
+                    $(this).hide();
+                });
+
+                $('#v-alist-tipclose').on('click',function(){
+                    $('#v-alist-tip').hide();
+                })
+            })
+        </script>
+        <div class="play-window">
+            <{include file='common/video_embed.html'}>
+                <!-- 视频折叠部分{ -->
+
+                <div class="relate_right" >
+                    <div class="J_nav">
+                        <h3 class="selected">本剧选集</h3>
+                    </div>
+                    <div class="J_content" id="comic-list">
+                        <div class="comic-intro">
+                            <h2><span class="fltR"><{if $videoTotal }>更新至第<{$videoTotal}>集 <{/if}></span> <{$animeInfo['anime_name']}></h2>
+                            <{if $animeInfo['anime_desc'] }>
+                            <p>
+                               <{$animeInfo['anime_desc']}><a href="<{url r='anime/detail' filter_url=$animeInfo['filter_url'] }>" title="跳转到剧集详情页面" target="_blank"></a>
+                            </p>
+                            <{/if}>
+                        </div>
+                        
+                        
+                        <div class="related-box--otherV" id="relateRight">
+                            <div class="otherV-group">
+                            <{foreach $videoRelate as $k => $_v  }>
+                                <{if $_v['vid'] != $video.vid }>
+                                <div class="otherV-list">
+                                <{else}>
+                                <div class="otherV-list onlive" >
+                                <{/if}>
+                                    <div class="vdw-info--vlist">
+                                        <a href="<{$_v['video_url']}>" class="title"><{$_v['video_title']}></a>
+                                        <div class="number">
+                                            <span class="icon-play"><i></i><{$_v['video_play_num']}></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            <{/foreach}>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relate_switch"><i></i></div>
+                </div>
+                <div class="open_bar">
+                    播<br/>放<br/>列<br/>表<i></i>
+                </div>
+                <!-- 视频折叠部分} -->
+        </div>
+        <h1 class="v-title"><{$video.video_title}></h1>
+
+        <!-- 作者信息 -->
+        <div class="author">
+            <a href="<{$video.user_homepage}>" class="author-tx"><img src="<{$video.user_avatar}>" alt="" width="65" height="65" class=""></a>
+            <div class="vedio-mes">
+                <div class="author-top">
+                    <h3><a href="<{$video.user_homepage}>"><{$video.user_nickname}></a></h3>
+                    <span class="updata-time">上传于 <{$video.video_upload_time}></span>
+                </div>
+                <div class="top-btns">
+                    <a href="javascript:;" class=" vdw_dingyue _play_dingyue"  data-js="subscribe" data-uid="<{$video.user_id}>" ><i></i>订阅</a>
+                </div>
+                <div class="vedio-mes__action">
+                    <div class="zan-playnumber">
+                        <span><em data-play-num="<{$video.video_play_num}>" id="video_play_num"><{$video.video_play_num}></em>次播放</span>
+                    </div>
+                    <div class="vedio-status">
+                        <a href="#comment_frame" class="comment"><i></i><span data-comment-num="<{$video.video_comment_num}>" id="first_comment_count"><{$video.video_comment_num}></span>条评论</a>
+                        <a href="javascript:;" data-vid="<{$video.vid}>" class="zan <{if !empty($hasSupport)}>zan--actived<{/if}>"><i></i><{$video.video_support|format_num}></a>
+                        <a class="share" id="shareBtn"><i></i>分享</a>
+                    </div>
+                </div>
+                <!--分享层{-->
+                <div class="share-box" id="shareBox">
+                    <i class="triangle"></i>
+                    <div class="top-share">
+                        <div class="wechat">
+                            <div class="title">
+                                <i></i>微信分享
+                            </div>
+                            <img src="http://assets.dwstatic.com/project/huya-v/1.4.0/img/qrcode.png?t=1446705601135" alt="" data-tag="img-qrcode">
+                            <p><a id="showWechatDetail">教你扫一扫</a></p>
+                        </div>
+                        <div class="others">
+                            <div class="bdsharebuttonbox types" data-tag="share_1">
+                                <h3>一键分享</h3>
+                            <span class="sina">
+                                <a class="bds_tsina" data-cmd="tsina" target="_blank"></a>
+                                <p>新浪微博</p>
+                            </span>
+                            <span class="baidu">
+                                <a class="bds_baidu" data-cmd="tieba" target="_blank"></a>
+                                <p>百度贴吧</p>
+                            </span>
+                            <span class="qq">
+                                <a class="bds_qzone" data-cmd="qzone" target="_blank"></a>
+                                <p>QQ空间</p>
+                            </span>
+                            <!--<span class="renren">-->
+                                <!--<a class="bds_renren" data-cmd="renren"></a>-->
+                                <!--<p>人人网</p>-->
+                            <!--</span>-->
+                            </div>
+                            <div class="copy" id="js-copy">
+                                <h3>把视频贴到Blog或BBS</h3>
+                                <div class="copy-item">
+                                    <a class="btn-copy" href="javascript:;">复制网址</a>
+                                    <input type="text" disabled="disabled" value="http://video.duowan.com/play/2">
+                                </div>
+                                <div class="copy-item">
+                                    <a class="btn-copy" href="javascript:;">复制Html</a>
+                                    <input type="text" disabled="disabled" value="http://video.duowan.com/play/3">
+                                </div>
+                                <div class="copy-item">
+                                    <a class="btn-copy" href="javascript:;">复制Flash</a>
+                                    <input type="text" disabled="disabled" value="http://video.duowan.com/play/4">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wechat-detail" id="wechatDetail">
+                        <img src="http://assets.dwstatic.com/project/huya-v/1.4.0/img/wechat-d.jpg?t=1446705601135" alt="">
+                        <div class="info">
+                            <h3>微信分享教程</h3>
+                            <p>1 在微信中点击右上方的<i class="first"></i></p>
+                            <p>2 选择<i class="second"></i> "扫一扫"</p>
+                            <p>3 扫描二维码</p>
+                            <p>4 点击"分享" <i class="third"></i> 按钮</p>
+                            <p>5 分享给朋友 <i class="third"></i> 或者 <i class="four"></i> 朋友圈</p>
+                        </div>
+                    </div>
+                </div>
+                <!--分享层}-->
+            </div>
+        </div>
+
+        <script>
+            (function($){
+
+                if( !$ ) return;
+                var cont = {};
+                cont.shareText = $.trim($(".vedio-box .v-title").text());
+                cont.sharePic = $(".logo").eq(0).attr("src");
+                cont.shareDes = $.trim($('#vedio-des').find('span').text());
+                cont.shareUrl = window.location.href;
+
+                var sina = "http://service.weibo.com/share/share.php?url="+cont.shareUrl+"&searchPic=false&title="+cont.shareText+"&appkey=2937485425&ralateUid=5617445110&pic=";
+                var bd = "http://tieba.baidu.com/f/commit/share/openShareApi?url="+cont.shareUrl+"&title="+cont.shareText+"&desc="+cont.shareDes+"&pic="+cont.sharePic;
+                var qzone = "http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url="+cont.shareUrl+"&title="+cont.shareText+"&pics="+cont.sharePic;
+                $('.bds_tsina').attr('href',sina)
+                $('.bds_baidu').attr('href',bd)
+                $('.bds_qzone').attr('href',qzone)
+
+            })(jQuery)
+
+        </script>
+        <!-- 视频标签 {-->
+        <div class="vdw-row__main vdw-row__main--index vedio-tag">
+            <!-- 新闻box{ -->
+            <{if $tagvideo }>
+            <div class="m-newsbox">
+                <div class="m-newsbox__hd">
+                    <h3 class="m-newsbox__title">类型</h3>
+                    <div class="v-action">
+                        <{foreach $tagvideo as $k=> $_anime }>
+                            <a href="<{$tagUrls[$k]}>"  <{if $_anime@first}>class="active"<{/if}>><{$k}></a>
+                        <{/foreach}>
+                    </div>
+                </div>
+                <div class="m-newsbox__bd">
+                  <{foreach $tagvideo as $k => $_videolist}>
+                    <div class="uiVideo uiVideo--collect js-uiVideo sel_tag" <{if !$_videolist@first}>style="display:none"<{/if}>>
+                      <{foreach $_videolist as $v}>
+                        <!-- 大视频{-->
+                        <div class="video-big2-cont fltL">
+                            <a href="<{url r='anime/detail' filter_url=$v['filter_url'] }>" target="_blank" title="">
+                                <img src="<{$v['anime_cover']}>" alt="">
+                                <div class="video-info">
+                                    更新至第<{$v['total_num']}>集
+                                </div>
+                                <p class="video-title"><{$v['anime_name']}></p>
+                            </a>
+                            <div class="video-meta clearfix">
+                                <span class="video-meta-user"><{$v['anime_akira']}></span>
+                            </div>
+                        </div>
+                        <!-- }大视频-->
+                        <{/foreach}>
+                    </div>
+                    <{/foreach}>
+                </div>
+            </div>
+             <{/if}>
+            <!-- }新闻box -->
+        </div>
+        <!-- 视频标签 }-->
+
+        <!-- 视频标签 {-->
+        <div class="vdw-row__main vdw-row__main--index vedio-tag vedio-tag2">
+            <!-- 新闻box{ -->
+            <div class="m-newsbox newsbox2">
+                <div class="m-newsbox__hd">
+                    <h3 class="m-newsbox__title">推荐视频</h3>
+                </div>
+                <div class="m-newsbox__bd">
+                    <!-- 推荐视频 {-->
+                    <div class="uiVideo uiVideo--collect">
+                    <{foreach $recemendVideoList as $k=>$v}>
+                            <div class="uiVideo__item uiVideo__item--appshow">
+                                <a class="uiVideo__ori" href="<{$v.video_url}>">
+                                    <img src="<{$v.video_cover}>" alt="" class="uiVideo__img">
+                                    <span class="uiVideo__time"><{$v.video_duration}></span>
+                                    <div class="uiVideo__meta">
+                                        <div class="uiVideo__playtotal uiVideo__playtotal2"><i></i><{$v.video_play_num}></div>
+                                    </div>
+                                </a>
+                                <a href="<{$v.video_url}>" class="uiVideo--title"><{$v.video_title}></a>
+                            </div>
+                       <{/foreach}>
+                    <!-- }推荐视频 -->
+                    </div>
+                </div>
+            </div>
+            <!-- }新闻box -->
+        </div>
+        <!-- 视频标签 }-->
+
+        <!-- 广告 -->
+        <!-- <div class="sweatmeat">
+            <a href="http://assets.dwstatic.com/project/huya-v/1.4.0/?t=1446705601135"><img src="http://art.yypm.com/620x90" alt=""></a>
+        </div> -->
+        <div class="commentList">
+            <script>
+                var comment3Uniqid = "<{$comment3Uniqid}>";
+                var __comment3Skin__ = 'dw-comment-skin_white';
+            <{if $comment3Arr}>
+                /*下面变量的命名是老大要求的，拼音是故意拼错的，要吐槽请吐槽我们的老大，谢谢！*/
+                var qianwangbieyongzhegebianliang_domain = "<{$comment3Arr.domain}>";
+                var qianwangbieyongzhegebianliang_url = "<{$comment3Arr.url}>";
+            <{/if}>
+                </script><a name='comment_top'></a>
+                <div id="comment_frame"></div><script src="http://comment3.duowan.com/scripts/comments.js"></script>
+        </div>
+
+    </div>
+    <!-- }多玩视频主内容 -->
+    <!-- 右边相关视频{ -->
+    <div class="vedio-box__sub">
+        <!-- 播放页-右侧运营位{ -->
+        <div class="m-starslide">
+          <{filterContent filter_name='播放页-右侧运营位' channel=$video.video_channel}>
+        </div>
+        <!-- }播放页-右侧运营位 -->
+        <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+        <!-- 相关视频{ -->
+        <div class="lol-v__sort video-v__sort">
+    <div class="hd">
+        <ul class="sort-nav">
+            <li data-role="trigger" class="selected"><span>日</span><em>|</em></li>
+            <li data-role="trigger"><span>周</span><em>|</em></li>
+            <li data-role="trigger"><span>月</span></li>
+        </ul>
+        <h3>视频排行榜</h3>
+    </div>
+   <div class="bd">
+        <ul class="sort-con" data-role="content">
+        <{foreach $DWMRank.day as $k => $v}>
+            <li class="selected">
+                <label for="" <{if $k+1 <= 3 }>class="hot"<{/if}> ><{$k+1}></label><a href="<{$v.video_url}>" class="long-name"> <{$v.video_title}></a>
+                <div class="hover-show">
+                    <a href="<{$v.video_url}>" class="img" data-dwclick='dwclick' data-ckstat='play_day_rank<{$k}>'><img src="<{$v.video_cover}>" alt="" ></a>
+                    <a href="<{$v.video_url}>" class="uiVideo__subtitle" data-dwclick='dwclick' data-ckstat='play_day_rank<{$k}>'><{$v.video_title}></a>
+                    <div class="uiVideo__meta">
+                       <!--  <div class="lol-v__authorname"><i></i><{$v.user_nickname}></div> -->
+                        <div class="lol-v__playtotal"><i></i><{$v.video_play_num}></div>
+                        <div class="uiVideo__talktotal"><i></i><{$v.video_comment_num}></div>
+                    </div>
+                </div>
+            </li>
+        <{/foreach}>
+        </ul>
+        
+        <ul class="sort-con" data-role="content">
+        <{foreach $DWMRank.week as $k => $v}>
+            <li class="selected">
+                <label for="" <{if $k+1 <= 3 }>class="hot"<{/if}> ><{$k+1}></label><a href="<{$v.video_url}>" class="long-name"> <{$v.video_title}></a>
+                <div class="hover-show">
+                    <a href="<{$v.video_url}>" class="img"  data-dwclick='dwclick' data-ckstat='play_week_rank<{$k}>'><img src="<{$v.video_cover}>" alt="" ></a>
+                    <a href="<{$v.video_url}>" class="uiVideo__subtitle"  data-dwclick='dwclick' data-ckstat='play_week_rank<{$k}>'><{$v.video_title}></a>
+                    <div class="uiVideo__meta">
+                        <!-- <div class="lol-v__authorname"><i></i><{$v.user_nickname}></div> -->
+                        <div class="lol-v__playtotal"><i></i><{$v.video_play_num}></div>
+                        <div class="uiVideo__talktotal"><i></i><{$v.video_comment_num}></div>
+                    </div>
+                </div>
+            </li>
+        <{/foreach}>
+        </ul>
+        
+        <ul class="sort-con" data-role="content">
+            <{foreach $DWMRank.month as $k => $v}>
+                <li class="selected">
+                    <label for="" <{if $k+1 <= 3 }>class="hot"<{/if}> ><{$k+1}></label><a href="<{$v.video_url}>" class="long-name"> <{$v.video_title}></a>
+                    <div class="hover-show">
+                        <a href="<{$v.video_url}>" class="img" data-dwclick='dwclick' data-ckstat='play_month_rank<{$k}>'><img src="<{$v.video_cover}>" ealt="" ></a>
+                        <a href="<{$v.video_url}>" class="uiVideo__subtitle"  data-dwclick='dwclick' data-ckstat='play_month_rank<{$k}>'><{$v.video_title}></a>
+                        <div class="uiVideo__meta">
+                           <!--  <div class="lol-v__authorname"><i></i><{$v.user_nickname}></div> -->
+                            <div class="lol-v__playtotal"><i></i><{$v.video_play_num}></div>
+                            <div class="uiVideo__talktotal"><i></i><{$v.video_comment_num}></div>
+                        </div>
+                    </div>
+                </li>
+            <{/foreach}>
+        </ul>
+    </div>
+</div>
+        <!-- }相关视频 -->
+    </div>
+    <!-- }右边相关视频 -->
+</div>
+
+<!-- 多玩视频底部{ -->
+<link rel="stylesheet" type="text/css" href="http://assets.dwstatic.com/project/huya-v/2.0.0/css/footer.css?t=1451008036">
+<style>.fot-link{display:none}</style>
+<!--}虎牙视频底部-->
+<script src="http://assets.dwstatic.com/amkit/entry.js"></script>
+<script src="http://assets.dwstatic.com/common/js/dwudbproxy.js"></script>
+<script>
+    seajs.use(['http://assets.dwstatic.com/f=project/huya-v/2.0.1/js/com.js?t=1451008036'],function(com){
+        com.header();
+    })
+</script>
+<!-- }多玩视频底部 -->
+
+<script type="text/javascript" src="http://assets.dwstatic.com/project/huya-v/1.4.0/js/jquery.nicescroll.min.js?t=1446705601135"></script>
+<script type="text/javascript" src="http://assets.dwstatic.com/project/huya-v/1.4.0/js/index.js?t=1446705601135"></script>
+<script type="text/javascript" src="http://assets.dwstatic.com/project/huya-v/1.4.0/js/screenWidth.js?t=1448958797"></script>
+<script type="text/javascript" src="http://assets.dwstatic.com/project/huya-v/1.4.0/js/ZeroClipboard.min.js?t=1448958797"></script>
+<script>        
+$(function(){
+        var vid = "<{$video.vid}>";
+        var jsapi = 'http://video.duowan.com/jsapi/';
+
+        //标签样式
+        $(".tagvideo").eq(0).addClass('active');
+        var text = $(".tagvideo").text();
+        if ('' == text) {
+            $(".tag").hide();
+        };
+        $('.v-action a').bind('mouseover',function(){
+            var index = $(this).index();
+            $(this).addClass('active').siblings().removeClass('active');
+            $('.sel_tag').eq(index).show().siblings().hide();
+        });
+
+        /* 滚动条 */
+        $('#relateRight').niceScroll({
+            cursorcolor:'#666',
+            cursoropacitymin:1,
+            cursoropacitymax:1,
+            cursorwidth:'8px',
+            background:'#222',
+            cursorborder:'none',
+            cursorborderradius: '0'
+        });     
+    
+        //数字格式转换
+        function numFormat(num){
+            var rs;
+            if(num > 999999){
+                rs = Math.round( num / 10000 ) + "万";
+                return rs;
+            }else if(num > 9999){
+                rs = Math.round(num / 10000 * 10) / 10 + "万";
+                return rs;
+            }else if( num > 999 ){
+                return parseFloat(num).toLocaleString();
+            }else{
+                return num;
+            }
+        }
+        
+        function fixVideoPlayNum(vid, playNum, channel){
+            var salt = parseInt(parseInt(vid) * 1.2);
+            var saltStr = ""+salt;
+            salt = parseInt( saltStr.substr(saltStr.length - 3, 3) );
+            salt = salt > 500 ? salt : (1000 - salt);
+            return parseInt(playNum*3.1) + salt;        
+        }
+        
+        //更新播放数 
+        var updateVideoPlayNum = {
+            init: function(vid){
+                var _this = this;
+                $.get('http://playstats.v.duowan.com/index.php?r=api/get', {vid:vid},
+                    function(json){
+                        if( !json[vid] ) return;
+                        var new_num = numFormat(fixVideoPlayNum(vid, json[vid], '<{$video.video_channel}>'));
+                        var old_num = $("#video_play_num").data('play-num');
+                        if ( new_num != old_num ) {
+                            $('#video_play_num').html(new_num);
+                            _this.requestUpdate(vid);
+                        }
+                }, 'jsonp');
+            },
+            
+            //请求服务器更新 
+            requestUpdate:function(vid){
+                $.get(jsapi+'updateVideoPlayNum', {vid:vid}, function(){}, 'jsonp');         
+            }
+        };
+
+        //更新评论数
+        var updateVideoCommentNum = {
+            init: function(vid){
+                var _this = this;
+                var uniqid = window.comment3Uniqid;
+                var domain = window.qianwangbieyongzhegebianliang_domain || 'video.duowan.com';
+                var url = window.qianwangbieyongzhegebianliang_url || '/play/'+vid+'.html';
+            
+                var apiUrl = 'http://comment3.duowan.com/index.php?r=comment/totaljson&uniqid='+uniqid+'&domain='+domain+'&url='+url;
+                $.get(apiUrl, {vid:vid},
+                    function(json){
+                        if( !json['show'] || !json['show']['total_num']) return;
+                        var new_num = numFormat(json['show']['total_num']);
+                        var old_num = $("#first_comment_count").data('comment-num');                            
+                        if ( new_num != old_num ) {
+                           //$('#first_comment_count').html(new_num);
+                            _this.requestUpdate(vid);
+                        }
+                }, 'jsonp');
+            },
+            
+            //请求服务器更新
+            requestUpdate:function(vid){
+                 $.get(jsapi+'updateVideoCommentNum', {vid:vid}, function(){}, 'jsonp');          
+            }
+        };
+
+        //提供给播放器的全局变量，需要谨慎处理
+        window.vhuyaPlayerNextVideo = {'title':'', 'url':''};
+        var setNextVhuyaPlayerNextVideo = function(){
+            var videoInfo = $('#relateRight').find('.onlive').next().find('a');
+            var alisNextUrl = videoInfo.attr('href');
+            var alisNextTitle = videoInfo.eq(0).text();
+            if ( typeof alisNextUrl !== 'undefined' &&  alisNextUrl !='') {
+                vhuyaPlayerNextVideo.title = alisNextTitle;
+                vhuyaPlayerNextVideo.url = alisNextUrl;   
+            }
+        };
+
+        //加载相关视频
+        var videoRelate = {
+            nextVideo: null,
+            tpl_render : function(tpl, data){
+                return tpl.replace(/\{([\w\_]+)\}/g, function(){
+                    return (typeof data[arguments[1]]==='undefined')?'':data[arguments[1]]; 
+                });
+            },
+            
+            getRelateVid : function(vid){
+                var _arr = window.location.href.match(/relate_vid=(\d+)/);
+                return _arr && _arr[1] ? _arr[1] : vid;
+            },
+        
+            renderData : function(vid, relate_vid, json){
+                if( !json || !json[0] ) return ;
+                var tpl = '{onlive}\
+                            <div class="vdw-v-link J_mask">\
+                                <a href="{video_url}"  data-dwclick="dwclick" data-ckstat="play_video_relate{k}"><img src="{video_cover}" alt=""></a>\
+                                {playing}\
+                                <a href="{video_url}" class="vdw-play-icon-sml" data-dwclick="dwclick" data-ckstat="play_video_relate{k}"></a><a href="{video_url}" class="v-mask" data-dwclick="dwclick" data-ckstat="play_video_relate{k}"></a>\
+                            </div>\
+                            <div class="vdw-info--vlist">\
+                                <a href="{video_url}" class="title" data-dwclick="dwclick" data-ckstat="play_video_relate{k}">{video_title}</a>\
+                                <div class="number">\
+                                    <span class="icon-play"><i></i>{video_play_num}</span>\
+                                    <span class="icon-comment"><i></i>{video_comment_num}</span>\
+                                </div>\
+                            </div>\
+                            </div>';                                      
+                var html = '', curIndex=0;
+                for(var i=0; i<json.length; i++){
+                    json[i]['k'] = i;
+                    
+                    if( vid == json[i]['vid'] ){
+                        curIndex = i;
+                        json[i]['playing'] = '<span class="time playing">正在播放</span>';
+                        json[i]['onlive'] = '<div class="otherV-list onlive">';
+                        if( json[i+1] && !this.nextVideo){
+                            this.nextVideo = json[i+1];
+                        }
+                    }else{
+                        json[i]['playing'] = '<span class="time">'+json[i]['video_duration']+'</span>';
+                        json[i]['onlive'] = '<div class="otherV-list">';
+                    }
+                    
+                    if(i<15){
+                        json[i]['video_url'] = json[i]['video_url'] + '#relate_vid='+relate_vid;
+                    }           
+                    html += this.tpl_render(tpl, json[i]); 
+                }
+                if( !this.nextVideo && vid != json[0]['vid']){
+                    this.nextVideo = json[0];
+                }              
+                $('#videoRelate').html( html );
+                
+                //Set ScrollTop
+                var top = (curIndex-1)*100;
+                if( top>0 ){
+                    $('#relateRight').niceScroll().doScrollTop(top);
+                }
+            },
+            
+            init: function(vid){
+                try{
+                    var _this = this;
+                    var relate_vid = _this.getRelateVid(vid);
+                    $.get(jsapi + 'getVideoRelate', {relate_vid:relate_vid}, function(json){
+                        _this.renderData(vid, relate_vid, json);
+                       
+                    }, 'jsonp');
+                }catch(e){}                
+            }
+        };
+                
+        var addPlayRecord = function(vid){
+            $.get(jsapi+'addPlayRecord', {vid:vid}, function(){},  'jsonp'); 
+        }
+        
+        updateVideoPlayNum.init(vid);
+        updateVideoCommentNum.init(vid);
+        videoRelate.init(vid);
+        addPlayRecord(vid);
+        setNextVhuyaPlayerNextVideo();
+                
+        window.videoRelate = videoRelate;
+        window.stop_cb = function(){  
+            if( window.vhuyaPlayerNextVideo.url ){
+                var image = new Image;
+                var statUrl = 'http://clickstats.duowan.com/index.php?r=stats/index&event=vhuya_continue_play';
+                image.src= statUrl; 
+                window.location.href = window.vhuyaPlayerNextVideo.url;
+                return ;
+            }
+        };
+        
+        $('.zan').on('click', function(){
+            var vid = $(this).data('vid');
+            if( false == vid )return false;
+            $.get('<{url r="video/support"}>', {vid:vid}, function(){}, function(data){
+                if(data.rs){
+                    var support = $('.zan').text();
+                    support = parseInt(support)+1;
+                    $('.zan').html("<i></i>"+ support );
+                    $('.zan').addClass('zan--actived');
+                }
+            }, 'jsonp')
+        });        
+});
+
+
+</script>
+<script type="text/javascript" src="http://assets.dwstatic.com/project/huya-v/1.4.0/js/play.js?t=144995879697"></script>
+<!--<script src="http://dou.duowan.com/static/js/huya_dwd_popbox.js"></script>-->
+<script src="http://pub.dwstatic.com/p/2017dw/1.1.0/common/plusReport/plusReport_4d2a9d4.js?channel=watchvideos"></script><!-- 201702新版多玩商城看视频的数据上报 -->
+<{include file='common/footer.html'}>
+</body>
+</html>

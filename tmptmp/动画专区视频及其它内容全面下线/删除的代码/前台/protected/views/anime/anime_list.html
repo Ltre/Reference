@@ -1,0 +1,160 @@
+<!doctype html>
+<html>
+<head lang="zh">
+    <meta charset="utf-8">
+    <title>多玩视频_YY游戏多玩视频站-中国第一游戏视频平台</title>
+    <meta name="Keywords" content="多玩视频，游戏视频,YY游戏视频，游戏播客">
+    <meta name="description" content="多玩视频为您提供高清、流畅的游戏解说视频；包括英雄联盟lol、DOTA2、地下城与勇士dnf、魔兽世界、炉石传说频等，最新最热的赛事、解说、搞笑、娱乐、攻略视频，一切尽在多玩视频-全民游戏视频社区。">
+    <link rel="stylesheet" type="text/css" href="http://assets.dwstatic.com/project/huya-v/2.0.0/css/c.css?t=1447921141986">
+    <meta name="renderer" content="webkit">
+    <meta name="front-end" content="MrF">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--[if lt IE 9]>
+    <script> (function(){ var tags=['header','footer','nav','section','article','aside'];for(var i in tags){document.createElement(tags[i]);}})()</script>
+    <style>
+        .main{width:980px}#wrap{min-width:980px}.info-video-scroll .info-video-scroll-wrap1{width:960px}.channel-header nav ul{width:688px}.channel-header nav ul li{width:80px}.span-48{width:720px}.gb-col2 .info-video-list{width:720px;height:404px;overflow:hidden}
+    </style>
+    <![endif]-->
+</head>
+<body class="comic-channel">
+<!--SEO start-->
+<h1 class="hide"></h1>
+<!--SEO end-->
+<!-- 虎牙视频头部{ -->
+ <{include file='common/huya-header2.html'}>
+<!-- }虎牙视频头部 -->
+<!--虎牙视频侧边栏{-->
+
+
+<!--}虎牙视频侧边栏-->
+<!--虎牙视频内容{-->
+<div id="wrap">
+    <!-- 专区头部{-->
+      <{filterContent filter_name='动漫专区头部' channel='vhuyadm'}>
+    <!-- }专区头部-->
+    <!-- 专区内容{-->
+    <div class="main clearfix">
+        <!-- 筛选标签{-->
+        <{filterContent filter_name='动漫剧集列表页' channel='vhuyadm'}>
+        <!-- }筛选标签-->
+        <!-- 切换标签{-->
+        <ul class="tag-tab-list clearfix" id="order">
+            <li class="fltL"><a href="javascript:;"  class="<{if $order == 'new'}>current<{/if}>"  data-sort="new">最新</a></li>
+            <li class="fltL"><a href="javascript:;"  class="<{if $order == 'hot'}>current<{/if}>" data-sort="hot" >最热</a></li>
+        </ul>
+        <!-- }切换标签-->
+        <section class="gb-col  clearfix" id="list-unit">
+        
+
+        </section>
+    </div>
+    <!-- }专区内容-->
+</div>
+<!--}虎牙视频内容-->
+<!--虎牙视频底部{-->
+<{include file='common/footer.html'}>
+<!--}虎牙视频底部-->
+<script src="http://assets.dwstatic.com/common/js/jquery.js"></script>
+<!--海度 统计 -->
+<script src="http://www.duowan.com/duowan.js" type="text/javascript"></script>
+<script src="http://assets.dwstatic.com/amkit/entry.js"></script>
+<script src="http://assets.dwstatic.com/common/js/dwudbproxy.js"></script>
+<script src="http://assets.dwstatic.com/project/huya-v/2.0.0/js/subscribe.js?t=1447921141986"></script>
+<script>
+    seajs.use(['http://assets.dwstatic.com/f=project/huya-v/2.0.1/js/com.js'],function(com){
+        com.userShow();
+        com.newsbox('.gb-col-tab')
+        com.fixNav();
+    })
+    $('.show-more').on('click',function(){
+        $(this).closest('.tag-list').addClass('tag-list-show')
+    })
+    $('.show-less').on('click',function(){
+        $(this).closest('.tag-list').removeClass('tag-list-show')
+    })
+</script>
+
+<script type="text/javascript">
+
+    //获取分页内容  
+    function getAjaxList(condition){
+        var type,area,ver,order,page;
+
+        if (condition == 'search') {
+            type = $(".anime_type").find('.on').text();
+            area = $(".anime_area").find('.on').text();
+            ver  = $(".anime_ver").find('.on').text();
+        }else{
+            type  = "<{$type}>";
+            area  = "<{$area}>";
+            ver   = "<{$ver}>";
+        }
+
+        order = $("#order").find('.current').data('sort');
+      
+        $.post("<{url r='anime/AjaxList'}>", {p:page,ver:ver,type:type,area:area,order:order}, function(data){
+            if (data) {
+                $("#list-unit").html(data);
+            }else{
+                $("#list-unit").html('');
+            }
+    
+            if (condition == 'init') {
+                if ( type != '' ) {
+                    Selection($(".anime_type"),type);
+                };
+
+                if ( ver != '' ) {
+                    Selection($(".anime_ver"),ver);
+                };
+                if ( area != '' ) {
+                    Selection($(".anime_area"),area);
+                };
+            };
+      });
+    }
+
+    $(document).ready(function(){ 
+        getAjaxList('init');
+    })
+
+    function Selection(obj, mark){
+        var amark = obj.find('a'),
+        len = amark.length,
+        marktxt;
+        for(var i = 0; i < len; i++){
+            marktxt = amark.eq(i).text();
+            if(marktxt == mark){
+                amark.eq(i).addClass('on').siblings().removeClass('on');
+            }
+        }
+    }
+
+    $(".tag-list-body a").click(function(){
+        $(this).addClass('on').siblings().removeClass('on');
+        getAjaxList('search');
+        return false;
+    });
+
+
+
+    $("#order a").click(function(){
+        $(this).addClass('current').parent().siblings().find('a').removeClass('current');
+        getAjaxList('search');
+        return false;
+    });
+
+    $(document).on('click','#pageNum a', function(){
+        var url = $(this).attr('href');
+        $.get(url, function(data){
+            if (data) {
+                $("#list-unit").html(data);
+            }else{
+                $("#list-unit").html('');
+            }
+        });
+        return false;
+    });
+</script>
+</body>
+</html>
