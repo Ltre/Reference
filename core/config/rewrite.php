@@ -9,7 +9,7 @@ class DIRouteRewrite {
      */
     static $rulesMap = array(
         '://doc.yooo.moe' => 'doc/start',
-        '://doc.yooo.moe/<X>' => 'doc/<X>',
+        '://doc.yooo.moe/<X>' => 'doc/start/<X>',
         '://danmucopy.me/' => 'test/test', //含有域名的配置最好放在最前面(经验之谈)
         '://danmu.me/' => 'danmu/start',
         '://iio.ooo/' => 'fm/start',
