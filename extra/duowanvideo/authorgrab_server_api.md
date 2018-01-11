@@ -5,7 +5,8 @@
 
 <font color="blue">1、通过播放页url抓取单个零散视频</font>
     ————————————————————————————————————————————————————
-    URL:    http://grab-v.duowan.com/api/grabOneVideo
+    URL:    http://grab-v.duowan.com/api/grabOneVideo               [正式]
+            http://grab-author.webdev2.duowan.com/api/grabOneVideo  [测试]
     ————————————————————————————————————————————————————
     参数(get|post):
         jsonData       要传的数据，使用json格式化，具体结构如下：
@@ -25,7 +26,7 @@
         var jsonstr = JSON.stringify(json);
         var key = 'duowan~!@#$%^&*';
         var sign = MD5(jsonstr + key);
-        var api = 'http://grab-author.webdev2.duowan.com/api/grabOneVideo';
+        var api = 'http://grab-v.duowan.com/api/grabOneVideo';
         $.get(api, {jsonData: jsonstr, sign: sign}, function(j){
             console.log(j);
         }, 'jsonp');
