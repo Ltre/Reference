@@ -34,7 +34,9 @@
 
 
 <h2>广告展示接口</h2>
+
     调用地址： //da.duowan.com/loc/广告位ID
+    
     返回：
         jsonpda(
             {
@@ -46,10 +48,11 @@
                     "thirdLocType": 1, //有两种：1-直播，2-banner
                     "thirdLocTypeDesc": "live",//有两种：live，banner
                     "list": [{...}, {...}, ...],  //除了这里的list以外，所有结构不变。list结构，详见下文
-                    "more": "http://www.yy.com/chicken/" //更多的链接，有的为空串
+                    "more": "http://www.yy.com/chicken/" //更多的链接，默认为空串
                 }
             }
         )
+
     附1: list结构，随thirdLocType变化
         thirdLocType=1时，单元素结构为
             id-纯粹的编号没啥用, 
