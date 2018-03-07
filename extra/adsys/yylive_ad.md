@@ -60,7 +60,7 @@
             desc-直播简介(可做标题参考), 
             users-用户观看数, 
             room_id-房间ID
-        thirdLocType=1时，单元素结构为
+        thirdLocType=2时，单元素结构为
             id-纯粹的编号没啥用, 
             title-标题, 
             desc-简介, 
