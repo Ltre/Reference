@@ -29,46 +29,62 @@
     156     盒子-DNF大banner图	         图片、链接
     157     盒子-DNF直播板块	           直播封面、链接、主播头像、直播标题、主播昵称、观看用户数
     158     盒子-首页视频推荐位	         直播封面、链接、主播头像、直播标题、主播昵称、观看用户数
-    159     饭盒-首页视频推荐位	         直播封面、链接、主播头像、直播标题、主播昵称、观看用户数
-    160     饭盒-banner	               图片、链接
+    125     饭盒-首页视频推荐位	         直播封面、链接、主播头像、直播标题、主播昵称、观看用户数
+    126     饭盒-banner	               图片、链接
+
+
+    注：饭盒-首页视频推荐位的原locId为159，已改为125，提供给饭盒APP的接口为
 
 
 <h2>广告展示接口</h2>
 
-    调用地址： //da.duowan.com/loc/广告位ID
+    <h3>通用loc/xxx接口</h3>
+
+        通用调用地址： //da.duowan.com/loc/广告位ID
     
-    返回：
-        jsonpda(
-            {
-                "locid": "136",
-                "pid": "765",
-                "extraJson": {
-                    "thirdParty": "yylive-ad",
-                    "thirdLocId": 50, //YY那边的位置ID，用来看的，对前端没用
-                    "thirdLocType": 1, //有两种：1-直播，2-banner
-                    "thirdLocTypeDesc": "live",//有两种：live，banner
-                    "list": [{...}, {...}, ...],  //除了这里的list以外，所有结构不变。list结构，详见下文
-                    "more": "http://www.yy.com/chicken/" //更多的链接，默认为空串
+        返回：
+            jsonpda(
+                {
+                    "locid": "136",
+                    "pid": "765",
+                    "extraJson": {
+                        "thirdParty": "yylive-ad",
+                        "thirdLocId": 50, //YY那边的位置ID，用来看的，对前端没用
+                        "thirdLocType": 1, //有两种：1-直播，2-banner
+                        "thirdLocTypeDesc": "live",//有两种：live，banner
+                        "list": [{...}, {...}, ...],  //除了这里的list以外，所有结构不变。list结构，详见下文
+                        "more": "http://www.yy.com/chicken/" //更多的链接，默认为空串
+                    }
                 }
-            }
-        )
+            )
 
-    附1: list结构，随thirdLocType变化
-        thirdLocType=1时，单元素结构为
-            id-纯粹的编号没啥用, 
-            url-直播链接, 
-            img-直播封面, 
-            name-主播昵称, 
-            avatar-主播头像, 
-            desc-直播简介(可做标题参考), 
-            users-用户观看数, 
-            room_id-房间ID
-        thirdLocType=2时，单元素结构为
-            id-纯粹的编号没啥用, 
-            title-标题, 
-            desc-简介, 
-            url-链接, 
-            image-图素材链接
+        附1: list结构，随thirdLocType变化
+            thirdLocType=1时，单元素结构为
+                id-纯粹的编号没啥用, 
+                url-直播链接, 
+                img-直播封面, 
+                name-主播昵称, 
+                avatar-主播头像, 
+                desc-直播简介(可做标题参考), 
+                users-用户观看数, 
+                room_id-房间ID
+            thirdLocType=2时，单元素结构为
+                id-纯粹的编号没啥用, 
+                title-标题, 
+                desc-简介, 
+                url-链接, 
+                image-图素材链接
 
+    <h3>饭盒APP专用接口</h3>
+
+        专用调用地址：//da.duowan.com/api/fanhe?loc=xxxx&platform=xxx
+
+        参数说明：
+            loc - 位置标识，值有：
+                fanhelist 对应位置为[饭盒-首页视频推荐位]，后端会匹配到位置ID[125]
+                fanhebanner 对应位置为[饭盒-banner]，后端会匹配到位置ID[126]
+            platform - 操作系统，值有：
+                android
+                ios
 
 </pre>
