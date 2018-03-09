@@ -70,10 +70,12 @@
                 room_id-房间ID
             thirdLocType=2时，单元素结构为
                 id-纯粹的编号没啥用, 
+                biz-业务标识(YY提供的，没啥用), 
                 title-标题, 
                 desc-简介, 
                 url-链接, 
-                image-图素材链接
+                img-封面, 
+                thumb-缩略图(极小，不建议用),
 
     <h3>饭盒APP专用接口</h3>
 
