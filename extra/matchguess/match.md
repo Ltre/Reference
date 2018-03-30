@@ -174,10 +174,10 @@
             ],
             ...
         }
-	————————————————————————————————————————————————————
+    ————————————————————————————————————————————————————
 	备注: 
 		未登录时，不会加载啊个人竞猜提交记录
-	————————————————————————————————————————————————————
+    ————————————————————————————————————————————————————
     示例：
         http://match-guess.webdev2.duowan.com/matches/list?ac_id=1
 	————————————————————————————————————————————————————
@@ -188,7 +188,115 @@
 
 
 
-<font color="blue">2、XXXXX（<font color="red">XXXXX</font>） XXXX/XXXX </font>
+
+<font color="blue">2、胜负竞猜-提交接口</font>
+	————————————————————————————————————————————————————
+	URL:	
+        正式：???
+        测试：http://match-guess.webdev2.duowan.com/guess/SubmitWin
+	————————————————————————————————————————————————————
+	参数(get|post):
+		guess_id		竞猜问题ID
+        option_id       候选项ID
+        match_id        比赛ID
+	————————————————————————————————————————————————————
+	返回(objet)：
+        {
+            "rs": false,
+            "msg": "投票已经结束了"
+        }
+	————————————————————————————————————————————————————
+	备注: 
+		需要登录态
+	————————————————————————————————————————————————————
+	示例：
+        http://match-guess.webdev2.duowan.com/guess/SubmitWin?callback=jQuery1113024605852558475227_1522419242933&guess_id=8&option_id=11&match_id=7&_=1522419242934
+
+        `script`
+            var url = 'http://match-guess.webdev2.duowan.com/guess/SubmitWin';
+            var param = {
+                guess_id: 8,
+                option_id: 11,
+                match_id: 7
+            };
+            $.get(url, param, function(j){
+                console.log(j);
+            }, 'jsonp');
+        `script`
+	————————————————————————————————————————————————————
+
+
+
+
+
+
+
+
+<font color="blue">3、实况问题竞猜-提交接口</font>
+	————————————————————————————————————————————————————
+	URL:	
+        正式：???
+        测试：http://match-guess.webdev2.duowan.com/guess/SubmitLives
+	————————————————————————————————————————————————————
+	参数(get|post):
+		args		object数组，结构如下
+                    [
+                        {
+                            guess_id: 8, //竞猜问题ID
+                            option_id: 11, //候选项ID
+                            match_id: 7 //比赛ID
+                        },{
+                            guess_id: 7,
+                            option_id: 9,
+                            match_id: 2
+                        }
+                    ]
+	————————————————————————————————————————————————————
+	返回(object)：
+        {
+            "rs": true,
+            "msg": "提交成功",
+            "feeds": [ //每个问题的反馈。先不管这里吧，直接用外层的rs判断是否成功即可
+                {
+                    "rs": false,
+                    "msg": "竞猜已经结束了"
+                },
+                {
+                    "rs": false,
+                    "msg": "竞猜已经结束了"
+                }
+            ]
+        }
+	————————————————————————————————————————————————————
+	备注: 
+		需要登录态
+	————————————————————————————————————————————————————
+	示例：
+        http://match-guess.webdev2.duowan.com/guess/SubmitLives?callback=jQuery111309869211024474152_1522418060858&args%5B0%5D%5Bguess_id%5D=8&args%5B0%5D%5Boption_id%5D=11&args%5B0%5D%5Bmatch_id%5D=7&args%5B1%5D%5Bguess_id%5D=7&args%5B1%5D%5Boption_id%5D=9&args%5B1%5D%5Bmatch_id%5D=2&_=1522418060859
+
+        `script`
+            var url = 'http://match-guess.webdev2.duowan.com/guess/SubmitLives';
+            var args = [{
+                guess_id: 8,
+                option_id: 11,
+                match_id: 7
+            },{
+                guess_id: 7,
+                option_id: 9,
+                match_id: 2
+            }];
+            $.get(url, {args:args}, function(j){
+                console.log(j);
+            }, 'jsonp');
+        `script`
+	————————————————————————————————————————————————————
+
+
+
+
+
+
+<font color="blue">4、XXXXX（<font color="red">XXXXX</font>） XXXX/XXXX </font>
 	————————————————————————————————————————————————————
 	URL:		
 	————————————————————————————————————————————————————
