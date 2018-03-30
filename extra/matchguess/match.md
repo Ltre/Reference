@@ -134,7 +134,7 @@
                 {
                     <font color="red">...</font>
                 },
-                <font color="red">...<font>
+                <font color="red">...</font>
             ],
             "2": [ //第二周
                 {...},
