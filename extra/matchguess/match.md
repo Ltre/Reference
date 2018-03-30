@@ -41,14 +41,14 @@
                     "right_team_name": "BB", //客队名
                     "left_team_logo": "http://ya2.dwstatic.com/201803/8c/8c04cab6a8cf2c21f1ba0794267c8437.jpg",
                     "right_team_logo": "http://ya3.dwstatic.com/201803/d3/d38c92440f32b0e938d1d836839a9bc2.gif",
-                    //<span color="orange">胜负问题的数据块</span>
+                    //<font color="orange">胜负问题的数据块</font>
                     "win_question": {
                         "guess_id": "9", //胜负问题的问题ID
                         "question": "", //问题描述，对于胜负问题，为空串；对于实况问题，有描述
                         "bonus_score": 100, //答对奖励分数
                         "deduct_score": 0, //答错扣除分数
-                        "start_time": "1522315800", //答题开始时间，<span color="red">根据需要，使用该时间控制是否可答题，后端也做了控制</span>
-                        "end_time": "1522487400", //答题结束时间，<span color="red">根据需要，使用该时间控制是否可答题，后端也做了控制</span>
+                        "start_time": "1522315800", //答题开始时间，<font color="red">根据需要，使用该时间控制是否可答题，后端也做了控制</font>
+                        "end_time": "1522487400", //答题结束时间，<font color="red">根据需要，使用该时间控制是否可答题，后端也做了控制</font>
                         "start_time_mdhi": "03-29 17:30",
                         "end_time_mdhi": "03-31 17:10",
                         "start_time_md": "03-29",
@@ -81,15 +81,15 @@
                             "result": "0" //是否猜对：0-未知，1-答对，2-答错
                         }
                     },
-                    //<span color="orange">实况小问题数据列表, 这个是array，注意数组闭合处的省略号</span>
+                    //<font color="orange">实况小问题数据列表, 这个是array，注意数组闭合处的省略号</font>
                     "live_questions": [{
                         {
                             "guess_id": "10",
                             "question": "发打扫机家佛将大赛i 分挤掉附近",
                             "bonus_score": 100,
                             "deduct_score": 0,
-                            "start_time": "1522315800", //答题开始时间，<span color="red">根据需要，使用该时间控制是否可答题，后端也做了控制</span>
-                            "end_time": "1522487400", //答题结束时间，<span color="red">根据需要，使用该时间控制是否可答题，后端也做了控制</span>
+                            "start_time": "1522315800", //答题开始时间，<font color="red">根据需要，使用该时间控制是否可答题，后端也做了控制</font>
+                            "end_time": "1522487400", //答题结束时间，<font color="red">根据需要，使用该时间控制是否可答题，后端也做了控制</font>
                             "start_time_mdhi": "03-29 17:30",
                             "end_time_mdhi": "03-31 17:10",
                             "start_time_md": "03-29",
@@ -129,12 +129,12 @@
                                 "result": "0" //是否猜对：0-未知，1-答对，2-答错
                             }
                         },
-                    }, <span color="red">...</span>]
+                    }, <font color="red">...</font>]
                 },
                 {
-                    <span color="red">...</span>
+                    <font color="red">...</font>
                 },
-                <span color="red">...<span>
+                <font color="red">...<font>
             ],
             "2": [ //第二周
                 {...},
