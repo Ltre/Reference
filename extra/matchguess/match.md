@@ -298,6 +298,73 @@
 
 <font color="blue">4、XXXXX（<font color="red">XXXXX</font>） XXXX/XXXX </font>
 	————————————————————————————————————————————————————
+	URL:
+        正式：???
+        测试：http://match-guess.webdev2.duowan.com/guess/myVictoryRecord
+	————————————————————————————————————————————————————
+	参数(get|post):
+		ac_id		活动ID
+	————————————————————————————————————————————————————
+	返回(array)：
+        [
+            {
+                "record_id": "2",
+                "my_answer": "ABC", //竞猜的战队
+                "my_result": "0", //是否猜对：0未知 1是 2否
+                "submit_time": 1522392633, //竞猜提交时间
+                "submit_time_mdhi": "03-30 14:50", //竞猜提交时间
+                "guess_id": "8",
+                "bonus_score": 100, //猜对奖励
+                "deduct_score": 0, //猜错扣除
+                "match_id": "7",
+                "match_type": "BO1",
+                "match_start_time": 1522402140, //比赛开始时间
+                "match_end_time": 1522402140, //比赛结束时间
+                "left_team": "6", //主队ID
+                "right_team": "7", //客队ID
+                "left_win": "0", //主队胜场次数
+                "right_win": "0", //客队胜场次数
+                "match_status": "0", //比赛进行状态：0未开始 1进行中 2已结束 3已暂停 4已取消
+                "match_result": "0", //比赛结果：0未知 1主队胜 2客队胜
+                "left_team_name": "ABC",
+                "right_team_name": "HUAJI",
+                "left_team_logo": "http://ya3.dwstatic.com/201803/0f/0ffae3c336a4e1fbd19ea7c87d8481ad.jpg",
+                "right_team_logo": "http://ya2.dwstatic.com/201803/cc/cc15b849f790fc45b14b172a6500e631.png",
+                "win_team": 0, //系统公布的胜方队ID
+                "win_team_name": "未知", //系统公布的胜方队名
+                "win_team_logo": "",
+                "question": "ABC VS HUAJI全场比赛结果为？"
+            },
+            {
+                ...
+            },
+            {
+                ...
+            },
+            {
+                ...
+            },
+            ...
+        ]
+	————————————————————————————————————————————————————
+	备注: 
+		需要登录态
+
+        接口返回的字段有很多用不到，但留着备用
+	————————————————————————————————————————————————————
+	示例：
+        http://match-guess.webdev2.duowan.com/guess/myVictoryRecord?ac_id=1
+	————————————————————————————————————————————————————
+
+
+
+
+
+
+
+
+<font color="blue">5、XXXXX（<font color="red">XXXXX</font>） XXXX/XXXX </font>
+	————————————————————————————————————————————————————
 	URL:		
 	————————————————————————————————————————————————————
 	参数(get|post):
