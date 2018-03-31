@@ -296,7 +296,7 @@
 
 
 
-<font color="blue">4、XXXXX（<font color="red">XXXXX</font>） XXXX/XXXX </font>
+<font color="blue">4、我的竞猜记录</font>
 	————————————————————————————————————————————————————
 	URL:
         正式：???
