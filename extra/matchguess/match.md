@@ -387,15 +387,15 @@
                 "udb": "dw_abc",
                 "avatar": "http://q.qlogo.cn/qqapp/101413783/F9C8F4EF012599DAB39EA7B0FDA8942B/100",
                 "score": 0,
-                "guess_times": "2",
-                "guess_correct_times": "0",
-                "guess_wrong_times": "1",
-                "guess_victory_times": "2",
-                "guess_victory_correct_times": "0",
-                "guess_victory_wrong_times": "1",
-                "guess_live_times": "0",
-                "guess_live_correct_times": "0",
-                "guess_live_wrong_times": "0"
+                "guess_times": "2",//竞猜总次数
+                "guess_correct_times": "0",//竞猜正确次数
+                "guess_wrong_times": "1",//竞猜错误次数
+                "guess_victory_times": "2",//猜胜负次数
+                "guess_victory_correct_times": "0",//猜胜负正确次数
+                "guess_victory_wrong_times": "1",//猜胜负错误次数
+                "guess_live_times": "0",//猜实况问题次数
+                "guess_live_correct_times": "0",//猜实况问题正确次数
+                "guess_live_wrong_times": "0"//猜实况问题错误次数
             }
         }
 	————————————————————————————————————————————————————
