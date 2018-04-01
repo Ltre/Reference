@@ -8,7 +8,7 @@
         赛事活动(主键ac_id): 表activity。解释：本次的战马厂商委托，可以算是个活动，以后如果有别的厂商来委托、或者我们自己搞了个别的赛事，那就是另一个活动
         比赛(主键match_id) 表matches
         用户(主键yyuid) 表user
-        积分(主键score_id) 表score
+        用户统计汇总(主键sum_id) 表user_summary
         积分流水(主键detail_id) 表score_detail
         竞猜问题(主键guess_id) 表guess
         竞猜候选项(主键option_id) 表guess_option
@@ -41,6 +41,7 @@
                 {
                     "match_id": "8", //比赛ID
                     "ac_id": "1", //活动ID
+                    "match_name": "LPL春季小组赛 ABC vs HUAJI",   //比赛名称
                     "match_type": "BO1",   //比赛类型：前端暂时不用
                     "start_time": 1522402200, //比赛开始时间戳，这跟竞猜开始时间不同概念
                     "end_time": 1522488600, //比赛结束时间戳，这跟竞猜结束时间不同概念
@@ -63,6 +64,10 @@
                     "right_team_name": "BB", //客队名
                     "left_team_logo": "http://ya2.dwstatic.com/201803/8c/8c04cab6a8cf2c21f1ba0794267c8437.jpg",
                     "right_team_logo": "http://ya3.dwstatic.com/201803/d3/d38c92440f32b0e938d1d836839a9bc2.gif",
+                    "left_guess_num": 200,//主队支持数
+                    "right_guess_num": 100,//客队支持数
+                    "left_guess_perc": "66.67%",//主队支持率
+                    "right_guess_perc": "33.33%",//客队支持率
                     //<font color="orange">胜负问题的数据块</font>
                     "win_question": {
                         "guess_id": "9", //胜负问题的问题ID
@@ -363,7 +368,48 @@
 
 
 
-<font color="blue">5、XXXXX（<font color="red">XXXXX</font>） XXXX/XXXX </font>
+<font color="blue">5、用户信息</font>
+	————————————————————————————————————————————————————
+	URL:		
+        正式：???
+        测试：http://match-guess.webdev2.duowan.com/user/info
+	————————————————————————————————————————————————————
+	参数(get|post):
+		ac_id		活动ID
+	————————————————————————————————————————————————————
+	返回(object)：
+        {
+            "rs": true,
+            "msg": "",
+            "info": {
+                "yyuid": "50014545",
+                "nickname": "LTRE",
+                "udb": "dw_abc",
+                "avatar": "http://q.qlogo.cn/qqapp/101413783/F9C8F4EF012599DAB39EA7B0FDA8942B/100",
+                "score": 0,
+                "guess_times": "2",
+                "guess_correct_times": "0",
+                "guess_wrong_times": "1",
+                "guess_victory_times": "2",
+                "guess_victory_correct_times": "0",
+                "guess_victory_wrong_times": "1",
+                "guess_live_times": "0",
+                "guess_live_correct_times": "0",
+                "guess_live_wrong_times": "0"
+            }
+        }
+	————————————————————————————————————————————————————
+	备注: 
+		需要登录态
+	————————————————————————————————————————————————————
+	示例：
+        http://match-guess.webdev2.duowan.com/user/info?ac_id=1
+	————————————————————————————————————————————————————
+
+
+
+
+<font color="blue">6、XXXXX（<font color="red">XXXXX</font>） XXXX/XXXX </font>
 	————————————————————————————————————————————————————
 	URL:		
 	————————————————————————————————————————————————————
