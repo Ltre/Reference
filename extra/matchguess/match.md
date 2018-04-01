@@ -368,7 +368,7 @@
 
 
 
-<font color="blue">5、用户信息</font>
+<font color="blue">5、个人信息</font>
 	————————————————————————————————————————————————————
 	URL:		
         正式：???
@@ -409,7 +409,52 @@
 
 
 
-<font color="blue">6、XXXXX（<font color="red">XXXXX</font>） XXXX/XXXX </font>
+<font color="blue">6、用户排行榜 </font>
+	————————————————————————————————————————————————————
+	URL:
+        正式：???
+        测试：http://match-guess.webdev2.duowan.com/user/sumRank		
+	————————————————————————————————————————————————————
+	参数(get|post):
+		ac_id		活动ID
+		limit		显示条目数量，默认20
+	————————————————————————————————————————————————————
+	返回(object)：
+        {
+            "rs": true,
+            "msg": "",
+            "list": [
+                {
+                    "yyuid": "50014545",
+                    "nickname": "LTRE",
+                    "avatar": "http://q.qlogo.cn/qqapp/101413783/F9C8F4EF012599DAB39EA7B0FDA8942B/100",
+                    "score": 0,
+                    "guess_times": "2",
+                    "guess_correct_times": "0",
+                    "guess_wrong_times": "1",
+                    "guess_victory_times": "2",
+                    "guess_victory_correct_times": "0",
+                    "guess_victory_wrong_times": "1",
+                    "guess_live_times": "0",
+                    "guess_live_correct_times": "0",
+                    "guess_live_wrong_times": "0"
+                },
+                {
+                    ...
+                },
+                ...
+            ]
+        }
+	————————————————————————————————————————————————————
+	备注: 
+		无
+	————————————————————————————————————————————————————
+	示例：
+        http://match-guess.webdev2.duowan.com/user/sumRank?ac_id=1&limit=10
+	————————————————————————————————————————————————————
+
+
+<font color="blue">7、XXXXX（<font color="red">XXXXX</font>） XXXX/XXXX </font>
 	————————————————————————————————————————————————————
 	URL:		
 	————————————————————————————————————————————————————
