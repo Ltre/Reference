@@ -9,6 +9,7 @@
 <a href="#a5">5、个人信息</a>
 <a href="#a6">6、用户排行榜</a>
 <a href="#a7">7、中奖登记</a>
+<a href="#a8">8、签到</a>
 
 
 <font id="a0" color="blue">0、业务入门简要</font>
@@ -36,7 +37,7 @@
     ————————————————————————————————————————————————————
     URL:        
         正式：
-            ???
+            http://match-guess.duowan.com/matches/list
         测试：
             http://match-guess.webdev2.duowan.com/matches/list
     ————————————————————————————————————————————————————
@@ -68,6 +69,8 @@
                     "right_win": "1", //客队胜场
                     "result": "2", //比赛结果：0未知 1主队胜 2客队胜
                     "online_users": 68112, //在线人数(一般是后台设置的随机值)
+                    "record_url": 'http://录播地址',
+                    "report_url": 'http://战报地址',
                     "start_time_mdhi": "03-30 17:30", 
                     "end_time_mdhi": "03-31 17:30",
                     "start_time_md": "03-30",
@@ -213,7 +216,7 @@
 <font id="a2" color="blue">2、胜负竞猜-提交接口</font>
     ————————————————————————————————————————————————————
     URL:    
-        正式：???
+        正式：http://match-guess.duowan.com/guess/SubmitWin
         测试：http://match-guess.webdev2.duowan.com/guess/SubmitWin
     ————————————————————————————————————————————————————
     参数(get|post):
@@ -256,7 +259,7 @@
 <font id="a3" color="blue">3、实况问题竞猜-提交接口</font>
     ————————————————————————————————————————————————————
     URL:    
-        正式：???
+        正式：http://match-guess.duowan.com/guess/SubmitLives
         测试：http://match-guess.webdev2.duowan.com/guess/SubmitLives
     ————————————————————————————————————————————————————
     参数(get|post):
@@ -320,7 +323,7 @@
 <font id="a4" color="blue">4、我的竞猜记录</font>
     ————————————————————————————————————————————————————
     URL:
-        正式：???
+        正式：http://match-guess.duowan.com/guess/myVictoryRecord
         测试：http://match-guess.webdev2.duowan.com/guess/myVictoryRecord
     ————————————————————————————————————————————————————
     参数(get|post):
@@ -387,7 +390,7 @@
 <font id="a5" color="blue">5、个人信息</font>
     ————————————————————————————————————————————————————
     URL:        
-        正式：???
+        正式：http://match-guess.duowan.com/user/info
         测试：http://match-guess.webdev2.duowan.com/user/info
     ————————————————————————————————————————————————————
     参数(get|post):
@@ -428,7 +431,7 @@
 <font id="a6" color="blue">6、用户排行榜</font>
     ————————————————————————————————————————————————————
     URL:
-        正式：???
+        正式：http://match-guess.duowan.com/user/sumRank        
         测试：http://match-guess.webdev2.duowan.com/user/sumRank        
     ————————————————————————————————————————————————————
     参数(get|post):
@@ -480,7 +483,7 @@
 <font id="a7" color="blue">7、中奖登记</font>
     ————————————————————————————————————————————————————
     URL:
-        正式：???
+        正式：http://match-guess.duowan.com/user/registBonus
         测试：http://match-guess.webdev2.duowan.com/user/registBonus
     ————————————————————————————————————————————————————
     参数(get|post):
@@ -508,12 +511,41 @@
 
 
 
-<font color="blue">8、XXXXX（<font color="red">XXXXX</font>） XXXX/XXXX </font>
+<font id="a8" color="blue">8、签到</font>
+    ————————————————————————————————————————————————————
+    URL:        
+        正式: http://match-guess.duowan.com/sign/do
+        测试: http://match-guess.webdev2.duowan.com/sign/do
+    ————————————————————————————————————————————————————
+    参数(get|post):
+        ac_id        活动ID
+    ————————————————————————————————————————————————————
+    返回(object)：
+        {
+            "rs": true,
+            "msg": "签到成功"
+        }
+    ————————————————————————————————————————————————————
+    备注: 
+        需要登录态
+        当rs=true时，再次调用user/info接口，重新渲染用户的积分数
+    ————————————————————————————————————————————————————
+    示例：
+        http://match-guess.webdev2.duowan.com/sign/do?ac_id=1
+    ————————————————————————————————————————————————————
+
+
+
+
+
+
+
+<font color="blue">9、XXXXX（<font color="red">XXXXX</font>） XXXX/XXXX </font>
     ————————————————————————————————————————————————————
     URL:        
     ————————————————————————————————————————————————————
     参数(get|post):
-        channel        专区（可选）
+        channel     FDASFSAF
     ————————————————————————————————————————————————————
     返回(array)：
     ————————————————————————————————————————————————————
