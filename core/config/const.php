@@ -20,5 +20,6 @@ $GLOBALS += array(
         'adsysDbDesignSql' => array('extra/adsys/ad_sys_db.sql', '多玩广告系统数据库设计SQL(20170112)'),
         'yyliveAd' => array('extra/adsys/yylive_ad.md', 'YY联运广告后端特殊文档(20180306)'),
         'matchGuess' => array('extra/matchguess/match.md', '赛事竞猜接口(20180330)'),
+        'adSyOutsource' => array('extra/adsys/ad_sy_outsource.md', '手游联运-广告位外包接口文档(20180416)'),
     ),
 );
