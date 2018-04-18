@@ -49,6 +49,7 @@
                 182 -> jpsylist
                 183 -> newgamelist
                 184 -> hotlist
+                185 -> topnewslist
             platform
                 目前支持"ios", "android"
     上报：已附带自动上报技能
@@ -61,6 +62,9 @@
             locName 参照以下 loc -> locName 转换表：
                 180 -> outsource_jpsylist
                 181 -> outsource_newslist
+                186 -> outsource_news_jpsylist
+                187 -> outsource_news_newgames
+                188 -> outsource_news_hotlist
             platform
                 目前支持"ios", "android"
     上报：已附带自动上报技能
