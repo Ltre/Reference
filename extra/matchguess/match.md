@@ -541,7 +541,50 @@
 
 
 
-<font color="blue">9、XXXXX（<font color="red">XXXXX</font>） XXXX/XXXX </font>
+<font color="blue">9、获奖名单</font>
+    ————————————————————————————————————————————————————
+    URL:
+        正式：https://match-guess.duowan.com/user/bonusList
+        测试：http://match-guess.webdev2.duowan.com/user/bonusList
+    ————————————————————————————————————————————————————
+    参数(get|post):
+        ac_id     活动ID
+    ————————————————————————————————————————————————————
+    返回(object)：
+        {
+            "rs": true,
+            "msg": "",
+            "list": [
+                {
+                    "yyuid": "1625819783",
+                    "rank_no": 1, //排名，如果是0则没有上榜，通常是安慰奖
+                    "nickname": "q274430777", //昵称
+                    "udb": "q274430777", //通行证
+                    "avatar": "",//头像
+                    "score": 1210,//积分
+                    "guess_times": 18,//竞猜总次数
+                    "guess_correct_times": 10,//竞猜总正确次数
+                    "guess_wrong_times": 2//竞猜总错误次数
+                },
+                {...},
+                ...
+            ]
+        }
+    ————————————————————————————————————————————————————
+    备注: 
+        无
+    ————————————————————————————————————————————————————
+    示例：
+        https://match-guess.duowan.com/user/bonusList?ac_id=1
+    ————————————————————————————————————————————————————
+
+
+
+
+
+
+
+<font color="blue">10、XXXXX（<font color="red">XXXXX</font>） XXXX/XXXX </font>
     ————————————————————————————————————————————————————
     URL:        
     ————————————————————————————————————————————————————
