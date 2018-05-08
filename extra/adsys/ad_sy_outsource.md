@@ -6,6 +6,8 @@
 <h2>广告位ID对应表</h2>
 
     loc  位置名称
+    192	【外包】多玩饭盒APP-播放页底部100*100
+    191	【外包】多玩饭盒APP-个人动态100*100
     188	【外包】多玩饭盒APP-资讯内容页-热门榜100*100
     187	【外包】多玩饭盒APP-资讯内容页-新游榜100*100
     186	【外包】多玩饭盒APP-资讯内容页-精品手游100*100
@@ -60,6 +62,8 @@
     广告信息加载接口为：http://da.duowan.com/api/fanhe?loc={$locName}&platform={$platform}
         参数说明：
             locName 参照以下 loc -> locName 转换表：
+                192 -> outsource_videoplay_bottom
+                191 -> outsource_personal_moment
                 180 -> outsource_jpsylist
                 181 -> outsource_newslist
                 186 -> outsource_news_jpsylist
