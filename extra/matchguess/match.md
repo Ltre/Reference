@@ -10,6 +10,10 @@
 <a href="#a6">6、用户排行榜</a>
 <a href="#a7">7、中奖登记</a>
 <a href="#a8">8、签到</a>
+<a href="#a9">9、获奖名单</a>
+<a href="#a10">10、获取今日分配给自己的分享任务</a>
+<a href="#a11">11、访问分享页时，加载任务执行信息、助力记录、获奖记录</a>
+<a href="#a12">12、被邀请者提交助力记录</a>
 
 
 <font id="a0" color="blue">0、业务入门简要</font>
@@ -543,7 +547,7 @@
 
 
 
-<font color="blue">9、获奖名单</font>
+<font id="a9" color="blue">9、获奖名单</font>
     ————————————————————————————————————————————————————
     URL:
         正式：https://match-guess.duowan.com/user/bonusList
@@ -586,20 +590,192 @@
 
 
 
-<font color="blue">10、XXXXX（<font color="red">XXXXX</font>） XXXX/XXXX </font>
+<font id="a10" color="blue">10、获取今日分配给自己的分享任务</font>
+    ————————————————————————————————————————————————————
+    URL:
+        正式：http://match-guess.duowan.com/encour/getTodayAllot
+        测试：http://match-guess.webdev2.duowan.com/encour/getTodayAllot
+    ————————————————————————————————————————————————————
+    参数(get|post):
+        ac_id       活动ID, 必填
+        task_id     非必填，除非运营强制指定某个任务为当前开放
+    ————————————————————————————————————————————————————
+    返回(object)：
+        {
+            rs: true|false,
+            msg: 'ok',
+            progress: {
+                "progress_id": "2", //执行ID
+                "progress_code": "9147ed9e56a583b7703332da81b68fdae6dde08c", //执行码，用于拼接前端分享URL
+                "yyuid": "50014545", //分享发起者
+                "task_id": "9", //分享任务ID，跟后台运营配置有关
+                "ac_id": "5", //活动ID
+                "accept_time": "1535352317", //接受任务时间(秒)
+                "complete_time": "0", //完成任务时间
+                "encour_times": "0", //已点亮次数
+                "is_completed": "0", //是否完成
+                "is_valid": "1", //是否有效
+                "reward_receive_id": "0", //获得奖励的ID
+                "reward_receive_time": "0", //获奖时间
+                "update_time": "2018-08-27 14:45:17" //此记录的最后更新时间
+            }
+        }
+    ————————————————————————————————————————————————————
+    备注: 
+        需要登录态
+        前端一般只关注progress.progress_code即可
+    ————————————————————————————————————————————————————
+    示例：
+        http://match-guess.webdev2.duowan.com/encour/getTodayAllot?ac_id=5
+        在测试环境加force=1参数可强制预览progress数据
+    ————————————————————————————————————————————————————
+
+
+
+
+
+<font id="a11" color="blue">11、访问分享页时，加载任务执行信息、助力记录、获奖记录</font>
+    ————————————————————————————————————————————————————
+    URL:
+        正式：http://match-guess.duowan.com/encour/progress/{progress_code}
+        测试：http://match-guess.webdev2.duowan.com/encour/progress/{progress_code}
+    ————————————————————————————————————————————————————
+    参数(get|post):
+        将地址的{progress_code}替换为具体的值
+    ————————————————————————————————————————————————————
+    返回(array)：
+        {
+            "rs": true,
+            "msg": "ok",
+            "data": {
+                "progress": {
+                    "progress_id": "2",
+                    "progress_code": "9147ed9e56a583b7703332da81b68fdae6dde08c",
+                    "yyuid": "50014545",
+                    "task_id": "9",
+                    "ac_id": "5",
+                    "accept_time": "1535352317",
+                    "complete_time": "0",
+                    "encour_times": "0",
+                    "is_completed": "0",
+                    "is_valid": "1",
+                    "reward_receive_id": "0",
+                    "reward_receive_time": "0",
+                    "update_time": "2018-08-27 14:45:17"
+                },
+                "task": {
+                    "task_id": "9",
+                    "task_name": "滚",
+                    "task_desc": "放大法",
+                    "start_time": "1535115540",
+                    "end_time": "1536411600",
+                    "start_date": "20180824",
+                    "end_date": "20180908",
+                    "full_times": "3",
+                    "ac_id": "5",
+                    "manual_sort": "0",
+                    "is_open": "1",
+                    "create_time": "1535334178",
+                    "update_time": "2018-08-27 09:42:58"
+                },
+                "initiator": { //分享发起者
+                    "yyuid": "50014545",
+                    "nickname": "扌斤木奉",
+                    "avatar": "http://tva1.sinaimg.cn/crop.21.2.203.203.50/77010c85gw1eevysgz0icj207m070mxm.jpg"
+                },
+                "encourRecords": [ //助力记录列表
+                    {
+                        "record_id": "1",
+                        "initiator": "50014545",
+                        "encouror": { //助力提交者(协助者)
+                            "yyuid": 123456,
+                            "nickname": "膜蛤谈笑风生",
+                            "avatar": "http://tva1.sinaimg.cn/crop.21.2.203.203.50/77010c85gw1eevysgz0icj207m070mxm.jpg"
+                        },
+                        "progress_id": "2",
+                        "task_id": "9",
+                        "ac_id": "5",
+                        "create_time": "1535362630",
+                        "ip": "172.16.12.111",
+                        "ua": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36",
+                        "referer": "http://abc.duowan.com/fdsafsda.html?fsfd"
+                    },
+                    {...},
+                    ...
+                ],
+                "reward": null, //奖励数据(结构待定)
+                "completeTimes": "0", //已完成点亮次数
+                "totalTimes": "3", //全部需点亮次数
+                "isMe": true //是否为分享者本人视角
+            }
+        }
+    ————————————————————————————————————————————————————
+    备注: 
+        需要登录态
+        前端一般关注以下字段：
+            data.progress.progress_code
+            data.initiator - 分享发起者
+            data.encourRecords - 助力记录列表
+            data.reward - 奖励数据[@todo 待开发，名称、封面、数量等]
+            data.completeTimes - 已点亮次数
+            data.totalTimes - 全部需要点亮次数
+            data.isMe - 是否为分享发起者视角
+    ————————————————————————————————————————————————————
+    示例：
+        http://match-guess.webdev2.duowan.com/encour/progress/9147ed9e56a583b7703332da81b68fdae6dde08c
+    ————————————————————————————————————————————————————
+
+
+
+
+
+
+<font id="a12" color="blue">12、被邀请者提交助力记录</font>
+    ————————————————————————————————————————————————————
+    URL:
+        正式：http://match-guess.duowan.com/encour/support/{progress_code}
+        测试：http://match-guess.webdev2.duowan.com/encour/support/{progress_code}
+    ————————————————————————————————————————————————————
+    参数(get|post):
+        将地址的{progress_code}替换为具体的值
+    ————————————————————————————————————————————————————
+    返回(object)：
+        {
+            "rs": true,
+            "msg": "ok",
+            "encour_record_id": "1", //支持记录ID
+            "encouror": {
+                "yyuid": 123456,
+                "nickname": "膜蛤谈笑风生",
+                "avatar": "http://tva1.sinaimg.cn/crop.21.2.203.203.50/77010c85gw1eevysgz0icj207m070mxm.jpg"
+            }
+        }
+    ————————————————————————————————————————————————————
+    备注: 
+        需要登录态
+    ————————————————————————————————————————————————————
+    示例：
+        http://match-guess.webdev2.duowan.com/encour/support/9147ed9e56a583b7703332da81b68fdae6dde08c
+    ————————————————————————————————————————————————————
+
+
+
+
+
+
+<font color="blue">13、XXXXX（<font color="red">XXXXX</font>） XXXX/XXXX </font>
     ————————————————————————————————————————————————————
     URL:        
     ————————————————————————————————————————————————————
     参数(get|post):
         channel     FDASFSAF
     ————————————————————————————————————————————————————
-    返回(array)：
+    返回(object)：
     ————————————————————————————————————————————————————
     备注: 
-        无
     ————————————————————————————————————————————————————
     示例：
-
+        
     ————————————————————————————————————————————————————
 
 
