@@ -838,10 +838,12 @@
 
 <font id="a14" color="blue">14、获取自己领过的助力任务-记录列表（包含记录信息、进度、奖品）</font>
     ————————————————————————————————————————————————————
-    URL:        
+    URL:
+        正式：http://match-guess.duowan.com/encour/myprogresslist?ac_id=5
+        测试：http://match-guess.webdev2.duowan.com/encour/myprogresslist?ac_id=5
     ————————————————————————————————————————————————————
     参数(get|post):
-        channel     FDASFSAF
+        ac_id       活动ID
     ————————————————————————————————————————————————————
     返回(object)：
         {
@@ -926,7 +928,7 @@
             list[n].reward.goods.goods_name - 奖品名
     ————————————————————————————————————————————————————
     示例：
-        
+        http://match-guess.webdev2.duowan.com/encour/myprogresslist?ac_id=5
     ————————————————————————————————————————————————————
 
 
