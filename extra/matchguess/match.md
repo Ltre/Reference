@@ -643,7 +643,7 @@
     参数(get|post):
         将地址的{progress_code}替换为具体的值
     ————————————————————————————————————————————————————
-    返回(array)：
+    返回(object)：
         {
             "rs": true,
             "msg": "ok",
@@ -763,7 +763,38 @@
 
 
 
-<font color="blue">13、XXXXX（<font color="red">XXXXX</font>） XXXX/XXXX </font>
+<font color="blue">13、领取助力分享的奖励</font>
+    ————————————————————————————————————————————————————
+    URL:
+        正式：http://match-guess.duowan.com/encour/TakeReward/{progress_code}
+        测试：http://match-guess.webdev2.duowan.com/encour/TakeReward/{progress_code}
+    ————————————————————————————————————————————————————
+    参数(get|post):
+        将地址的{progress_code}替换为具体的值
+    ————————————————————————————————————————————————————
+    返回(object)：
+        {
+            "rs": true,
+            "msg": "领取成功"
+        }
+    ————————————————————————————————————————————————————
+    备注: 
+        需要登录态
+    ————————————————————————————————————————————————————
+    示例：
+        http://match-guess.webdev2.duowan.com/encour/TakeReward/9147ed9e56a583b7703332da81b68fdae6dde08c
+    ————————————————————————————————————————————————————
+
+
+
+
+
+
+
+
+
+
+<font color="blue">14、XXXXX（<font color="red">XXXXX</font>） XXXX/XXXX </font>
     ————————————————————————————————————————————————————
     URL:        
     ————————————————————————————————————————————————————
