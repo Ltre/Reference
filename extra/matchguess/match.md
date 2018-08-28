@@ -785,7 +785,7 @@
 
 
 
-<font color="blue">13、领取助力分享的奖励</font>
+<font id="a13" color="blue">13、领取助力分享的奖励</font>
     ————————————————————————————————————————————————————
     URL:
         正式：http://match-guess.duowan.com/encour/TakeReward/{progress_code}
@@ -835,7 +835,7 @@
 
 
 
-<font color="blue">14、获取自己领过的助力任务-记录列表（包含记录信息、进度、奖品）（<font color="red">XXXXX</font>） XXXX/XXXX </font>
+<font id="a14" color="blue">14、获取自己领过的助力任务-记录列表（包含记录信息、进度、奖品）（<font color="red">XXXXX</font>） XXXX/XXXX </font>
     ————————————————————————————————————————————————————
     URL:        
     ————————————————————————————————————————————————————
