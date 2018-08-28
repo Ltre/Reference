@@ -839,8 +839,8 @@
 <font id="a14" color="blue">14、获取自己领过的助力任务-记录列表（包含记录信息、进度、奖品）</font>
     ————————————————————————————————————————————————————
     URL:
-        正式：http://match-guess.duowan.com/encour/myprogresslist?ac_id=5
-        测试：http://match-guess.webdev2.duowan.com/encour/myprogresslist?ac_id=5
+        正式：http://match-guess.duowan.com/encour/myprogresslist
+        测试：http://match-guess.webdev2.duowan.com/encour/myprogresslist
     ————————————————————————————————————————————————————
     参数(get|post):
         ac_id       活动ID
