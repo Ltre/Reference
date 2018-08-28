@@ -735,7 +735,7 @@
             data.progress.progress_code
             data.initiator - 分享发起者
             data.encourRecords - 助力记录列表
-            data.reward - 奖励数据[@todo 待开发，名称、封面、数量等]
+            data.reward - 奖励数据，无数据时为null，取子字段时注意判断
             data.reward.reward_time - 获奖时间
             data.reward.goods.goods_code - 跟前端资源映射的奖品编码
             data.reward.goods.goods_name
@@ -797,7 +797,26 @@
     返回(object)：
         {
             "rs": true,
-            "msg": "领取成功"
+            "msg": "领取成功",
+            "reward": { //rs=false时没有此字段
+                "reward_id": "15",
+                "goods_id": "2",
+                "yyuid": "50014545",
+                "progress_id": "2",
+                "task_id": "9",
+                "take_size": 1,
+                "reward_time": "1535442860",
+                "ac_id": "5",
+                "reward_time_ymdhis": "2018-08-28 15:54:20",
+                "goods": {
+                    "goods_id": "2",
+                    "goods_code": "JF10",
+                    "goods_name": "30积分",
+                    "goods_desc": "辣鸡积分",
+                    "goods_cover": "",
+                    "stock_unit": "份"
+                }
+            }
         }
     ————————————————————————————————————————————————————
     备注: 
@@ -816,7 +835,108 @@
 
 
 
-<font color="blue">14、XXXXX（<font color="red">XXXXX</font>） XXXX/XXXX </font>
+<font color="blue">14、获取自己领过的助力任务-记录列表（包含记录信息、进度、奖品）（<font color="red">XXXXX</font>） XXXX/XXXX </font>
+    ————————————————————————————————————————————————————
+    URL:        
+    ————————————————————————————————————————————————————
+    参数(get|post):
+        channel     FDASFSAF
+    ————————————————————————————————————————————————————
+    返回(object)：
+        {
+            "rs": true,
+            "msg": "ok",
+            "list": [
+                {
+                    "progress_id": "2",
+                    "progress_code": "9147ed9e56a583b7703332da81b68fdae6dde08c",
+                    "yyuid": "50014545",
+                    "task_id": "9",
+                    "ac_id": "5",
+                    "accept_time": "1535352317",
+                    "complete_time": "1535370115",
+                    "encour_times": "3",
+                    "is_completed": true,
+                    "is_valid": true,
+                    "reward_id": "0",
+                    "create_time": "0",
+                    "update_time": "2018-08-27 19:41:55",
+                    "accept_time_ymdhis": "2018-08-27 14:45:17",
+                    "complete_time_ymdhis": "2018-08-27 19:41:55",
+                    "total_times": "3",
+                    "reward": { //奖励数据。无时为null
+                        "reward_id": "15",
+                        "goods_id": "2",
+                        "yyuid": "50014545",
+                        "progress_id": "2",
+                        "task_id": "9",
+                        "take_size": 1,
+                        "reward_time": "1535442860",
+                        "ac_id": "5",
+                        "reward_time_ymdhis": "2018-08-28 15:54:20",
+                        "goods": {
+                            "goods_id": "2",
+                            "goods_code": "JF10",
+                            "goods_name": "30积分",
+                            "goods_desc": "辣鸡积分",
+                            "goods_cover": "",
+                            "stock_unit": "份"
+                        }
+                    }
+                },
+                {
+                    "progress_id": "3",
+                    "progress_code": "8e5db92e34c3c84d2747e785c0534e740f39150b",
+                    "yyuid": "50031199",
+                    "task_id": "9",
+                    "ac_id": "5",
+                    "accept_time": "1535340150",
+                    "complete_time": "0",
+                    "encour_times": "1",
+                    "is_completed": false,
+                    "is_valid": true,
+                    "reward_id": "0",
+                    "create_time": "0",
+                    "update_time": "2018-08-28 17:49:18",
+                    "accept_time_ymdhis": "2018-08-27 11:22:30",
+                    "complete_time_ymdhis": "1970-01-01 08:00:00",
+                    "total_times": "3",
+                    "reward": null
+                },
+                {
+                    ...
+                },
+                ...
+            ]
+        }
+    ————————————————————————————————————————————————————
+    备注: 
+        需要登录态
+        前端一般关注字段：
+            list[n].progress_code - 任务执行码
+            list[n].accept_time - 任务接受时间
+            list[n].complete_time - 任务完成时间
+            list[n].encour_times - 已点亮次数
+            list[n].total_times - 总需点亮次数
+            list[n].is_completed - 是否完成
+            list[n].reward.reward_time - 获奖时间
+            list[n].reward.reward_time_ymdhis - 获奖时间
+            list[n].reward.goods.goods_code - 奖品编码
+            list[n].reward.goods.goods_name - 奖品名
+    ————————————————————————————————————————————————————
+    示例：
+        
+    ————————————————————————————————————————————————————
+
+
+
+
+
+
+
+
+
+<font color="blue">15、XXXXX（<font color="red">XXXXX</font>） XXXX/XXXX </font>
     ————————————————————————————————————————————————————
     URL:        
     ————————————————————————————————————————————————————
