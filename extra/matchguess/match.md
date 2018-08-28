@@ -704,7 +704,25 @@
                     {...},
                     ...
                 ],
-                "reward": null, //奖励数据(结构待定)
+                "reward": {//奖励数据
+                    "reward_id": "15", //奖励ID
+                    "goods_id": "2", //物品ID
+                    "yyuid": "50014545", //分享发起者
+                    "progress_id": "2", //助力记录ID
+                    "task_id": "9", //任务ID
+                    "take_size": "1", //领取量
+                    "reward_time": "1535442860",//获奖时间
+                    "reward_time_ymdhis": "2018-08-28 15:54:20",
+                    "ac_id": "5",
+                    "goods": {
+                        "goods_id": "2",
+                        "goods_code": "JF10",
+                        "goods_name": "30积分",
+                        "goods_desc": "辣鸡积分",
+                        "goods_cover": "",
+                        "stock_unit": "份"
+                    }
+                }
                 "completeTimes": "0", //已完成点亮次数
                 "totalTimes": "3", //全部需点亮次数
                 "isMe": true //是否为分享者本人视角
@@ -718,6 +736,9 @@
             data.initiator - 分享发起者
             data.encourRecords - 助力记录列表
             data.reward - 奖励数据[@todo 待开发，名称、封面、数量等]
+            data.reward.reward_time - 获奖时间
+            data.reward.goods.goods_code - 跟前端资源映射的奖品编码
+            data.reward.goods.goods_name
             data.completeTimes - 已点亮次数
             data.totalTimes - 全部需要点亮次数
             data.isMe - 是否为分享发起者视角
