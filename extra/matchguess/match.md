@@ -940,7 +940,7 @@
 
 
 
-<font color="blue">15、用于PV/UV统计的上报接口</font>
+<font id="a15" color="blue">15、用于PV/UV统计的上报接口</font>
     ————————————————————————————————————————————————————
     URL:
         https://match-guess.duowan.com/visitlog/record
@@ -973,7 +973,7 @@
 
 
 
-<font color="blue">16、XXXXX（<font color="red">XXXXX</font>） XXXX/XXXX </font>
+<font id="a16" color="blue">16、XXXXX（<font color="red">XXXXX</font>） XXXX/XXXX </font>
     ————————————————————————————————————————————————————
     URL:        
     ————————————————————————————————————————————————————
