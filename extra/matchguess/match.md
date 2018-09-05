@@ -975,7 +975,7 @@
 
 <font id="a16" color="blue">16、XXXXX（<font color="red">XXXXX</font>） XXXX/XXXX </font>
     ————————————————————————————————————————————————————
-    URL:        
+    URL:
     ————————————————————————————————————————————————————
     参数(get|post):
         channel     FDASFSAF
