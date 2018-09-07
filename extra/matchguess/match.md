@@ -18,6 +18,7 @@
 <a href="#a14">14、获取自己领过的助力任务-记录列表（包含记录信息、进度、奖品）</a>
 <a href="#a15">15、用于PV/UV统计的上报接口</a>
 <a href="#a16">16、检测用户是否获奖（竞猜的积分排行上榜等级奖、人工抽取的安慰奖、助力分享的实物奖）</a>
+<a href="#a17">17、按一定规则公开显示所有人中奖列表</a>
 
 
 
@@ -1003,6 +1004,59 @@
 
 
 <font id="a17" color="blue">17、XXXXX（<font color="red">XXXXX</font>） XXXX/XXXX </font>
+    ————————————————————————————————————————————————————
+    URL:
+        正式：https://match-guess.duowan.com/encour/publicRewards
+        测试：https://match-guess.webdev2.duowan.com/encour/publicRewards
+    ————————————————————————————————————————————————————
+    参数(get|post):
+        ac_id       活动ID
+    ————————————————————————————————————————————————————
+    返回(object)：
+{
+    "rs": true,
+    "msg": "ok",
+    "list": [
+        {
+            "reward_id": "446",
+            "goods_id": "5",
+            "take_size": "1.00000",
+            "reward_time": "1536288143",
+            "goods_name": "30积分",
+            "goods_code": "JF30",
+            "goods_cover": "http://ya1.dwstatic.com/201808/33/337fec55b736ab56ee84706e01bf2285.gif",
+            "is_int_size": "1",
+            "is_score": "1",
+            "score": 30,
+            "yyuid": "549757261246",
+            "udb": "qq-70jza1mm",
+            "nickname": "阿V",
+            "avatar": "http://qzapp.qlogo.cn/qzapp/101413783/61F4732A8A0E77BF6A4DE6257BBE945B/100"
+        },
+        {...},
+        ...
+    ]
+}
+    ————————————————————————————————————————————————————
+    备注: 
+        不需要登录态。
+        重点关注字段：
+            list[n].goods_name
+            list[n].goods_code
+            list[n].yyuid
+            list[n].nickname
+            list[n].udb
+    ————————————————————————————————————————————————————
+    示例：
+        
+    ————————————————————————————————————————————————————
+
+
+
+
+
+
+<font id="a18" color="blue">17、XXXXX（<font color="red">XXXXX</font>） XXXX/XXXX </font>
     ————————————————————————————————————————————————————
     URL:
     ————————————————————————————————————————————————————
