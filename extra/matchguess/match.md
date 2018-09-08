@@ -1013,30 +1013,30 @@
         ac_id       活动ID
     ————————————————————————————————————————————————————
     返回(object)：
-{
-    "rs": true,
-    "msg": "ok",
-    "list": [
         {
-            "reward_id": "446",
-            "goods_id": "5",
-            "take_size": "1.00000",
-            "reward_time": "1536288143",
-            "goods_name": "30积分",
-            "goods_code": "JF30",
-            "goods_cover": "http://ya1.dwstatic.com/201808/33/337fec55b736ab56ee84706e01bf2285.gif",
-            "is_int_size": "1",
-            "is_score": "1",
-            "score": 30,
-            "yyuid": "549757261246",
-            "udb": "qq-70jza1mm",
-            "nickname": "阿V",
-            "avatar": "http://qzapp.qlogo.cn/qzapp/101413783/61F4732A8A0E77BF6A4DE6257BBE945B/100"
-        },
-        {...},
-        ...
-    ]
-}
+            "rs": true,
+            "msg": "ok",
+            "list": [
+                {
+                    "reward_id": "446",
+                    "goods_id": "5",
+                    "take_size": "1.00000",
+                    "reward_time": "1536288143",
+                    "goods_name": "30积分",
+                    "goods_code": "JF30",
+                    "goods_cover": "http://ya1.dwstatic.com/201808/33/337fec55b736ab56ee84706e01bf2285.gif",
+                    "is_int_size": "1",
+                    "is_score": "1",
+                    "score": 30,
+                    "yyuid": "549757261246",
+                    "udb": "qq-70jza1mm",
+                    "nickname": "阿V",
+                    "avatar": "http://qzapp.qlogo.cn/qzapp/101413783/61F4732A8A0E77BF6A4DE6257BBE945B/100"
+                },
+                {...},
+                ...
+            ]
+        }
     ————————————————————————————————————————————————————
     备注: 
         不需要登录态。
