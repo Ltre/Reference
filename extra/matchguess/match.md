@@ -932,7 +932,7 @@
             list[n].reward.goods.goods_name - 奖品名
     ————————————————————————————————————————————————————
     示例：
-        http://match-guess.webdev2.duowan.com/encour/myprogresslist?ac_id=5
+        http://match-guess.duowan.com/encour/myprogresslist?ac_id=26
     ————————————————————————————————————————————————————
 
 
@@ -1003,7 +1003,7 @@
 
 
 
-<font id="a17" color="blue">17、XXXXX（<font color="red">XXXXX</font>） XXXX/XXXX </font>
+<font id="a17" color="blue">17、按一定规则公开显示所有人中奖列表</font>
     ————————————————————————————————————————————————————
     URL:
         正式：https://match-guess.duowan.com/encour/publicRewards
@@ -1048,7 +1048,7 @@
             list[n].udb
     ————————————————————————————————————————————————————
     示例：
-        
+        https://match-guess.duowan.com/encour/publicRewards?ac_id=26
     ————————————————————————————————————————————————————
 
 
@@ -1056,7 +1056,7 @@
 
 
 
-<font id="a18" color="blue">17、XXXXX（<font color="red">XXXXX</font>） XXXX/XXXX </font>
+<font id="a18" color="blue">18、XXXXX（<font color="red">XXXXX</font>） XXXX/XXXX </font>
     ————————————————————————————————————————————————————
     URL:
     ————————————————————————————————————————————————————
