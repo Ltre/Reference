@@ -23,10 +23,12 @@
             http://test-dice.eosget.io/autobet/setup
     ————————————————————————————————————————————————————
     参数(get|post):
-        player      EOS账户名
         gameCount   最大下注期数
         stopLine    余额止损线(1单位=0.0001EOS)，例如 10000 = 1EOS
         offerList   下注明细，用法跟sicbo/balanceBet的参数offer_list一致，例如 10000|100|10000|200
+        //身份校验参数
+        account     EOS账户名
+        token       登录校验统一算法所得token
     ————————————————————————————————————————————————————
     返回(object)：
     {
@@ -61,7 +63,7 @@
         real_pay字段用于前端的“共花费筹码EOS”的填充
     ————————————————————————————————————————————————————
     示例：
-        http://test-dice.eosget.io/autobet/setup?player=kunbiao&gameCount=5&stopLine=2000000&offerList=10000|100|10000|200|10000|100
+        http://test-dice.eosget.io/autobet/setup?gameCount=5&stopLine=2000000&offerList=10000|100|10000|200|10000|100&account=abcde&token=0454dab6983f392b
     ————————————————————————————————————————————————————
 
 
@@ -81,7 +83,9 @@
             http://test-dice.eosget.io/autobet/getsetup
     ————————————————————————————————————————————————————
     参数(get|post):
-        player      EOS账户名
+        //身份校验参数
+        account     EOS账户名
+        token       登录校验统一算法所得token
     ————————————————————————————————————————————————————
     返回(object)：
     {
@@ -117,7 +121,7 @@
         * real_pay字段用于前端的“共花费筹码EOS”的填充
     ————————————————————————————————————————————————————
     示例：
-        http://test-dice.eosget.io/autobet/getsetup?player=aben
+        http://test-dice.eosget.io/autobet/getsetup?account=abcde&token=0454dab6983f392b
     ————————————————————————————————————————————————————
 
 
@@ -132,8 +136,10 @@
             http://test-dice.eosget.io/autobet/ctrl
     ————————————————————————————————————————————————————
     参数(get|post):
-        player      EOS账户名
         stop        标记停止. 可选;当不传或传0则为重新开始;当传1时则停止
+        //身份校验参数
+        account     EOS账户名
+        token       登录校验统一算法所得token
     ————————————————————————————————————————————————————
     返回(object)：
     {
@@ -147,7 +153,7 @@
         无
     ————————————————————————————————————————————————————
     示例：
-        http://test-dice.eosget.io/autobet/ctrl?player=aben&stop=1
+        http://test-dice.eosget.io/autobet/ctrl?account=abcde&token=0454dab6983f392b&stop=1
     ————————————————————————————————————————————————————
 
 
