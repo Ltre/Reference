@@ -185,7 +185,7 @@
         不需要登录
     ————————————————————————————————————————————————————
     示例：
-        http://test-dice.eosget.io/auction/auctionTrx?transaction_id=fds45afds8f65a4f98sd984f8sd98fsd&block_num=156451
+        http://eosget-pc.webdev2.duowan.com/auction/auctionTrx?transaction_id=c29fc5c2c8f77296211358f2b1f450aff03fbd4b5a48edf10d07a4c1017f7d27&block_num=2230355&account=kunbiao&token=fdsfsr3r43
     ————————————————————————————————————————————————————
 
 
@@ -226,7 +226,7 @@
 
 
 
-INSERT INTO `auction` VALUES ('1', '1', 'kunbiao',  '1000000', '0',     '1100000',  '2', '86399', 0, '', 0, '2018-12-04 14:52:36', '1543906680');
-INSERT INTO `auction` VALUES ('2', '1', 'ben',      '2000000', '50000', '0',        '2', '86399', 0, '', 0, '2018-12-04 15:51:36', '1543910024');
-INSERT INTO `auction` VALUES ('3', '2', 'kunbiao',  '1010000', '0',     '0',        '0', '86399', 0, '', 0, '2018-12-04 16:12:36', '1543911184');
+INSERT INTO `auction` VALUES ('1', '1', 'abc',  '1000000', '0',     '1100000',  '2', '86399', 0, '', 0, '2018-12-04 14:52:36', '1543906680');
+INSERT INTO `auction` VALUES ('2', '1', 'def',      '2000000', '50000', '0',        '2', '86399', 0, '', 0, '2018-12-04 15:51:36', '1543910024');
+INSERT INTO `auction` VALUES ('3', '2', 'abc',  '1010000', '0',     '0',        '0', '86399', 0, '', 0, '2018-12-04 16:12:36', '1543911184');
 
