@@ -1,0 +1,215 @@
+<h1><center>EOS竞拍活动接口(20181205)</center></h1>
+
+
+<a href="#a0">0、简要</a>
+<a href="#a1">1、获取奖池信息、最后出价、上次成交、是否中奖</a>
+<a href="#a2">2、获取用户最新的策略</a>
+<a href="#a3">3、停止或重新开始下注</a>
+
+
+
+<font id="a0" color="blue">0、简要</font>
+    a、。。。
+    b、。。。
+    c、。。。
+
+
+
+
+
+
+<font id="a1" color="blue">1、</font>
+    ————————————————————————————————————————————————————
+    URL:
+        http://test-dice.eosget.io/auction/prizePool
+    ————————————————————————————————————————————————————
+    参数(get|post):
+        //身份校验参数(可选)
+        account     EOS账户名
+        token       登录校验统一算法所得token
+    ————————————————————————————————————————————————————
+    返回(object)：
+        理想情况：有在进行中的拍卖(lastBid!=null)，且有上一次成交的记录(lastTrx!=null)
+        {
+            "result": 1,
+            "code": 0,
+            "msg": "成功",
+            "data": {
+                "actId": "2", //本期期号
+                "prize": "500",  //奖池EOS，单位0.0001EOS
+                "ttl": 10739, //【本期】剩余倒计时(秒)
+                "rewards": [ //自己获取的奖励历史（为方便扩展，此值为数组，前端只需要取第一个值即可）
+                    {
+                        "type": "EOS", //获奖token类型
+                        "amount": "110 EOS", //获奖token数量
+                        "auction_data": { //原始auction数据
+                            "id": "1",                  //流水ID
+                            "act_id": "1",              //期号
+                            "player": "kunbiao",        //出价者
+                            "gt_amount": "1000000",     //投入GT
+                            "return_gt": "0",           //回馈GT，成交后，return_eos和return_gt有且仅有两者之一会大于0
+                            "return_eos": "1100000",    //回馈EOS，成交后，return_eos和return_gt有且仅有两者之一会大于0
+                            "state": "2",               //竞拍状态：0-竞拍中，1-开奖中，2-已结束(已开奖)
+                            "ttl": "86399",             //所在期设置的总倒计时
+                            "is_received": "0",         //拍卖结束后，是否已领取回馈
+                            "transaction_id": "",       //链上交易ID
+                            "block_num": "0",           //链上交易块
+                            "create_time": "2018-12-04 14:52:36",   //出价时间
+                            "update_time_int": "1543906680"         //数据更新时间
+                        }
+                    }
+                ],
+                "lastBid": {  //当前拍卖期号的最后出价记录(特指未成交)
+                    "id": "3",
+                    "act_id": "2",
+                    "player": "kunbiao",
+                    "gt_amount": "1010000",
+                    "return_gt": "0",
+                    "return_eos": "0",
+                    "state": "0",
+                    "ttl": "86399", //本期的总倒计时
+                    "is_received": "0",
+                    "transaction_id": "",
+                    "block_num": "0",
+                    "create_time": "2018-12-04 16:12:36",
+                    "update_time_int": "1543911184"
+                },
+                "lastTrx": { //最新成交记录(特指往期)
+                    "id": "1",
+                    "act_id": "1",
+                    "player": "kunbiao",
+                    "gt_amount": "1000000",
+                    "return_gt": "0",
+                    "return_eos": "1100000", 
+                    "state": "2",
+                    "ttl": "86399",
+                    "is_received": "0", 
+                    "transaction_id": "",
+                    "block_num": "0",
+                    "create_time": "2018-12-04 14:52:36",
+                    "update_time_int": "1543906680"
+                }
+            }
+        }
+    ————————————————————————————————————————————————————
+    备注: 
+        应该关注字段：
+            data.actId - 本期期号
+            data.prize
+            data.ttl - 本期剩余倒计时
+            data.rewards[0].{ //自己待领取的奖励，取一条即可
+                type
+                amount
+            }
+            data.lastBid.{ //本期最后出价记录
+                id
+                act_id
+                player
+                gt_amount - 本期最后出价GT
+                create_time - 本期最后出价时间
+            }
+            data.lastTrx.{ //最新成交记录(往期)
+                id
+                act_id
+                player
+                gt_amount - 最新成交记录所获GT
+                return_eos - 最新成交记录所获EOS
+                create_time - 对应出价时间
+                update_time_int - 这个应该是真正成交时间
+            }
+    ————————————————————————————————————————————————————
+    示例：
+        无
+    ————————————————————————————————————————————————————
+
+
+
+
+
+<font id="a2" color="blue">2、领取竞拍奖励</font>
+    ————————————————————————————————————————————————————
+    URL:
+        http://test-dice.eosget.io/auction/takeReward
+    ————————————————————————————————————————————————————
+    参数(get|post):
+        id      拍卖记录流水ID
+        //身份校验参数(必传)
+        account     EOS账户名
+        token       登录校验统一算法所得token
+    ————————————————————————————————————————————————————
+    返回(object)：
+        {
+            "result": 1,
+            "code": 0,
+            "msg": "成功",
+            "data": null
+        }
+    ————————————————————————————————————————————————————
+    备注: 
+        1、必须登录
+        2、注意领取奖励的类型（根据接口/auction/prizePool返回的data.rewards[0].type判断）
+        2、出错的提示：
+            No data! - 流水不存在
+            Illegal user!  - 这条流水不属于当前用户所竞拍
+            The prize has been received! - 已领取奖励，不必重复
+            It\'s not time yet!  - 还没到开奖时间
+            Operation is too frequent! - 并发操作拦截
+    ————————————————————————————————————————————————————
+    示例：
+        http://test-dice.eosget.io/auction/takeReward?id=1
+    ————————————————————————————————————————————————————
+
+
+
+
+
+
+<font id="a3" color="blue">3、竞拍上报接口</font>
+    ————————————————————————————————————————————————————
+    URL:
+        http://test-dice.eosget.io/auction/auctionTrx
+    ————————————————————————————————————————————————————
+    参数(get|post):
+        transaction_id     链上交易ID
+        block_num          交易块
+    ————————————————————————————————————————————————————
+    返回(object)：
+        {
+            "result": 1,
+            "code": 0,
+            "msg": "成功",
+            "data": null
+        }
+    ————————————————————————————————————————————————————
+    备注: 
+        不需要登录
+    ————————————————————————————————————————————————————
+    示例：
+        http://test-dice.eosget.io/auction/auctionTrx?transaction_id=fds45afds8f65a4f98sd984f8sd98fsd&block_num=156451
+    ————————————————————————————————————————————————————
+
+
+
+
+
+
+
+
+
+<font id="a99" color="blue">18、XXXXX（<font color="red">XXXXX</font>） XXXX/XXXX </font>
+    ————————————————————————————————————————————————————
+    URL:
+    ————————————————————————————————————————————————————
+    参数(get|post):
+        channel     FDASFSAF
+    ————————————————————————————————————————————————————
+    返回(object)：
+    ————————————————————————————————————————————————————
+    备注: 
+        备用占位
+    ————————————————————————————————————————————————————
+    示例：
+    ————————————————————————————————————————————————————
+
+
+

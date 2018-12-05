@@ -22,5 +22,6 @@ $GLOBALS += array(
         'matchGuess' => array('extra/matchguess/match.md', '赛事竞猜接口(20180330)'),
         'adSyOutsource' => array('extra/adsys/ad_sy_outsource.md', '手游联运-广告位外包接口文档(20180416)'),
         'userAutoBet' => array('extra/eosget/user_auto_bet.md', '用户自动下注策略接口(20181031)'),
+        'auction' => array('extra/eosget/auction.md', 'EOS竞拍活动接口(20181205)'),
     ),
 );

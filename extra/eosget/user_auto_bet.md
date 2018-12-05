@@ -51,7 +51,7 @@
                 100,
                 200
             ],
-            "amount_sboe": "",                              //大小单双下注的EOS筹码数
+            "amount_sboe": 0,                               //大小单双下注的EOS筹码数
             "amount_ts": 10000,                             //豹子、猜数字一、二、三、四、五、六的EOS筹码数
             "remain_count": 0,                              //剩余的下注期数
             "real_pay": 0,                                  //实际花费. real_pay = total_pay - total_income; 小于0则取0.
