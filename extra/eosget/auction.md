@@ -40,29 +40,17 @@
                 "ttl": 10739, //【本期】剩余倒计时(秒)
                 "rewards": [ //自己获取的奖励历史（为方便扩展，此值为数组，前端只需要取第一个值即可）
                     {
-                        "type": "EOS", //获奖token类型
-                        "amount": "110 EOS", //获奖token数量
-                        "auction_data": { //原始auction数据
-                            "id": "1",                  //流水ID
-                            "act_id": "1",              //期号
-                            "player": "kunbiao",        //出价者
-                            "gt_amount": "1000000",     //投入GT
-                            "return_gt": "0",           //回馈GT，成交后，return_eos和return_gt有且仅有两者之一会大于0
-                            "return_eos": "1100000",    //回馈EOS，成交后，return_eos和return_gt有且仅有两者之一会大于0
-                            "state": "2",               //竞拍状态：0-竞拍中，1-开奖中，2-已结束(已开奖)
-                            "ttl": "86399",             //所在期设置的总倒计时
-                            "is_received": "0",         //拍卖结束后，是否已领取回馈
-                            "transaction_id": "",       //链上交易ID
-                            "block_num": "0",           //链上交易块
-                            "create_time": "2018-12-04 14:52:36",   //出价时间
-                            "update_time_int": "1543906680"         //数据更新时间
-                        }
+                        "actId": 2, //奖励所在期的期号
+                        "player": "abcde",
+                        "return_gt": 0,  //回馈的总GT（1单位=0.0001GT）
+                        "return_eos": 60000, //回馈的EOS（1单位=0.0001EOS）
+                        "gt_amount": 666133829 //在期数{actId}投入的GT数（1单位=0.0001GT）
                     }
                 ],
                 "lastBid": {  //当前拍卖期号的最后出价记录(特指未成交)
                     "id": "3",
                     "act_id": "2",
-                    "player": "kunbiao",
+                    "player": "abcde",
                     "gt_amount": "1010000",
                     "return_gt": "0",
                     "return_eos": "0",
@@ -77,7 +65,7 @@
                 "lastTrx": { //最新成交记录(特指往期)
                     "id": "1",
                     "act_id": "1",
-                    "player": "kunbiao",
+                    "player": "abcde",
                     "gt_amount": "1000000",
                     "return_gt": "0",
                     "return_eos": "1100000", 
