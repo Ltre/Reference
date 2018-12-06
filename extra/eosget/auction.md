@@ -24,9 +24,7 @@
         http://test-dice.eosget.io/auction/prizePool
     ————————————————————————————————————————————————————
     参数(get|post):
-        //身份校验参数(可选)
-        account     EOS账户名
-        token       登录校验统一算法所得token
+        player      EOS账户名
     ————————————————————————————————————————————————————
     返回(object)：
         理想情况：有在进行中的拍卖(lastBid!=null)，且有上一次成交的记录(lastTrx!=null)
@@ -120,7 +118,7 @@
         http://test-dice.eosget.io/auction/takeReward
     ————————————————————————————————————————————————————
     参数(get|post):
-        id      拍卖记录流水ID
+        actId       竞拍期号
         //身份校验参数(必传)
         account     EOS账户名
         token       登录校验统一算法所得token
@@ -130,7 +128,10 @@
             "result": 1,
             "code": 0,
             "msg": "成功",
-            "data": null
+            "data": {
+                "eosFeed": ...,
+                "gtFeed": ...
+            }
         }
     ————————————————————————————————————————————————————
     备注: 
