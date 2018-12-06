@@ -18,7 +18,7 @@
 
 
 
-<font id="a1" color="blue">1、</font>
+<font id="a1" color="blue">1、获取奖池信息、最后出价、上次成交、是否中奖</font>
     ————————————————————————————————————————————————————
     URL:
         http://test-dice.eosget.io/auction/prizePool
