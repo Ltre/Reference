@@ -138,12 +138,9 @@
     ————————————————————————————————————————————————————
     备注: 
         1、必须登录
-        2、注意领取奖励的类型（根据接口/auction/prizePool返回的data.rewards[0].type判断）
+        2、注意领取奖励的类型（根据接口/auction/prizePool返回的data.rewardList[0].return_eos > 0判断）
         2、出错的提示：
-            No data! - 流水不存在
-            Illegal user!  - 这条流水不属于当前用户所竞拍
-            The prize has been received! - 已领取奖励，不必重复
-            It\'s not time yet!  - 还没到开奖时间
+            No reward data! - 可能原因：流水不存在；这条流水不属于当前用户所竞拍；已领取奖励，不必重复；还没到开奖时间
             Operation is too frequent! - 并发操作拦截
     ————————————————————————————————————————————————————
     示例：
