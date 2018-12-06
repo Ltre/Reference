@@ -36,7 +36,7 @@
                 "actId": "2", //本期期号
                 "prize": "500",  //奖池EOS，单位0.0001EOS
                 "ttl": 10739, //【本期】剩余倒计时(秒)
-                "rewards": [ //自己获取的奖励历史（为方便扩展，此值为数组，前端只需要取第一个值即可）
+                "rewardList": [ //自己获取的奖励历史（为方便扩展，此值为数组，前端只需要取第一个值即可）
                     {
                         "actId": 2, //奖励所在期的期号
                         "player": "abcde",
@@ -83,9 +83,11 @@
             data.actId - 本期期号
             data.prize
             data.ttl - 本期剩余倒计时
-            data.rewards[0].{ //自己待领取的奖励，取一条即可
-                type
-                amount
+            data.rewardList[0].{ //自己待领取的奖励，取一条即可
+                actId - 奖励所在期的期号
+                return_gt - 回馈的总GT（1单位=0.0001GT）
+                return_eos - 回馈的EOS（1单位=0.0001EOS）
+                gt_amount - 在期数{actId}投入的GT数（1单位=0.0001GT）
             }
             data.lastBid.{ //本期最后出价记录
                 id
