@@ -46,19 +46,19 @@
                     }
                 ],
                 "lastBid": {  //当前拍卖期号的最后出价记录(特指未成交)
-                    "id": "3",
-                    "act_id": "2",
-                    "player": "abcde",
-                    "gt_amount": "1010000",
-                    "return_gt": "0",
-                    "return_eos": "0",
-                    "state": "0",
-                    "ttl": "86399", //本期的总倒计时
-                    "is_received": "0",
-                    "transaction_id": "",
-                    "block_num": "0",
-                    "create_time": "2018-12-04 16:12:36",
-                    "update_time_int": "1543911184"
+                    "id": "3",                              //流水ID
+                    "act_id": "2",                          //期号
+                    "player": "abcde",                      //出价者
+                    "gt_amount": "1010000",                 //投入GT
+                    "return_gt": "0",                       //回馈GT，成交后
+                    "return_eos": "0",                      //回馈EOS，成交后
+                    "state": "0",                           //竞拍状态：0-竞拍中，1-开奖中，2-已结束(已开奖)
+                    "ttl": "86399",                         //所在期设置的总倒计时
+                    "is_received": "0",                     //拍卖结束后，是否已领取回馈
+                    "transaction_id": "",                   //链上交易ID
+                    "block_num": "0",                       //链上交易块
+                    "create_time": "2018-12-04 16:12:36",   //出价时间
+                    "update_time_int": "1543911184"         //数据更新时间
                 },
                 "lastTrx": { //最新成交记录(特指往期)
                     "id": "1",
