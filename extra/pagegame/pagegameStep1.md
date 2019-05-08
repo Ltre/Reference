@@ -15,6 +15,7 @@
 <a href="#a11">11、开服公告</a>
 <a href="#a12">12、我的角色列表</a>
 <a href="#a13">13、个人信息</a>
+<a href="#a14">14、最近登录</a>
 
 
 
@@ -728,6 +729,85 @@
                 "created": "1554978464",
                 "updated": "1554978464"
             }
+        }
+    ————————————————————————————————————————————————————
+    备注: 
+        需要登录态
+    ————————————————————————————————————————————————————
+    示例：
+        
+    ————————————————————————————————————————————————————
+
+
+
+
+
+
+<font id="a14" color="blue">14、最近登录</font>
+    ————————————————————————————————————————————————————
+    URL:
+        http://pagegame-api.webdev2.duowan.com/login/myhistory
+    ————————————————————————————————————————————————————
+    参数(get|post):
+        limit       数据条数，默认10
+    ————————————————————————————————————————————————————
+    返回(object)：
+        {
+            "rs": true,
+            "msg": "ok",
+            "list": [
+                {
+                    "lgid": "20190507_5",
+                    "uid": "1",
+                    "gid": "1",
+                    "sid": "1",
+                    "role_id": "0",
+                    "ip": "172.16.14.111",
+                    "ua": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36",
+                    "created": "1557234260",
+                    "game_code": "FAKEYOU",
+                    "game_name": "口号大王",
+                    "cover_thumb": "https://s1.dwstatic.com/duowanvideo/20190508/16/2600699.jpg",
+                    "cover_mid": "https://s1.dwstatic.com/duowanvideo/20190508/16/2600699.jpg",
+                    "cover_large": "https://s1.dwstatic.com/duowanvideo/20190508/16/2600699.jpg",
+                    "outer_sid": "KOUHAO_A",
+                    "server_name": "口号大王测试A服"
+                },
+                {
+                    "lgid": "20190507_4",
+                    "uid": "1",
+                    "gid": "1",
+                    "sid": "1",
+                    "role_id": "0",
+                    "ip": "172.16.14.111",
+                    "ua": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36",
+                    "created": "1557234222",
+                    "game_code": "FAKEYOU",
+                    "game_name": "口号大王",
+                    "cover_thumb": "https://s1.dwstatic.com/duowanvideo/20190508/16/2600699.jpg",
+                    "cover_mid": "https://s1.dwstatic.com/duowanvideo/20190508/16/2600699.jpg",
+                    "cover_large": "https://s1.dwstatic.com/duowanvideo/20190508/16/2600699.jpg",
+                    "outer_sid": "KOUHAO_A",
+                    "server_name": "口号大王测试A服"
+                },
+                {
+                    "lgid": "20190508_1",
+                    "uid": "1",
+                    "gid": "1",
+                    "sid": "1",
+                    "role_id": "0",
+                    "ip": "172.16.14.111",
+                    "ua": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36",
+                    "created": "1557307525",
+                    "game_code": "FAKEYOU",
+                    "game_name": "口号大王",
+                    "cover_thumb": "https://s1.dwstatic.com/duowanvideo/20190508/16/2600699.jpg",
+                    "cover_mid": "https://s1.dwstatic.com/duowanvideo/20190508/16/2600699.jpg",
+                    "cover_large": "https://s1.dwstatic.com/duowanvideo/20190508/16/2600699.jpg",
+                    "outer_sid": "KOUHAO_A",
+                    "server_name": "口号大王测试A服"
+                }
+            ]
         }
     ————————————————————————————————————————————————————
     备注: 
