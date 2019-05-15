@@ -217,6 +217,7 @@
                     "is_del": "0",
                     "rank_num": "0",
                     "player_num": "0",
+                    'new_sid': "1",//新开的区服ID
                     "created": "0",
                     "updated": "0"
                 },
@@ -284,6 +285,7 @@
                     "is_del": "0",
                     "rank_num": "0",
                     "player_num": "0",
+                    'new_sid': "1",//新开的区服ID
                     "created": "0",
                     "updated": "0"
                 },
@@ -831,6 +833,7 @@
         测试：
             http://pagegame-api.webdev2.duowan.com/server/getbyids
         正式：
+            。。。
     ————————————————————————————————————————————————————
     参数(get|post):
         sidList         区服ID列表，半角逗号隔开
