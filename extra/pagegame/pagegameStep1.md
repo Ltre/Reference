@@ -33,7 +33,7 @@
     ————————————————————————————————————————————————————
     URL:
         测试：
-        http://pagegame-api.webdev2.duowan.com/game/types
+        http://test-pgame.duowan.com/game/types
         正式：
         。。。
     ————————————————————————————————————————————————————
@@ -75,7 +75,7 @@
     ————————————————————————————————————————————————————
     URL:
         测试：
-        http://pagegame-api.webdev2.duowan.com/game/RecomList
+        http://test-pgame.duowan.com/game/RecomList
         正式：
         。。。
     ————————————————————————————————————————————————————
@@ -141,7 +141,7 @@
     ————————————————————————————————————————————————————
     URL:
         测试：
-            http://pagegame-api.webdev2.duowan.com/game/mygames
+            http://test-pgame.duowan.com/game/mygames
         正式：
             。。。
     ————————————————————————————————————————————————————
@@ -189,7 +189,7 @@
     ————————————————————————————————————————————————————
     URL:
         测试:
-            http://pagegame-api.webdev2.duowan.com/game/NewList
+            http://test-pgame.duowan.com/game/NewList
         正式:
             ...
     ————————————————————————————————————————————————————
@@ -257,7 +257,7 @@
     ————————————————————————————————————————————————————
     URL:
         测试：
-            http://pagegame-api.webdev2.duowan.com/game/hotList
+            http://test-pgame.duowan.com/game/hotList
         正式：
             。。。
     ————————————————————————————————————————————————————
@@ -328,7 +328,7 @@
     ————————————————————————————————————————————————————
     URL:
         测试：
-            http://pagegame-api.webdev2.duowan.com/game/todayGames
+            http://test-pgame.duowan.com/game/todayGames
         正式：
             。。。
     ————————————————————————————————————————————————————
@@ -386,7 +386,7 @@
     ————————————————————————————————————————————————————
     URL:
         测试：
-            http://pagegame-api.webdev2.duowan.com/game/RecomList
+            http://test-pgame.duowan.com/game/RecomList
         正式：
             。。。
     ————————————————————————————————————————————————————
@@ -452,7 +452,7 @@
     ————————————————————————————————————————————————————
     URL:
         测试：
-            http://pagegame-api.webdev2.duowan.com/game/ListByTag
+            http://test-pgame.duowan.com/game/ListByTag
     ————————————————————————————————————————————————————
     参数(get|post):
         tag         标签名，例如“模拟经营”
@@ -493,7 +493,7 @@
         无
     ————————————————————————————————————————————————————
     示例：
-        http://pagegame-api.webdev2.duowan.com/game/ListByTag?tag=%E6%A8%A1%E6%8B%9F%E7%BB%8F%E8%90%A5
+        http://test-pgame.duowan.com/game/ListByTag?tag=%E6%A8%A1%E6%8B%9F%E7%BB%8F%E8%90%A5
     ————————————————————————————————————————————————————
 
 
@@ -547,7 +547,7 @@
     ————————————————————————————————————————————————————
     URL:
         测试：
-            http://pagegame-api.webdev2.duowan.com/loginGame.do
+            http://test-pgame.duowan.com/loginGame.do
         正式：
             ...
     ————————————————————————————————————————————————————
@@ -572,7 +572,7 @@
         需要YY登录态
     ————————————————————————————————————————————————————
     示例：
-        http://pagegame-api.webdev2.duowan.com/loginGame.do?sid=1
+        http://test-pgame.duowan.com/loginGame.do?sid=1
     ————————————————————————————————————————————————————
 
 
@@ -582,7 +582,7 @@
     ————————————————————————————————————————————————————
     URL:
         测试：
-            http://pagegame-api.webdev2.duowan.com/server/showplans
+            http://test-pgame.duowan.com/server/showplans
         正式：
             。。。
     ————————————————————————————————————————————————————
@@ -662,7 +662,7 @@
     ————————————————————————————————————————————————————
     URL:
         测试：
-            http://pagegame-api.webdev2.duowan.com/game/myroles
+            http://test-pgame.duowan.com/game/myroles
         正式：
             。。。
     ————————————————————————————————————————————————————
@@ -696,7 +696,7 @@
         需要登录态
     ————————————————————————————————————————————————————
     示例：
-        http://pagegame-api.webdev2.duowan.com/game/myroles?sid=1
+        http://test-pgame.duowan.com/game/myroles?sid=1
     ————————————————————————————————————————————————————
 
 
@@ -708,7 +708,7 @@
     ————————————————————————————————————————————————————
     URL:
         测试：
-            http://pagegame-api.webdev2.duowan.com/user/myinfo
+            http://test-pgame.duowan.com/user/myinfo
     ————————————————————————————————————————————————————
     参数(get|post):
         无
@@ -750,7 +750,7 @@
 <font id="a14" color="blue">14、最近登录</font>
     ————————————————————————————————————————————————————
     URL:
-        http://pagegame-api.webdev2.duowan.com/login/myhistory
+        http://test-pgame.duowan.com/login/myhistory
     ————————————————————————————————————————————————————
     参数(get|post):
         limit       数据条数，默认10
@@ -831,7 +831,7 @@
     ————————————————————————————————————————————————————
     URL:
         测试：
-            http://pagegame-api.webdev2.duowan.com/server/getbyids
+            http://test-pgame.duowan.com/server/getbyids
         正式：
             。。。
     ————————————————————————————————————————————————————
@@ -870,7 +870,7 @@
         无
     ————————————————————————————————————————————————————
     示例：
-        http://pagegame-api.webdev2.duowan.com/server/getbyids?sidList=1,2
+        http://test-pgame.duowan.com/server/getbyids?sidList=1,2
     ————————————————————————————————————————————————————
 
 
