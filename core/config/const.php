@@ -24,5 +24,6 @@ $GLOBALS += array(
         'userAutoBet' => array('extra/eosget/user_auto_bet.md', '用户自动下注策略接口(20181031)'),
         'auction' => array('extra/eosget/auction.md', 'EOS竞拍活动接口(20181205)'),
         'pagegameStep1' => array('extra/pagegame/pagegameStep1.md', '2019页游接口第一期（首页运营内容 + 游戏登录）(20190508)'),
+        'uploadandget' => array('extra/videoupload/upload_and_get.md', '视频全量上传和获取源'),
     ),
 );
