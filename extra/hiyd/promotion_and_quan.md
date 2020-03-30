@@ -10,7 +10,7 @@
 <a href="#a6">6、查看分享任务的进度</a>
 <a href="#a7">7、提交助力动作</a>
 <a href="#a8">8、领取任务奖励</a>
-<a href="#a9"></a>
+<a href="#a9">9、待领取券的减免金额总额</a>
 <a href="#a10"></a>
 <a href="#a11"></a>
 <a href="#a12"></a>
@@ -620,6 +620,73 @@
     ————————————————————————————————————————————————————
     示例：
         http://ltre-hiydshop-h5.webdev.ouj.com/quan/takereward?progress_code=43fd607b78a53ba05a5450018b98fe672150b44b
+    ————————————————————————————————————————————————————
+
+
+
+
+
+
+
+
+
+<font id="an" color="blue">9、待领取券的减免金额总额</font>
+    ————————————————————————————————————————————————————
+    URL:
+        正式：
+        
+        测试：
+            http://ltre-hiydshop-h5.webdev.ouj.com/quan/GetUnclaimedListAndMoneySum
+    ————————————————————————————————————————————————————
+    参数(get|post):
+        platform        [可选]平台
+    ————————————————————————————————————————————————————
+    返回(object)：
+        {
+            "result": 1,
+            "code": 0,
+            "msg": "成功",
+            "data": {
+                "list": [//待领券列表
+                    {
+                        "quan_model": "NEWMJ_1000_120",
+                        "quan_name": "新人满1000减120",
+                        "quan_desc": "",
+                        "quan_cover": "http://www.google.com/",
+                        "quan_type": "newmj",
+                        "quan_rule": "1000-120",
+                        "quan_money_min": "120",
+                        "quan_money_max": "120",
+                        "use_expire": "1586207925",
+                        "limit_platform": "",
+                        "limit_category": "",
+                        "limit_goods": "",
+                        "limit_goods_spec": "",
+                        "limit_goods_tag": "",
+                        "stock_num": "555",
+                        "stock_remain": "554",
+                        "take_limit_per_user": "0",
+                        "on_lottery": "0",
+                        "lottery_weight": "0",
+                        "start_time": "1585207925",
+                        "end_time": "1586207925",
+                        "is_open": "1",
+                        "create_time": "1585207925",
+                        "update_time": "1585207925",
+                        "quan_money_condition": "1000"
+                    },
+                    {...},
+                    ...
+                ],
+                "sum": 120 //待领券的金额总额（元）
+            }
+        }
+    ————————————————————————————————————————————————————
+    备注: 
+        需要登录
+    ————————————————————————————————————————————————————
+    示例：
+        
     ————————————————————————————————————————————————————
 
 
