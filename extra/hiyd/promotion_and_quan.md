@@ -1,8 +1,3 @@
-
-
-
-
-
 <h1><center>Hiyd商城促销与购物券相关接口(20200326)</center></h1>
 
 
@@ -10,13 +5,16 @@
 <a href="#a1">1、显示新人满减券列表</a>
 <a href="#a2">2、领取新人满减券</a>
 <a href="#a3">3、已领取的购物券</a>
-<a href="#a4">4、显示购物券分享任务</a>
+<a href="#a4">4、显示购物券分享任务列表</a>
 <a href="#a5">5、分配-购物券分享任务（俗称领任务）</a>
 <a href="#a6">6、查看分享任务的进度</a>
 <a href="#a7">7、提交助力动作</a>
 <a href="#a8">8、领取任务奖励</a>
 <a href="#a9"></a>
 <a href="#a10"></a>
+<a href="#a11"></a>
+<a href="#a12"></a>
+<a href="#a13"></a>
 
 
 
@@ -66,7 +64,8 @@
                 "end_time": "1586207925",//结束领取时间
                 "is_open": "1",
                 "create_time": "1585207925",
-                "update_time": "1585207925"
+                "update_time": "1585207925",
+                "quan_money_condition": "99" //满减的条件金额（元）
             }
         ]
     }
@@ -232,7 +231,7 @@
 
 
 
-<font id="a4" color="blue">4、显示购物券分享任务列表（<font color="red">XXXXX</font>） XXXX/XXXX </font>
+<font id="a4" color="blue">4、显示购物券分享任务列表</font>
     ————————————————————————————————————————————————————
     URL:
         正式：
