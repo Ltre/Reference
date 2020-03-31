@@ -367,8 +367,10 @@
                 },
                 //任务发起人（分享人）
                 "initiator": {
-                    "user_id": "120010"
-                },
+                    "user_id": "120010",
+                    "head": "http://wx.qlogo.cn/mmopen/ajNVdqHZLLBkvGWgwkZm8jqdx2Tu2OAu5EKBibuPibZRFryUPcFRWZdmsOJ9wROcEmRI9FnDvROCsjs3axSw4WWlkug0XK0L8RiaMY3c2ECqMc/132",
+                    "nick": "我是分享者"
+                }
                 //助力记录（列表）
                 "encourList": [
                     {
@@ -380,7 +382,12 @@
                         "create_time": "1585478005", //助力提交的时间
                         "ip": "172.16.14.222",
                         "refer": "", //HTTP REFERER头
-                        "platform": "" //发起助力的平台，如weixin, h5
+                        "platform": "", //发起助力的平台，如weixin, h5
+                        "encouror_user": {
+                            "user_id": "120011",
+                            "head": "http://wx.qlogo.cn/mmopen/ajNVdqHZLLBkvGWgwkZm8jqdx2Tu2OAu5EKBibuPibZRFryUPcFRWZdmsOJ9wROcEmRI9FnDvROCsjs3axSw4WWlkug0XK0L8RiaMY3c2ECqMc/132",
+                            "nick": "我是助力者"
+                        }
                     },
                     ...,
                     {..}
