@@ -703,6 +703,108 @@
 
 
 
+<font id="a10" color="blue">10、获取新人优惠商品列表</font>
+    ————————————————————————————————————————————————————
+    URL:
+        正式：
+
+        测试：
+            http://ltre-hiydshop-h5.webdev.hiyd.com/promotion/GetNicePriceListByNewuser
+    ————————————————————————————————————————————————————
+    参数(get|post):
+        p           [可选]页码，默认1
+        limit       [可选]每页数目，默认10
+        platform    [可选]平台，如 h5
+    ————————————————————————————————————————————————————
+    返回(object)：
+        {
+            "result": 1,
+            "code": 0,
+            "msg": "成功",
+            "data": {
+                "list": [
+                    {
+                        "rule_id": "1", //规则ID
+                        "rule_field": "nice_price", //将指定字段作为规则，分别有：nice_price(一口价优惠), discount(减免具体多少钱), discount_perc(打多少折)
+                        "rule_nice_price": "5000", // 采用一口优惠价50元，数值单位为分
+                        "rule_discount": "0", //减免具体多少钱，单位分
+                        "rule_discount_perc": "0", //打多少折，百分比，如50%写为50
+                        "limit_platform": "h5", //限制平台
+                        "limit_category": "0", //限制分类的ID
+                        "limit_goods": "1", //指定商品ID  （一般常用这个字段）
+                        "limit_goods_spec": "0", //指定商品规格ID
+                        "limit_goods_tag": "0", //指定商品标签ID 
+                        "purpose": "1", //规则用途：0常规优惠价 1新人优惠价
+                        "sell_num_individual": "1", //个人限购量
+                        "sell_num_total": "20", //总限购量
+                        "start_time": "1585658760", //优惠生效时间
+                        "end_time": "1595658760", //优惠结束时间
+                        "create_time": "1585658760", //规则创建时间
+                        "update_time": "1585658760", //规则更新时间
+                        "is_valid": "1", //是否生效  （这个接口返回的都是1，就无视吧）
+                        "goods_data": { //商品信息结构（不赘述）
+                            "goods_id": "1",
+                            "shop_id": "1",
+                            "cat_id": "1",
+                            "goods_name": "[国内现货]海德力纯享乳清蛋白粉5磅",
+                            "goods_number": "455",
+                            "market_price": "45500",
+                            "shop_price": "1",
+                            "promote_price": "0",
+                            "promote_start_date": "0000-00-00 00:00:00",
+                            "promote_end_date": "0000-00-00 00:00:00",
+                            "keywords": "test",
+                            "sellers_desc": "test",
+                            "goods_desc": "test",
+                            "goods_img": "http://static.ouj.com/hiyd_shop/d015b90ad56b2d6469c8a5a72f6e070b_size640x640_57562.jpg",
+                            "create_time": "2019-12-27 16:42:44",
+                            "is_delete": "0",
+                            "update_time": "2020-02-14 10:47:27",
+                            "onsale_time": "2020-02-14 10:47:27",
+                            "auto_sale_time": "0",
+                            "suppliers_id": "0",
+                            "is_on_sale": "1",
+                            "sequence": "99",
+                            "sort_all": "100",
+                            "sellers_count": "1",
+                            "goods_tags": "免税"
+                        }
+                    }
+                ],
+                "pages": { //分页信息（前面提过）
+                    "total_count": "2",
+                    "page_size": 1,
+                    "total_page": 2,
+                    "first_page": 1,
+                    "prev_page": 1,
+                    "next_page": 2,
+                    "last_page": 2,
+                    "current_page": 1,
+                    "all_pages": [
+                        1,
+                        2
+                    ],
+                    "offset": 0,
+                    "limit": 1
+                },
+                "count": "2"
+            }
+        }
+    ————————————————————————————————————————————————————
+    备注: 
+        需要登录
+    ————————————————————————————————————————————————————
+    示例：
+        http://ltre-hiydshop-h5.webdev.hiyd.com/promotion/GetNicePriceListByNewuser?p=1&limit=1
+    ————————————————————————————————————————————————————
+
+
+
+
+
+
+
+
 
 
 <font id="an" color="blue">18、XXXXX（<font color="red">XXXXX</font>） XXXX/XXXX </font>
