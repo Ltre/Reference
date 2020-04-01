@@ -30,7 +30,7 @@
         正式：
             
         测试：
-            http://ltre-hiydshop-h5.webdev.ouj.com/quan/ShowNewuserQuan
+            http://ltre-hiydshop-h5.webdev.hiyd.com/quan/ShowNewuserQuan
     ————————————————————————————————————————————————————
     参数(get|post):
         platform    平台：可空，值有h5、weixin
@@ -87,7 +87,7 @@
         正式：
 
         测试：
-            http://ltre-hiydshop-h5.webdev.ouj.com/quan/TakeNewuserQuan
+            http://ltre-hiydshop-h5.webdev.hiyd.com/quan/TakeNewuserQuan
     ————————————————————————————————————————————————————
     参数(get|post):
         quan_model     购物券型号，如NEWMJ_99_20
@@ -145,7 +145,7 @@
         正式：
 
         测试：
-            http://ltre-hiydshop-h5.webdev.ouj.com/quan/GetMyQuanList
+            http://ltre-hiydshop-h5.webdev.hiyd.com/quan/GetMyQuanList
     ————————————————————————————————————————————————————
     参数(get|post):
         platform     [可选]平台，如h5, weixin
@@ -232,7 +232,7 @@
         正式：
 
         测试：
-            http://ltre-hiydshop-h5.webdev.ouj.com/quan/ShowTasks
+            http://ltre-hiydshop-h5.webdev.hiyd.com/quan/ShowTasks
     ————————————————————————————————————————————————————
     参数(get|post):
         platform        [可选]平台，例如 h5,weixin
@@ -280,7 +280,7 @@
         正式：
 
         测试：
-            http://ltre-hiydshop-h5.webdev.ouj.com/quan/AllotByTask
+            http://ltre-hiydshop-h5.webdev.hiyd.com/quan/AllotByTask
     ————————————————————————————————————————————————————
     参数(get|post):
         task_id     [必需]任务ID
@@ -312,7 +312,7 @@
         需要登录
     ————————————————————————————————————————————————————
     示例：
-        http://ltre-hiydshop-h5.webdev.ouj.com/quan/AllotByTask?task_id=1&platform=h5
+        http://ltre-hiydshop-h5.webdev.hiyd.com/quan/AllotByTask?task_id=1&platform=h5
     ————————————————————————————————————————————————————
 
 
@@ -325,7 +325,7 @@
         正式：
 
         测试：
-            http://ltre-hiydshop-h5.webdev.ouj.com/quan/Progress
+            http://ltre-hiydshop-h5.webdev.hiyd.com/quan/Progress
     ————————————————————————————————————————————————————
     参数(get|post):
         progress_code     任务执行进度代码
@@ -451,7 +451,7 @@
         当没有登录时，则以游客状态观看进度，在需要点击助力时，务必先弹出登录过程
     ————————————————————————————————————————————————————
     示例：
-        http://ltre-hiydshop-h5.webdev.ouj.com/quan/Progress?progress_code=43fd607b78a53ba05a5450018b98fe672150b44b
+        http://ltre-hiydshop-h5.webdev.hiyd.com/quan/Progress?progress_code=43fd607b78a53ba05a5450018b98fe672150b44b
     ————————————————————————————————————————————————————
 
 
@@ -467,7 +467,7 @@
         正式：
         
         测试：
-            http://ltre-hiydshop-h5.webdev.ouj.com/quan/encour
+            http://ltre-hiydshop-h5.webdev.hiyd.com/quan/encour
     ————————————————————————————————————————————————————
     参数(get|post):
         progress_code       [必需]任务执行进度代码
@@ -569,7 +569,7 @@
             PROGRESS_NOT_FOUND          - 任务执行记录不存在
     ————————————————————————————————————————————————————
     示例：
-        http://ltre-hiydshop-h5.webdev.ouj.com/quan/encour?progress_code=43fd607b78a53ba05a5450018b98fe672150b44b&platform=h5
+        http://ltre-hiydshop-h5.webdev.hiyd.com/quan/encour?progress_code=43fd607b78a53ba05a5450018b98fe672150b44b&platform=h5
     ————————————————————————————————————————————————————
 
 
@@ -588,7 +588,7 @@
         正式：
 
         测试：
-            http://ltre-hiydshop-h5.webdev.ouj.com/quan/takereward
+            http://ltre-hiydshop-h5.webdev.hiyd.com/quan/takereward
     ————————————————————————————————————————————————————
     参数(get|post):
         progress_code       [必需]任务执行进度代码
@@ -642,7 +642,7 @@
         需要登录
     ————————————————————————————————————————————————————
     示例：
-        http://ltre-hiydshop-h5.webdev.ouj.com/quan/takereward?progress_code=43fd607b78a53ba05a5450018b98fe672150b44b
+        http://ltre-hiydshop-h5.webdev.hiyd.com/quan/takereward?progress_code=43fd607b78a53ba05a5450018b98fe672150b44b
     ————————————————————————————————————————————————————
 
 
@@ -659,7 +659,7 @@
         正式：
         
         测试：
-            http://ltre-hiydshop-h5.webdev.ouj.com/quan/GetUnclaimedListAndMoneySum
+            http://ltre-hiydshop-h5.webdev.hiyd.com/quan/GetUnclaimedListAndMoneySum
     ————————————————————————————————————————————————————
     参数(get|post):
         platform        [可选]平台
@@ -835,7 +835,7 @@
             "data": {
                 "map": {//持有记录ID => {...}
                     "31": {
-                        "take_id": "31",
+                        "take_id": "31", //持有记录ID，可从接口GetMyQuanList得到
                         "take_time": "1585486015",//领取时间
                         "use_expire": "1586207925",//使用过期时间
                         "user_id": "419530", //领取人
