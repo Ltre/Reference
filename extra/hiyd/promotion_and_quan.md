@@ -11,7 +11,7 @@
 <a href="#a7">7、提交助力动作</a>
 <a href="#a8">8、领取任务奖励</a>
 <a href="#a9">9、待领取券的减免金额总额</a>
-<a href="#a10"></a>
+<a href="#a10">10、获取新人优惠商品列表</a>
 <a href="#a11"></a>
 <a href="#a12"></a>
 <a href="#a13"></a>
@@ -546,12 +546,27 @@
                 },
                 "rewardInfo4Encour": {
                     ... 如果这个人是最后一个助力者，那么就会达成任务，这里就会显示奖励数据，结构同rewardInfo4Share的完全一样 ...
-                }
+                },
+                "flag": "PROGRESS_COMPLTETE_OTHER", //返回情况标志
             }
         }
     ————————————————————————————————————————————————————
     备注: 
-        需要登录
+        需要登录.
+
+        返回情况标志（flag）列举：
+            OK                          - 正常
+            PLATFORM_ERR                - platform有误
+            FUCK_YOU                    - 非法操作
+            NOT_OPEN                    - 该分享任务不存在或未开放
+            TASK_NOT_FOUND              - 任务不存在(确实没数据)
+            PROGRESS_EXPIRE             - 此分享进度已过期，谢谢参与
+            DONT_ENCOUR_SELF            - 不能为自己助力
+            PROGRESS_COMPLETE           - 此任务已达成，感谢参与
+            PROGRESS_COMPLTETE_OTHER    - 此任务已被别人完成，请为下一个人助力
+            HAS_ENCOURED                - 已经支持过TA啦
+            DO_ENCOUR_ERR               - 支援过程中出错了(数据库问题)
+            PROGRESS_NOT_FOUND          - 任务执行记录不存在
     ————————————————————————————————————————————————————
     示例：
         http://ltre-hiydshop-h5.webdev.ouj.com/quan/encour?progress_code=43fd607b78a53ba05a5450018b98fe672150b44b&platform=h5
