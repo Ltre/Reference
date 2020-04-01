@@ -12,7 +12,7 @@
 <a href="#a8">8、领取任务奖励</a>
 <a href="#a9">9、待领取券的减免金额总额</a>
 <a href="#a10">10、获取新人优惠商品列表</a>
-<a href="#a11"></a>
+<a href="#a11">11、计算购物券可减免价格</a>
 <a href="#a12"></a>
 <a href="#a13"></a>
 
@@ -811,6 +811,78 @@
     ————————————————————————————————————————————————————
     示例：
         http://ltre-hiydshop-h5.webdev.hiyd.com/promotion/GetNicePriceListByNewuser?p=1&limit=1
+    ————————————————————————————————————————————————————
+
+
+
+
+
+
+
+<font id="a11" color="blue">11、计算购物券可减免价格</font>
+    ————————————————————————————————————————————————————
+    URL:
+    ————————————————————————————————————————————————————
+    参数(get|post):
+        takeIdList      购物券持有记录ID，支持多个半角逗号隔开
+        goodsIdList     商品ID列表，支持多个半角逗号隔开
+    ————————————————————————————————————————————————————
+    返回(object)：
+        {
+            "result": 1,
+            "code": 0,
+            "msg": "成功",
+            "data": {
+                "map": {//持有记录ID => {...}
+                    "31": {
+                        "take_id": "31",
+                        "take_time": "1585486015",//领取时间
+                        "use_expire": "1586207925",//使用过期时间
+                        "user_id": "419530", //领取人
+                        "quan_model": "SHAREMJ_200_40", //购物券型号
+                        "quan_money_min": "40", //减免金额（元）
+                        "limit_platform": "",
+                        "limit_category": "",
+                        "limit_goods": "",
+                        "limit_goods_spec": "",
+                        "limit_goods_tag": ""
+                    },
+                    "32": {
+                        "take_id": "32",
+                        "take_time": "1585486015",
+                        "use_expire": "1586207925",
+                        "user_id": "419530",
+                        "quan_model": "SHAREMJ_100_5",
+                        "quan_money_min": "5",
+                        "limit_platform": "",
+                        "limit_category": "",
+                        "limit_goods": "",
+                        "limit_goods_spec": "",
+                        "limit_goods_tag": ""
+                    },
+                    "33": {
+                        "take_id": "33",
+                        "take_time": "1585486283",
+                        "use_expire": "1586207925",
+                        "user_id": "419530",
+                        "quan_model": "SHAREMJ_100_5",
+                        "quan_money_min": "5",
+                        "limit_platform": "",
+                        "limit_category": "",
+                        "limit_goods": "",
+                        "limit_goods_spec": "",
+                        "limit_goods_tag": ""
+                    }
+                },
+                "sum": 50, //所有购物券叠加减免金额（元）
+            }
+        }
+    ————————————————————————————————————————————————————
+    备注: 
+        需要登录
+    ————————————————————————————————————————————————————
+    示例：
+        http://ltre-hiydshop-h5.webdev.hiyd.com/quan/CalcReduction?takeIdList=17,18,31,32,33&goodsIdList=1,2,3
     ————————————————————————————————————————————————————
 
 
