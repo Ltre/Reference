@@ -1032,68 +1032,6 @@
             "code": 0,
             "msg": "成功",
             "data": {
-                "map": {
-                    "31": {
-                        "take_id": "31",
-                        "take_time": "1585486015",
-                        "use_expire": "1586207925",
-                        "user_id": "419530",
-                        "quan_name": "分享满减券200-40",
-                        "quan_desc": "",
-                        "quan_cover": "http://www.google.com/",
-                        "quan_rule": "200-40",
-                        "quan_type": "sharemj",
-                        "quan_model": "SHAREMJ_200_40",
-                        "quan_money_min": "40",
-                        "quan_money_max": "40",
-                        "limit_platform": "",
-                        "limit_category": "",
-                        "limit_goods": "",
-                        "limit_goods_spec": "",
-                        "limit_goods_tag": ""
-                    },
-                    "32": {
-                        "take_id": "32",
-                        "take_time": "1585486015",
-                        "use_expire": "1586207925",
-                        "user_id": "419530",
-                        "quan_name": "分享满减券100-5",
-                        "quan_desc": "",
-                        "quan_cover": "http://www.google.com/",
-                        "quan_rule": "100-5",
-                        "quan_type": "sharemj",
-                        "quan_model": "SHAREMJ_100_5",
-                        "quan_money_min": "5",
-                        "quan_money_max": "5",
-                        "limit_platform": "",
-                        "limit_category": "",
-                        "limit_goods": "",
-                        "limit_goods_spec": "",
-                        "limit_goods_tag": ""
-                    },
-                    "33": {
-                        "take_id": "33",
-                        "take_time": "1585486283",
-                        "use_expire": "1586207925",
-                        "user_id": "419530",
-                        "quan_name": "分享满减券100-5",
-                        "quan_desc": "",
-                        "quan_cover": "http://www.google.com/",
-                        "quan_rule": "100-5",
-                        "quan_type": "sharemj",
-                        "quan_model": "SHAREMJ_100_5",
-                        "quan_money_min": "5",
-                        "quan_money_max": "5",
-                        "limit_platform": "",
-                        "limit_category": "",
-                        "limit_goods": "",
-                        "limit_goods_spec": "",
-                        "limit_goods_tag": ""
-                    }
-                },
-                "list": [
-                    //把上面map的键去掉就是这里的list
-                ],
                 "sum": 50,//总减免金额（元）
                 "useRecords": { //券的使用记录，结构：takeId => {QuanUse}
                     "31": {
