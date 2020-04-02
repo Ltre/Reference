@@ -14,7 +14,15 @@
 <a href="#a10">10、获取新人优惠商品列表</a>
 <a href="#a11">11、提交订单前，列出可用的购物券</a>
 <a href="#a12">12、勾选购物券后，预先计算购物券可减免价格</a>
-<a href="#a13"></a>
+<a href="#a13">13、下单过程中，正式使用购物券</a>
+<a href="#a14"></a>
+<a href="#a15"></a>
+<a href="#a16"></a>
+<a href="#a17"></a>
+<a href="#a18"></a>
+<a href="#a19"></a>
+<a href="#a20"></a>
+<a href="#a21"></a>
 
 
 
@@ -1000,6 +1008,142 @@
         http://ltre-hiydshop-h5.webdev.hiyd.com/quan/CalcReduction?takeIdList=17,18,31,32,33&goodsIdList=1,2,3
         http://ltre-hiydshop-h5.webdev.hiyd.com/quan/CalcReduction?takeIdList=17,18,31,32,33&goodsIdList=1,2,4
     ————————————————————————————————————————————————————
+
+
+
+
+
+
+
+<font id="a13" color="blue">13、下单过程中，正式使用购物券</font>
+    ————————————————————————————————————————————————————
+    URL:
+
+    ————————————————————————————————————————————————————
+    参数(get|post):
+        channel     FDASFSAF
+    ————————————————————————————————————————————————————
+    返回(object)：
+        {
+            "result": 1,
+            "code": 0,
+            "msg": "成功",
+            "data": {
+                "map": {
+                    "31": {
+                        "take_id": "31",
+                        "take_time": "1585486015",
+                        "use_expire": "1586207925",
+                        "user_id": "419530",
+                        "quan_name": "分享满减券200-40",
+                        "quan_desc": "",
+                        "quan_cover": "http://www.google.com/",
+                        "quan_rule": "200-40",
+                        "quan_type": "sharemj",
+                        "quan_model": "SHAREMJ_200_40",
+                        "quan_money_min": "40",
+                        "quan_money_max": "40",
+                        "limit_platform": "",
+                        "limit_category": "",
+                        "limit_goods": "",
+                        "limit_goods_spec": "",
+                        "limit_goods_tag": ""
+                    },
+                    "32": {
+                        "take_id": "32",
+                        "take_time": "1585486015",
+                        "use_expire": "1586207925",
+                        "user_id": "419530",
+                        "quan_name": "分享满减券100-5",
+                        "quan_desc": "",
+                        "quan_cover": "http://www.google.com/",
+                        "quan_rule": "100-5",
+                        "quan_type": "sharemj",
+                        "quan_model": "SHAREMJ_100_5",
+                        "quan_money_min": "5",
+                        "quan_money_max": "5",
+                        "limit_platform": "",
+                        "limit_category": "",
+                        "limit_goods": "",
+                        "limit_goods_spec": "",
+                        "limit_goods_tag": ""
+                    },
+                    "33": {
+                        "take_id": "33",
+                        "take_time": "1585486283",
+                        "use_expire": "1586207925",
+                        "user_id": "419530",
+                        "quan_name": "分享满减券100-5",
+                        "quan_desc": "",
+                        "quan_cover": "http://www.google.com/",
+                        "quan_rule": "100-5",
+                        "quan_type": "sharemj",
+                        "quan_model": "SHAREMJ_100_5",
+                        "quan_money_min": "5",
+                        "quan_money_max": "5",
+                        "limit_platform": "",
+                        "limit_category": "",
+                        "limit_goods": "",
+                        "limit_goods_spec": "",
+                        "limit_goods_tag": ""
+                    }
+                },
+                "list": [
+                    //把上面map的键去掉就是这里的list
+                ],
+                "sum": 50,//总减免金额（元）
+                "useRecords": { //券的使用记录，结构：takeId => {QuanUse}
+                    "31": {
+                        "use_record": "22", //流水ID
+                        "user_id": "419530", //使用者
+                        "take_id": "31", //持有记录ID
+                        "quan_model": "SHAREMJ_200_40", //购物券型号
+                        "goods_id": "0", //商品ID，仅在下单一种商品时才会设置
+                        "goods_spec": "0", //规格ID，仅在下单一种规格时才会设置（待开发）
+                        "use_time": "1585816520", //使用时间
+                        "use_money": "40", //本券实际减免金额
+                        "use_status": "0",  //使用状态：0正常使用；-1取消使用
+                        "order_id": "7", //订单ID
+                        "cancel_time": "0" //取消使用的时间
+                    },
+                    "32": {
+                        "use_record": "20",
+                        "user_id": "419530",
+                        "take_id": "32",
+                        "quan_model": "SHAREMJ_100_5",
+                        "goods_id": "0",
+                        "goods_spec": "0",
+                        "use_time": "1585816520",
+                        "use_money": "5",
+                        "use_status": "0",
+                        "order_id": "7",
+                        "cancel_time": "0"
+                    },
+                    "33": {
+                        "use_record": "21",
+                        "user_id": "419530",
+                        "take_id": "33",
+                        "quan_model": "SHAREMJ_100_5",
+                        "goods_id": "0",
+                        "goods_spec": "0",
+                        "use_time": "1585816520",
+                        "use_money": "5",
+                        "use_status": "0",
+                        "order_id": "7",
+                        "cancel_time": "0"
+                    }
+                }
+            }
+        }
+    ————————————————————————————————————————————————————
+    备注: 
+        需要登录
+        后端专用API，前端忽略
+    ————————————————————————————————————————————————————
+    示例：
+        http://ltre-hiydshop-h5.webdev.hiyd.com/quan/applyByOrder?takeIdList=17,18,31,32,33&order_id=7
+    ————————————————————————————————————————————————————
+
 
 
 
