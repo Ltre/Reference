@@ -1018,7 +1018,10 @@
 <font id="a13" color="blue">13、下单过程中，正式使用购物券</font>
     ————————————————————————————————————————————————————
     URL:
+        正式：
 
+        测试：
+            http://ltre-hiydshop-h5.webdev.hiyd.com/quan/applyByOrder
     ————————————————————————————————————————————————————
     参数(get|post):
         channel     FDASFSAF
