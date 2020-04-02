@@ -822,6 +822,10 @@
 <font id="a11" color="blue">11、计算购物券可减免价格</font>
     ————————————————————————————————————————————————————
     URL:
+        正式：
+            
+        测试：
+            http://ltre-hiydshop-h5.webdev.hiyd.com/quan/CalcReduction
     ————————————————————————————————————————————————————
     参数(get|post):
         takeIdList      购物券持有记录ID，支持多个半角逗号隔开
