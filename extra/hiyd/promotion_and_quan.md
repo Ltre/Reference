@@ -12,8 +12,8 @@
 <a href="#a8">8、领取任务奖励</a>
 <a href="#a9">9、待领取券的减免金额总额</a>
 <a href="#a10">10、获取新人优惠商品列表</a>
-<a href="#a11">11、计算购物券可减免价格</a>
-<a href="#a12"></a>
+<a href="#a11">11、提交订单前，列出可用的购物券</a>
+<a href="#a12">12、勾选购物券后，预先计算购物券可减免价格</a>
 <a href="#a13"></a>
 
 
@@ -817,13 +817,105 @@
 
 
 
-
-
-<font id="a11" color="blue">11、计算购物券可减免价格</font>
+<font id="a11" color="blue">11、提交订单前，列出可用的购物券</font>
     ————————————————————————————————————————————————————
     URL:
         正式：
-            
+
+        测试：
+            http://ltre-hiydshop-h5.webdev.hiyd.com/quan/ShowAvailableQuanListBeforePurchase
+    ————————————————————————————————————————————————————
+    参数(get|post):
+        goodsIdList     商品ID列表，支持多个半角逗号隔开
+    ————————————————————————————————————————————————————
+    返回(object)：
+        {
+            "result": 1,
+            "code": 0,
+            "msg": "成功",
+            "data": {
+                "map": {
+                    "31": {
+                        "take_id": "31",
+                        "take_time": "1585486015",
+                        "use_expire": "1586207925",
+                        "user_id": "419530",
+                        "quan_name": "分享满减券200-40",
+                        "quan_desc": "",
+                        "quan_cover": "http://www.google.com/",
+                        "quan_rule": "200-40",
+                        "quan_type": "sharemj",
+                        "quan_model": "SHAREMJ_200_40",
+                        "quan_money_min": "40",
+                        "quan_money_max": "40",
+                        "limit_platform": "",
+                        "limit_category": "",
+                        "limit_goods": "",
+                        "limit_goods_spec": "",
+                        "limit_goods_tag": ""
+                    },
+                    "32": {
+                        "take_id": "32",
+                        "take_time": "1585486015",
+                        "use_expire": "1586207925",
+                        "user_id": "419530",
+                        "quan_name": "分享满减券100-5",
+                        "quan_desc": "",
+                        "quan_cover": "http://www.google.com/",
+                        "quan_rule": "100-5",
+                        "quan_type": "sharemj",
+                        "quan_model": "SHAREMJ_100_5",
+                        "quan_money_min": "5",
+                        "quan_money_max": "5",
+                        "limit_platform": "",
+                        "limit_category": "",
+                        "limit_goods": "",
+                        "limit_goods_spec": "",
+                        "limit_goods_tag": ""
+                    },
+                    "33": {
+                        "take_id": "33",
+                        "take_time": "1585486283",
+                        "use_expire": "1586207925",
+                        "user_id": "419530",
+                        "quan_name": "分享满减券100-5",
+                        "quan_desc": "",
+                        "quan_cover": "http://www.google.com/",
+                        "quan_rule": "100-5",
+                        "quan_type": "sharemj",
+                        "quan_model": "SHAREMJ_100_5",
+                        "quan_money_min": "5",
+                        "quan_money_max": "5",
+                        "limit_platform": "",
+                        "limit_category": "",
+                        "limit_goods": "",
+                        "limit_goods_spec": "",
+                        "limit_goods_tag": ""
+                    }
+                },
+                "sum": 50
+            }
+        }
+    ————————————————————————————————————————————————————
+    备注: 
+        需要登录
+    ————————————————————————————————————————————————————
+    示例：
+        cookie[ouid]=419530
+        http://ltre-hiydshop-h5.webdev.hiyd.com/quan/ShowAvailableQuanListBeforePurchase?goodsIdList=1,2,4
+        http://ltre-hiydshop-h5.webdev.hiyd.com/quan/ShowAvailableQuanListBeforePurchase?goodsIdList=1,2,3
+    ————————————————————————————————————————————————————
+
+
+
+
+
+
+<font id="a12" color="blue">12、勾选购物券后，预先计算购物券可减免价格</font>
+    ————————————————————————————————————————————————————
+    URL:
+        正式：
+
         测试：
             http://ltre-hiydshop-h5.webdev.hiyd.com/quan/CalcReduction
     ————————————————————————————————————————————————————
@@ -837,14 +929,20 @@
             "code": 0,
             "msg": "成功",
             "data": {
-                "map": {//持有记录ID => {...}
+                "map": {
                     "31": {
-                        "take_id": "31", //持有记录ID，可从接口GetMyQuanList得到
-                        "take_time": "1585486015",//领取时间
-                        "use_expire": "1586207925",//使用过期时间
-                        "user_id": "419530", //领取人
-                        "quan_model": "SHAREMJ_200_40", //购物券型号
-                        "quan_money_min": "40", //减免金额（元）
+                        "take_id": "31",
+                        "take_time": "1585486015",
+                        "use_expire": "1586207925",
+                        "user_id": "419530",
+                        "quan_name": "分享满减券200-40",
+                        "quan_desc": "",
+                        "quan_cover": "http://www.google.com/",
+                        "quan_rule": "200-40",
+                        "quan_type": "sharemj",
+                        "quan_model": "SHAREMJ_200_40",
+                        "quan_money_min": "40",
+                        "quan_money_max": "40",
                         "limit_platform": "",
                         "limit_category": "",
                         "limit_goods": "",
@@ -856,8 +954,14 @@
                         "take_time": "1585486015",
                         "use_expire": "1586207925",
                         "user_id": "419530",
+                        "quan_name": "分享满减券100-5",
+                        "quan_desc": "",
+                        "quan_cover": "http://www.google.com/",
+                        "quan_rule": "100-5",
+                        "quan_type": "sharemj",
                         "quan_model": "SHAREMJ_100_5",
                         "quan_money_min": "5",
+                        "quan_money_max": "5",
                         "limit_platform": "",
                         "limit_category": "",
                         "limit_goods": "",
@@ -869,8 +973,14 @@
                         "take_time": "1585486283",
                         "use_expire": "1586207925",
                         "user_id": "419530",
+                        "quan_name": "分享满减券100-5",
+                        "quan_desc": "",
+                        "quan_cover": "http://www.google.com/",
+                        "quan_rule": "100-5",
+                        "quan_type": "sharemj",
                         "quan_model": "SHAREMJ_100_5",
                         "quan_money_min": "5",
+                        "quan_money_max": "5",
                         "limit_platform": "",
                         "limit_category": "",
                         "limit_goods": "",
@@ -878,7 +988,7 @@
                         "limit_goods_tag": ""
                     }
                 },
-                "sum": 50, //所有购物券叠加减免金额（元）
+                "sum": 50
             }
         }
     ————————————————————————————————————————————————————
@@ -886,7 +996,9 @@
         需要登录
     ————————————————————————————————————————————————————
     示例：
+        cookie[ouid]=419530
         http://ltre-hiydshop-h5.webdev.hiyd.com/quan/CalcReduction?takeIdList=17,18,31,32,33&goodsIdList=1,2,3
+        http://ltre-hiydshop-h5.webdev.hiyd.com/quan/CalcReduction?takeIdList=17,18,31,32,33&goodsIdList=1,2,4
     ————————————————————————————————————————————————————
 
 
