@@ -835,6 +835,7 @@
     ————————————————————————————————————————————————————
     参数(get|post):
         goodsIdList     商品ID列表，支持多个半角逗号隔开
+        money           预估订单总金额（元）支持小数点
     ————————————————————————————————————————————————————
     返回(object)：
         {
@@ -910,8 +911,8 @@
     ————————————————————————————————————————————————————
     示例：
         cookie[ouid]=419530
-        http://ltre-hiydshop-h5.webdev.hiyd.com/quan/ShowAvailableQuanListBeforePurchase?goodsIdList=1,2,4
-        http://ltre-hiydshop-h5.webdev.hiyd.com/quan/ShowAvailableQuanListBeforePurchase?goodsIdList=1,2,3
+        http://ltre-hiydshop-h5.webdev.hiyd.com/quan/showAvailableQuanListBeforePurchase?goodsIdList=1,2,3&money=1000
+        http://ltre-hiydshop-h5.webdev.hiyd.com/quan/showAvailableQuanListBeforePurchase?goodsIdList=1,2,4&money=1000
     ————————————————————————————————————————————————————
 
 
@@ -930,6 +931,7 @@
     参数(get|post):
         takeIdList      购物券持有记录ID，支持多个半角逗号隔开
         goodsIdList     商品ID列表，支持多个半角逗号隔开
+        money           预估订单总金额（元）支持小数点
     ————————————————————————————————————————————————————
     返回(object)：
         {
@@ -1005,8 +1007,8 @@
     ————————————————————————————————————————————————————
     示例：
         cookie[ouid]=419530
-        http://ltre-hiydshop-h5.webdev.hiyd.com/quan/CalcReduction?takeIdList=17,18,31,32,33&goodsIdList=1,2,3
-        http://ltre-hiydshop-h5.webdev.hiyd.com/quan/CalcReduction?takeIdList=17,18,31,32,33&goodsIdList=1,2,4
+        http://ltre-hiydshop-h5.webdev.hiyd.com/quan/CalcReduction?takeIdList=17,18,31,32,33&goodsIdList=1,2,4&money=1000
+        http://ltre-hiydshop-h5.webdev.hiyd.com/quan/CalcReduction?takeIdList=17,18,31,32,33&goodsIdList=1,2,3&money=1000
     ————————————————————————————————————————————————————
 
 
@@ -1024,7 +1026,10 @@
             http://ltre-hiydshop-h5.webdev.hiyd.com/quan/applyByOrder
     ————————————————————————————————————————————————————
     参数(get|post):
-        channel     FDASFSAF
+        goodsIdList     半角逗号隔开的goods_id列表
+        takeIdList      购物券持有记录ID列表，支持多个半角逗号隔开
+        money           预估订单总金额（元）支持小数点
+        order_id        订单ID，可选。如有则保存
     ————————————————————————————————————————————————————
     返回(object)：
         {
@@ -1082,7 +1087,7 @@
         后端专用API，前端忽略
     ————————————————————————————————————————————————————
     示例：
-        http://ltre-hiydshop-h5.webdev.hiyd.com/quan/applyByOrder?takeIdList=17,18,31,32,33&order_id=7
+        http://ltre-hiydshop-h5.webdev.hiyd.com/quan/applyByOrder?goodsIdList=1,2,3&takeIdList=17,18,31,32,33&money=1000
     ————————————————————————————————————————————————————
 
 
