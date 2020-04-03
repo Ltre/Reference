@@ -15,8 +15,8 @@
 <a href="#a11">11、提交订单前，列出可用的购物券</a>
 <a href="#a12">12、勾选购物券后，预先计算购物券可减免价格</a>
 <a href="#a13">13、下单过程中，正式使用购物券</a>
-<a href="#a14"></a>
-<a href="#a15"></a>
+<a href="#a14">14、订单取消使用购物券（待定）</a>
+<a href="#a15">15、订单详细接口增加返回quanUseData（购物券使用记录）</a>
 <a href="#a16"></a>
 <a href="#a17"></a>
 <a href="#a18"></a>
@@ -1093,6 +1093,317 @@
 
 
 
+
+
+
+
+
+
+<font id="a14" color="blue">14、订单取消使用购物券</font>
+    ————————————————————————————————————————————————————
+    URL:
+        待定
+    ————————————————————————————————————————————————————
+    参数(get|post):
+        channel     FDASFSAF
+    ————————————————————————————————————————————————————
+    返回(object)：
+    ————————————————————————————————————————————————————
+    备注: 
+        备用占位
+    ————————————————————————————————————————————————————
+    示例：
+        
+    ————————————————————————————————————————————————————
+
+
+
+
+
+
+
+
+<font id="a15" color="blue">15、订单详细接口增加返回quanUseData（购物券使用记录）</font>
+    ————————————————————————————————————————————————————
+    URL:
+        正式：
+
+        测试：
+            http://ltre-hiydshop-h5.webdev.hiyd.com/order/Detail
+    ————————————————————————————————————————————————————
+    参数(get|post):
+        order_id     订单ID
+    ————————————————————————————————————————————————————
+    返回(object)：
+        {
+            "result": 1,
+            "code": 0,
+            "msg": "成功",
+            "data": {
+                "order_id": "581",
+                "order_sn": "OJ0403215209929112",
+                "order_status": "0",
+                "shipping_status": "0",
+                "pay_status": "0",
+                "add_time": "2020-04-03 21:52",
+                "shipping_fee": 5,
+                "pay_fee": 834.01,
+                "ch_id": "WX",
+                "pay_method": "APP",
+                "mobile": "15911111111",
+                "consignee": "操你妈",
+                "province_id": "440000",
+                "city_id": "440100",
+                "district_id": "440106",
+                "full_address": "广东省广州市天河区FDSFSFS大街1号",
+                "pay_url": "{\"package\":\"Sign=WXPay\",\"appid\":\"wx15365b9d9f6210af\",\"sign\":\"A3C7987A3C5CE5F0ECD09372CC82451D\",\"partnerid\":\"1400864202\",\"prepayid\":\"wx03215211921218929525a0221870628700\",\"noncestr\":\"522ca96dcb294c65a82856d927f9c000\",\"timestamp\":\"1585921931\"}",
+                "privilege_price": 919.01,
+                "shipping_time": "0",
+                "pay_deadline": 82230,
+                "privilege_price_all": 829.01,
+                "order_status_name": "待支付",
+                "products": {
+                    "7": {
+                        "goods_id": "1",
+                        "product_id": "7",
+                        "product_price": 480,
+                        "privilege_price": 459,
+                        "product_number": "2",
+                        "goods_img": "http://static.ouj.com/hiyd_shop/d015b90ad56b2d6469c8a5a72f6e070b_size640x640_57562.jpg",
+                        "goods_name": "[国内现货]海德力纯享乳清蛋白粉5磅",
+                        "shop_id": "1",
+                        "sub_status": "0",
+                        "return_sn": "",
+                        "delivery_sn": "",
+                        "delivery_style": "",
+                        "spec": "草莓香蕉味"
+                    },
+                    "10": {
+                        "goods_id": "3",
+                        "product_id": "10",
+                        "product_price": 12,
+                        "privilege_price": 0.01,
+                        "product_number": "1",
+                        "goods_img": "http://static.ouj.com/hiyd_shop/e0f23a980f4a1446b76096c710832514_size800x799_210541.jpg",
+                        "goods_name": "瑜伽弹力带拉力带拉伸阻力带男士家用健身高弹加厚引体向上辅助带潮流",
+                        "shop_id": "1",
+                        "sub_status": "0",
+                        "return_sn": "",
+                        "delivery_sn": "",
+                        "delivery_style": "",
+                        "spec": "红色（7-16KG）"
+                    },
+                    "11": {
+                        "goods_id": "4",
+                        "product_id": "11",
+                        "product_price": 1,
+                        "privilege_price": 1,
+                        "product_number": "1",
+                        "goods_img": "http://static.ouj.com/hiyd_shop/e2e52ce2c13084d55c375f0eb8cde8ae_size800x800_214555.jpg",
+                        "goods_name": "男士运动服休闲套装春秋季健身服男装两件套运动长裤外套潮流",
+                        "shop_id": "1",
+                        "sub_status": "0",
+                        "return_sn": "",
+                        "delivery_sn": "",
+                        "delivery_style": "",
+                        "spec": "灰色外套+A68D灰边,M"
+                    }
+                },
+                "finance_order_sn": "17140503985a9d506df87c542c1b2149",
+                "is_auto_receive": 0,
+
+                <div style="color:green;">
+                "quanUseData": {
+                    "useMoneySum": 90,
+                    "useList": [
+                        {
+                            "use_record": "34",
+                            "user_id": "419530",
+                            "take_id": "17",
+                            "quan_model": "NEWMJ_99_20",
+                            "use_time": "1585921932",
+                            "use_money": "20",
+                            "quan": {
+                                "quan_model": "NEWMJ_99_20",
+                                "quan_name": "新人满99减20",
+                                "quan_desc": "",
+                                "quan_cover": "http://www.google.com/",
+                                "quan_type": "newmj",
+                                "quan_rule": "99-20",
+                                "quan_money_min": "20",
+                                "quan_money_max": "20",
+                                "use_expire": "1586207925",
+                                "limit_platform": "",
+                                "limit_category": "",
+                                "limit_goods": ",4,52,",
+                                "limit_goods_spec": "",
+                                "limit_goods_tag": "",
+                                "stock_num": "100",
+                                "stock_remain": "97",
+                                "take_limit_per_user": "0",
+                                "on_lottery": "0",
+                                "lottery_weight": "0",
+                                "start_time": "1585207925",
+                                "end_time": "1586207925",
+                                "is_open": "1",
+                                "create_time": "1585207925",
+                                "update_time": "1585207925",
+                                "quan_money_condition": "99"
+                            }
+                        },
+                        {
+                            "use_record": "35",
+                            "user_id": "419530",
+                            "take_id": "18",
+                            "quan_model": "NEWMJ_99_20",
+                            "use_time": "1585921932",
+                            "use_money": "20",
+                            "quan": {
+                                "quan_model": "NEWMJ_99_20",
+                                "quan_name": "新人满99减20",
+                                "quan_desc": "",
+                                "quan_cover": "http://www.google.com/",
+                                "quan_type": "newmj",
+                                "quan_rule": "99-20",
+                                "quan_money_min": "20",
+                                "quan_money_max": "20",
+                                "use_expire": "1586207925",
+                                "limit_platform": "",
+                                "limit_category": "",
+                                "limit_goods": ",4,52,",
+                                "limit_goods_spec": "",
+                                "limit_goods_tag": "",
+                                "stock_num": "100",
+                                "stock_remain": "97",
+                                "take_limit_per_user": "0",
+                                "on_lottery": "0",
+                                "lottery_weight": "0",
+                                "start_time": "1585207925",
+                                "end_time": "1586207925",
+                                "is_open": "1",
+                                "create_time": "1585207925",
+                                "update_time": "1585207925",
+                                "quan_money_condition": "99"
+                            }
+                        },
+                        {
+                            "use_record": "36",
+                            "user_id": "419530",
+                            "take_id": "32",
+                            "quan_model": "SHAREMJ_100_5",
+                            "use_time": "1585921932",
+                            "use_money": "5",
+                            "quan": {
+                                "quan_model": "SHAREMJ_100_5",
+                                "quan_name": "分享满减券100-5",
+                                "quan_desc": "",
+                                "quan_cover": "http://www.google.com/",
+                                "quan_type": "sharemj",
+                                "quan_rule": "100-5",
+                                "quan_money_min": "5",
+                                "quan_money_max": "5",
+                                "use_expire": "1586207925",
+                                "limit_platform": "",
+                                "limit_category": "",
+                                "limit_goods": "",
+                                "limit_goods_spec": "",
+                                "limit_goods_tag": "",
+                                "stock_num": "2000",
+                                "stock_remain": "1995",
+                                "take_limit_per_user": "0",
+                                "on_lottery": "0",
+                                "lottery_weight": "0",
+                                "start_time": "1585207925",
+                                "end_time": "1586207925",
+                                "is_open": "1",
+                                "create_time": "1585207925",
+                                "update_time": "1585207925",
+                                "quan_money_condition": "100"
+                            }
+                        },
+                        {
+                            "use_record": "37",
+                            "user_id": "419530",
+                            "take_id": "33",
+                            "quan_model": "SHAREMJ_100_5",
+                            "use_time": "1585921932",
+                            "use_money": "5",
+                            "quan": {
+                                "quan_model": "SHAREMJ_100_5",
+                                "quan_name": "分享满减券100-5",
+                                "quan_desc": "",
+                                "quan_cover": "http://www.google.com/",
+                                "quan_type": "sharemj",
+                                "quan_rule": "100-5",
+                                "quan_money_min": "5",
+                                "quan_money_max": "5",
+                                "use_expire": "1586207925",
+                                "limit_platform": "",
+                                "limit_category": "",
+                                "limit_goods": "",
+                                "limit_goods_spec": "",
+                                "limit_goods_tag": "",
+                                "stock_num": "2000",
+                                "stock_remain": "1995",
+                                "take_limit_per_user": "0",
+                                "on_lottery": "0",
+                                "lottery_weight": "0",
+                                "start_time": "1585207925",
+                                "end_time": "1586207925",
+                                "is_open": "1",
+                                "create_time": "1585207925",
+                                "update_time": "1585207925",
+                                "quan_money_condition": "100"
+                            }
+                        },
+                        {
+                            "use_record": "38",
+                            "user_id": "419530",
+                            "take_id": "31",
+                            "quan_model": "SHAREMJ_200_40",
+                            "use_time": "1585921932",
+                            "use_money": "40",
+                            "quan": {
+                                "quan_model": "SHAREMJ_200_40",
+                                "quan_name": "分享满减券200-40",
+                                "quan_desc": "",
+                                "quan_cover": "http://www.google.com/",
+                                "quan_type": "sharemj",
+                                "quan_rule": "200-40",
+                                "quan_money_min": "40",
+                                "quan_money_max": "40",
+                                "use_expire": "1586207925",
+                                "limit_platform": "",
+                                "limit_category": "",
+                                "limit_goods": "",
+                                "limit_goods_spec": "",
+                                "limit_goods_tag": "",
+                                "stock_num": "500",
+                                "stock_remain": "498",
+                                "take_limit_per_user": "0",
+                                "on_lottery": "0",
+                                "lottery_weight": "0",
+                                "start_time": "1585207925",
+                                "end_time": "1586207925",
+                                "is_open": "1",
+                                "create_time": "1585207925",
+                                "update_time": "1585207925",
+                                "quan_money_condition": "200"
+                            }
+                        }
+                    ]
+                }
+                </div>
+
+            }
+        }
+    ————————————————————————————————————————————————————
+    备注: 
+        需要登录
+    ————————————————————————————————————————————————————
+    示例：
+        http://ltre-hiydshop-h5.webdev.hiyd.com/order/Detail?order_id=581
+    ————————————————————————————————————————————————————
 
 
 
