@@ -790,9 +790,12 @@
                             "sequence": "99",
                             "sort_all": "100",
                             "sellers_count": "1",
-                            "goods_tags": "免税"
+                            "goods_tags": "免税",
+                            "nice_price": "5000" //新人价（分）
                         }
-                    }
+                    },
+                    ...,
+                    { .. }
                 ],
                 "pages": { //分页信息（前面提过）
                     "total_count": "2",
@@ -818,7 +821,7 @@
         需要登录
     ————————————————————————————————————————————————————
     示例：
-        http://ltre-hiydshop-h5.webdev.hiyd.com/promotion/GetNicePriceListByNewuser?p=1&limit=1
+        http://ltre-hiydshop-h5.webdev.hiyd.com/promotion/GetNicePriceListByNewuser?p=1&limit=2
     ————————————————————————————————————————————————————
 
 
