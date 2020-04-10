@@ -20,7 +20,7 @@
 <a href="#a16">16、获取单个商品(Goods)的优惠价</a>
 <a href="#a17">17、获取单个具体规格商品(Product)的优惠价</a>
 <a href="#a18">18、点击添加购物车时，检查优惠规则是否可用</a>
-<a href="#a19"></a>
+<a href="#a19">19、原接口 /cart/check</a>
 <a href="#a20"></a>
 <a href="#a21"></a>
 
@@ -1406,6 +1406,75 @@
     ————————————————————————————————————————————————————
     示例：
         http://ltre-hiydshop-h5.webdev.hiyd.com/promotion/CheckRuleAvailable?rule_id=1&goods_id=1&product_id=3
+    ————————————————————————————————————————————————————
+
+
+
+
+
+
+<font id="a19" color="blue">19、原接口 /cart/check</font>
+    ————————————————————————————————————————————————————
+    URL:
+        各端保持使用各自的域名
+    ————————————————————————————————————————————————————
+    参数(get|post):
+        cart_ids和address_id不变
+    ————————————————————————————————————————————————————
+    返回(object)：
+        {
+            "result": 1,
+            "code": 0,
+            "msg": "成功",
+            "data": {
+                "check_err": "",
+                "cart_list": [
+                    {
+                        "cart_id": "218",
+                        "user_id": "1090673",
+                        "goods_id": "4",
+                        "shop_id": "1",
+                        "product_id": "11",
+                        "goods_name": "男士运动服休闲套装春秋季健身服男装两件套运动长裤外套潮流",
+                        "goods_img": "http://static.ouj.com/hiyd_shop/e2e52ce2c13084d55c375f0eb8cde8ae_size800x800_214555.jpg",
+                        "product_price": "100",
+                        "privilege_price": "100",
+                        "product_number": "35",
+                        "spec": "灰色外套+A68D灰边,M",
+                        "create_time": "2020-04-10 16:40:38",
+                        "update_time": "0000-00-00 00:00:00",
+                        "cart_status": "1",
+                        "sell_price_rule": "0",
+                        "cat_desc": "付款24小时内发货\t",
+                        <font color="green">"nice_price": 50</font> //优惠价（分）
+                    }
+                ],
+                "discount_price": [],
+                "price": 3500,
+                "default_address": {
+                    "address_id": "83",
+                    "user_id": "419530",
+                    "consignee": "CNM",
+                    "mobile": "15911111111",
+                    "province_id": "440000",
+                    "city_id": "440100",
+                    "district_id": "440106",
+                    "address": "fdsfsdfsfsdf",
+                    "full_address": "广东省广州市天河区FDSFSFS大街1号",
+                    "is_default": "1",
+                    "create_time": "2020-03-10 09:51:41",
+                    "update_time": "2020-03-10 09:51:41"
+                },
+                "shipping_fee": "1",
+                "buy_type": "cart"
+            }
+        }
+    ————————————————————————————————————————————————————
+    备注: 
+        需要登录
+    ————————————————————————————————————————————————————
+    示例：
+        /cart/check?cart_ids=218&address_id=83
     ————————————————————————————————————————————————————
 
 
