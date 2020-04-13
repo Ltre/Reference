@@ -1407,6 +1407,16 @@
         需要登录
         在列表页，必传rule_id, goods_id
         在详情页，必传rule_id, goods_id, product_id
+
+        flag标识枚举
+            NO_LOGIN            请登录
+            NO_VALID_RULE       不存在可用的优惠价
+            NOT_NEWUSER         您不能享受新用户优惠
+            NEWUSER_RUN_OUT     新人优惠次数已用完
+            INDIVIDUAL_LIMIT    该商品已超过个人优惠使用次数
+            TOTAL_LIMIT         该商品优惠已被抢完
+            OK                  ok
+
     ————————————————————————————————————————————————————
     示例：
         http://ltre-hiydshop-h5.webdev.hiyd.com/promotion/CheckRuleAvailable?rule_id=1&goods_id=1&product_id=3
