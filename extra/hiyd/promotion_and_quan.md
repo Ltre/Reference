@@ -159,6 +159,7 @@
         platform     [可选]平台，如h5, weixin
         p            [可选]页码，默认1
         limit        [可选]每页限制数，默认10
+        is_valid     [可选]是否可用(1|0)，如不传则表示两者都获取
     ————————————————————————————————————————————————————
     返回(object)：
         {
@@ -196,7 +197,11 @@
                         "user_id": "120010",
                         "take_time": "1585469051",
                         "use_time": "0",
+                        "use_record": "0", //使用记录流水
                         "is_valid": "1",
+                        "is_valid": true, //是否可用（前端直接用，不用再判断是否过期之类）
+                        "is_used": false, //是否用过
+                        "is_expire": false, //是否过期
                         "quan_money_condition": "99"
                     },
                     ...,
