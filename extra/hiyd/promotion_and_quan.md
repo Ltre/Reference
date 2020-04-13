@@ -198,7 +198,6 @@
                         "take_time": "1585469051",
                         "use_time": "0",
                         "use_record": "0", //使用记录流水
-                        "is_valid": "1",
                         "is_valid": true, //是否可用（前端直接用，不用再判断是否过期之类）
                         "is_used": false, //是否用过
                         "is_expire": false, //是否过期
