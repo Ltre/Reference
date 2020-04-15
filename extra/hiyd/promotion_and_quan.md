@@ -793,9 +793,10 @@
                         "sequence": "99",
                         "sort_all": "100",
                         "sellers_count": "1",
-                        "goods_tags": "免税",
-                        "nice_price": "5000" //新人价（分）
-                    }
+                        "goods_tags": "免税"
+                    },
+                    "nice_price": 1, //优惠价（分）
+                    "raw_price": 3000 //用于切换回去的原价（分）。如规则有指定product_id，则用原字段privilege_price，否则用goods表的shop_price字段
                 },
                 ...,
                 { .. }
