@@ -579,6 +579,7 @@
             HAS_ENCOURED                - 已经支持过TA啦
             DO_ENCOUR_ERR               - 支援过程中出错了(数据库问题)
             PROGRESS_NOT_FOUND          - 任务执行记录不存在
+            QUAN_TAKE_CHECK_FAIL        - 
     ————————————————————————————————————————————————————
     示例：
         http://ltre-hiydshop-h5.webdev.hiyd.com/quan/encour?progress_code=43fd607b78a53ba05a5450018b98fe672150b44b&platform=h5
