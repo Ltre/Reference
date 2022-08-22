@@ -25,6 +25,7 @@ switch ($hostname) {
 	    }
 
 	//以下使用可写空间(正式环境)
+    case 'doc.larele.com':
 	case 'doc.yooo.moe':
 	case 'docs.yooo.moe':
 	case 'doinject.duapp.com'://BAE 2G空间

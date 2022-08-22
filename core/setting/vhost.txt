@@ -1,10 +1,10 @@
 server {
 listen 80;
-server_name docs.yooo.moe doc.yooo.moe;
-access_log /home/wwwlogs/doc.yooo.moe_nginx.log combined;
+server_name docs.larele.com doc.larele.com;
+access_log /home/wwwlogs/doc.larele.com_nginx.log combined;
 index index.html index.htm index.jsp index.php;
 include /usr/local/nginx/conf/rewrite/other.conf;
-root /home/wwwroot/doc.yooo.moe;
+root /home/wwwroot/doc.larele.com;
 #error_page 404 /404.html;
 if ( $query_string ~* ".*[\;'\<\>].*" ){
 	return 404;

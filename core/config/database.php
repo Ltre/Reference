@@ -148,6 +148,7 @@ if (in_array($hostname, array(
 } elseif (in_array($hostname, array(
 	'doc.yooo.moe', //conoha
     'docs.yooo.moe',//conoha
+    'doc.larele.com',
 ))) {
     
     class DIDBConfig {

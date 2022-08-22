@@ -8,6 +8,8 @@ class DIRouteRewrite {
      *      DIRoute::rewrite() @ __route.php
      */
     static $rulesMap = array(
+        '://doc.larele.com' => 'doc/start',
+        '://doc.larele.com/<X>' => 'doc/start/<X>',
         '://doc.yooo.moe' => 'doc/start',
         '://doc.yooo.moe/<X>' => 'doc/start/<X>',
         '://danmucopy.me/' => 'test/test', //含有域名的配置最好放在最前面(经验之谈)
